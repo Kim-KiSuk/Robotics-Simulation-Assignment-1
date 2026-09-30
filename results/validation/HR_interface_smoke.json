@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "task": "Isaac-Ant-Rough-History-Reward-v0",
+  "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_rough_history_reward/2026-10-01_01-26-07_verification_only/model_1.pt",
+  "checkpoint_sha256": "7bb847f91beeae1ec1781bd97357842d29d5eca056ae6a45c1dce1b5eae96b3c",
+  "seed": 24,
+  "terrain_seed": 42,
+  "static_friction": 1.0,
+  "dynamic_friction": 1.0,
+  "reward_protocol": "original_Ant_7_terms_v1",
+  "observation_dimension": 240,
+  "completed": 4,
+  "step_dt": 0.016666666666666666,
+  "max_episode_steps": 12,
+  "summary": {
+    "reward": {
+      "mean": 0.23504506680183113,
+      "std": 0.014209720869682583
+    },
+    "steps": {
+      "mean": 12.0,
+      "std": 0.0
+    },
+    "forward_displacement_m": {
+      "mean": 0.051493167877197266,
+      "std": 0.013547261305748725
+    },
+    "target_progress_m": {
+      "mean": 0.0514678955078125,
+      "std": 0.01354969299545305
+    },
+    "target_speed_m_s": {
+      "mean": 0.2573394551873207,
+      "std": 0.06774845869288376
+    },
+    "survival_rate": 1.0,
+    "failure_rate": 0.0,
+    "missing_ground_episodes": 0
+  },
+  "episodes": [
+    {
+      "env_id": 0,
+      "reward": 0.25094201043248177,
+      "steps": 12,
+      "survived": true,
+      "failed": false,
+      "missing_ground": false,
+      "forward_displacement_m": 0.05710887908935547,
+      "target_progress_m": 0.05706787109375,
+      "target_speed_m_s": 0.2853393256664276
+    },
+    {
+      "env_id": 1,
+      "reward": 0.242712558247149,
+      "steps": 12,
+      "survived": true,
+      "failed": false,
+      "missing_ground": false,
+      "forward_displacement_m": 0.06873726844787598,
+      "target_progress_m": 0.0687255859375,
+      "target_speed_m_s": 0.3436278998851776
+    },
+    {
+      "env_id": 2,
+      "reward": 0.2337156031280756,
+      "steps": 12,
+      "survived": true,
+      "failed": false,
+      "missing_ground": false,
+      "forward_displacement_m": 0.048546552658081055,
+      "target_progress_m": 0.04852294921875,
+      "target_speed_m_s": 0.2426147311925888
+    },
+    {
+      "env_id": 3,
+      "reward": 0.21281009539961815,
+      "steps": 12,
+      "survived": true,
+      "failed": false,
+      "missing_ground": false,
+      "forward_displacement_m": 0.03157997131347656,
+      "target_progress_m": 0.03155517578125,
+      "target_speed_m_s": 0.1577758640050888
+    }
+  ]
+}

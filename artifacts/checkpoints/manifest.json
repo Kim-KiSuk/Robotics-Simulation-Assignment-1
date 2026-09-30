@@ -1,0 +1,32 @@
+[
+  {
+    "model": "A",
+    "original_run": "ant/2026-09-30_13-50-37_ant_baseline",
+    "checkpoint": "artifacts/checkpoints/A/model_999.pt",
+    "sha256": "a1c536f2115a9b780440f6473393aa64db2f7f5a5d9230bb8e6a7fb54bc5de87",
+    "training_seed": 42,
+    "max_iterations": 1000,
+    "num_envs": 4096,
+    "num_steps_per_env": 32
+  },
+  {
+    "model": "B",
+    "original_run": "ant_rough/2026-09-30_23-29-27_rough_seed42",
+    "checkpoint": "artifacts/checkpoints/B/model_999.pt",
+    "sha256": "94096daf83a1c56fb52a37cc221ad9314db6745099bf92d5c69eaaefebe478f6",
+    "training_seed": 42,
+    "max_iterations": 1000,
+    "num_envs": 4096,
+    "num_steps_per_env": 32
+  },
+  {
+    "model": "C",
+    "original_run": "ant_rough_dr/2026-10-01_00-08-03_rough_dr_seed42",
+    "checkpoint": "artifacts/checkpoints/C/model_999.pt",
+    "sha256": "fcd10a2d4fe6935a549e83ab043168eac6c7e07301bcb79e0d404c2e256e1a30",
+    "training_seed": 42,
+    "max_iterations": 1000,
+    "num_envs": 4096,
+    "num_steps_per_env": 32
+  }
+]

@@ -1,0 +1,16 @@
+model,domain,friction,terrain_seed,reset_seed,n,reward_mean,reward_std,steps_mean,steps_std,source
+A,flat,default,,24,100,144.574707,25.745613,933.5,150.759311,artifacts/evaluation_logs/ant_baseline_eval/default_seed24.log
+A,flat,high,,24,100,130.27499,27.25637,916.34,166.201517,artifacts/evaluation_logs/ant_baseline_eval/high_friction_seed24.log
+A,flat,low,,24,100,123.010321,26.157375,928.59,156.888247,artifacts/evaluation_logs/ant_baseline_eval/low_friction_seed24.log
+B,rough,default,2001,24,100,98.739225,27.950061,900.73,207.360838,artifacts/evaluation_logs/ant_bc_eval/B_default_terrain2001_seed24.log
+B,rough,default,2002,24,100,97.440106,29.765267,886.39,236.019105,artifacts/evaluation_logs/ant_bc_eval/B_default_terrain2002_seed24.log
+B,rough,high,2001,24,100,97.755105,25.195455,916.02,188.281862,artifacts/evaluation_logs/ant_bc_eval/B_high_terrain2001_seed24.log
+B,rough,high,2002,24,100,94.895525,27.731884,892.92,228.324273,artifacts/evaluation_logs/ant_bc_eval/B_high_terrain2002_seed24.log
+B,rough,low,2001,24,100,104.233636,24.322578,923.32,171.941495,artifacts/evaluation_logs/ant_bc_eval/B_low_terrain2001_seed24.log
+B,rough,low,2002,24,100,104.022484,23.52743,918.1,183.255641,artifacts/evaluation_logs/ant_bc_eval/B_low_terrain2002_seed24.log
+C,rough,default,2001,24,100,90.978532,25.539335,894.3,221.293538,artifacts/evaluation_logs/ant_bc_eval/C_default_terrain2001_seed24.log
+C,rough,default,2002,24,100,90.111935,26.921318,884.65,230.731895,artifacts/evaluation_logs/ant_bc_eval/C_default_terrain2002_seed24.log
+C,rough,high,2001,24,100,83.986962,25.663349,881.79,237.259659,artifacts/evaluation_logs/ant_bc_eval/C_high_terrain2001_seed24.log
+C,rough,high,2002,24,100,82.168867,28.776908,848.8,260.246652,artifacts/evaluation_logs/ant_bc_eval/C_high_terrain2002_seed24.log
+C,rough,low,2001,24,100,102.191292,22.221362,917.82,178.990915,artifacts/evaluation_logs/ant_bc_eval/C_low_terrain2001_seed24.log
+C,rough,low,2002,24,100,105.041796,21.932036,924.65,173.181891,artifacts/evaluation_logs/ant_bc_eval/C_low_terrain2002_seed24.log
