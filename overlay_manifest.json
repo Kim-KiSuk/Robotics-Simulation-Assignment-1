@@ -33,6 +33,11 @@
       "base_sha256": null
     },
     {
+      "path": "scripts/environments/check_ant_stability.py",
+      "sha256": "c15927f2fe90826bfbc1fd30677632c9d7c58c82b43fa16e16828578835fb51f",
+      "base_sha256": null
+    },
+    {
       "path": "scripts/environments/check_ant_varied.py",
       "sha256": "8ae33f9d4c74e4648ced2e7faec216ace8153b6e2d580fd6357fe675d1bf25df",
       "base_sha256": null
@@ -68,6 +73,11 @@
       "base_sha256": null
     },
     {
+      "path": "scripts/environments/test_ant_stability.py",
+      "sha256": "1b9e2b7a8210fb3d3d8ba66af67c2f63d715abb228cd2105a69f140744ecf14c",
+      "base_sha256": null
+    },
+    {
       "path": "scripts/reinforcement_learning/rsl_rl/ant_episode_diagnostics.py",
       "sha256": "2789d701aad49f79974b31ac2a41f4dfb582ce73abd6a764f5911eb2688dc7d5",
       "base_sha256": null
@@ -94,8 +104,13 @@
     },
     {
       "path": "scripts/reinforcement_learning/rsl_rl/train.py",
-      "sha256": "ba41d6afca3b6470b4bee05cb4a24f036046845c50f26970c9a944653e3f8d0a",
+      "sha256": "198ccedc3c336876676c04a2e499b5bf0117ec92222e65c19ff3c0bfecb724fc",
       "base_sha256": "ba41d6afca3b6470b4bee05cb4a24f036046845c50f26970c9a944653e3f8d0a"
+    },
+    {
+      "path": "scripts/reinforcement_learning/rsl_rl/warm_start.py",
+      "sha256": "40f1abcb6bfe5e5c02e5a8b87c026dbe558a998fe3badd2fac9d748e17e56c87",
+      "base_sha256": null
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ROBUST_EXPERIMENTS.md",
@@ -119,7 +134,7 @@
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/__init__.py",
-      "sha256": "ddc760e77c265da8b5cd9a8d8e69c94ef9993b9e73581eef3dac6bd5a82d28e2",
+      "sha256": "57e52e6acd5d36a3df45aa03b90bddc03d5adc8ca6a34b2d65983c67715ff045",
       "base_sha256": "c7c87196ba2ccda19387ad4c57a9570ce637619c47a0726dde4459eb307eda4c"
     },
     {
@@ -130,6 +145,11 @@
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_height_scan_ppo_cfg.py",
       "sha256": "471219239002f55f2368211a1d6f3bf8dbe8b7587b2cf78a35f1857f4f1b03da",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_height_stability_ppo_cfg.py",
+      "sha256": "58b72e62a9cd520a6945d6901c4767f5043498a3b2da6be6d02a678ce68bf104",
       "base_sha256": null
     },
     {
@@ -195,6 +215,11 @@
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_height_scan_env_cfg.py",
       "sha256": "4f39defe7299a67e69ee26920bd0b351c00072858b8d7c0f96b6d532c02a6b28",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_height_stability_env_cfg.py",
+      "sha256": "f9864b343c1bb92219df1c98efb9d50cac87151c719fa7de31373f81982f31e8",
       "base_sha256": null
     },
     {
@@ -275,6 +300,11 @@
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain_spec.py",
       "sha256": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/stability_terrain_spec.py",
+      "sha256": "58ce780301e89fff48e130f165009e1b25151c43ea1e29749ce29d2c24082fba",
       "base_sha256": null
     },
     {

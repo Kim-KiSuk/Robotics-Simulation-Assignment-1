@@ -1,0 +1,89 @@
+{
+  "run": "logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42",
+  "scalars": {
+    "Episode_Reward/progress": {
+      "last_step": 3999,
+      "last100_mean": 3.6729818415641784
+    },
+    "Episode_Reward/alive": {
+      "last_step": 3999,
+      "last100_mean": 0.46088919073343276
+    },
+    "Episode_Reward/upright": {
+      "last_step": 3999,
+      "last100_mean": 0.08949200209230185
+    },
+    "Episode_Reward/move_to_target": {
+      "last_step": 3999,
+      "last100_mean": 0.4507033610343933
+    },
+    "Episode_Reward/action_l2": {
+      "last_step": 3999,
+      "last100_mean": -0.009384846109896898
+    },
+    "Episode_Reward/energy": {
+      "last_step": 3999,
+      "last100_mean": -0.49736335307359697
+    },
+    "Episode_Reward/joint_pos_limits": {
+      "last_step": 3999,
+      "last100_mean": -0.2085309763252735
+    },
+    "Episode_Termination/time_out": {
+      "last_step": 3999,
+      "last100_mean": 0.8586279296875
+    },
+    "Episode_Termination/torso_height": {
+      "last_step": 3999,
+      "last100_mean": 0.1413720703125
+    },
+    "Loss/value_function": {
+      "last_step": 3999,
+      "last100_mean": 0.11805553250014782
+    },
+    "Loss/surrogate": {
+      "last_step": 3999,
+      "last100_mean": -0.00270230988271237
+    },
+    "Loss/entropy": {
+      "last_step": 3999,
+      "last100_mean": -28.73117521286011
+    },
+    "Loss/learning_rate": {
+      "last_step": 3999,
+      "last100_mean": 9.999999747378752e-06
+    },
+    "Policy/mean_noise_std": {
+      "last_step": 3999,
+      "last100_mean": 0.008484119549393654
+    },
+    "Perf/total_fps": {
+      "last_step": 3999,
+      "last100_mean": 16017.25
+    },
+    "Perf/collection time": {
+      "last_step": 3999,
+      "last100_mean": 1.9374878811836242
+    },
+    "Perf/learning_time": {
+      "last_step": 3999,
+      "last100_mean": 0.10831594944000245
+    },
+    "Train/mean_reward": {
+      "last_step": 3999,
+      "last100_mean": 63.548402862548826
+    },
+    "Train/mean_episode_length": {
+      "last_step": 3999,
+      "last100_mean": 887.0867980957031
+    },
+    "Train/mean_reward/time": {
+      "last_step": 8195,
+      "last100_mean": 63.548402862548826
+    },
+    "Train/mean_episode_length/time": {
+      "last_step": 8195,
+      "last100_mean": 887.0867980957031
+    }
+  }
+}

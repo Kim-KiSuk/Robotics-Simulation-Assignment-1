@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "terrain_cases": 72,
+  "checkpoint_transfer": {
+    "checkpoint": "/tmp/ant-github-six-update/artifacts/checkpoints/HeightScan/model_3999.pt",
+    "checkpoint_sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+    "source_iteration": 3999,
+    "new_iteration": 0,
+    "optimizer_state_restored": false,
+    "optimizer_learning_rates": [
+      1e-05
+    ],
+    "min_std_at_initialization": 0.02,
+    "std_before": [
+      0.0031444726046174765,
+      0.012045154348015785,
+      0.003747364738956094,
+      0.003786314046010375,
+      0.006983411498367786,
+      0.006063365843147039,
+      0.006716775707900524,
+      0.025380004197359085
+    ],
+    "std_after": [
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.025380004197359085
+    ]
+  },
+  "original_config_unchanged": true,
+  "deterministic_actor_unchanged": true,
+  "initial_expanded_positions": 353,
+  "initial_positions": 1024,
+  "failure_penalty_dt_invariant": true,
+  "clearance_risk_boundary_checks": true
+}

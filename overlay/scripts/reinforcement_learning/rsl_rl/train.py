@@ -8,6 +8,7 @@
 """Launch Isaac Sim Simulator first."""
 
 import argparse
+from pathlib import Path
 import sys
 
 from isaaclab.app import AppLauncher
@@ -31,11 +32,23 @@ parser.add_argument(
     "--distributed", action="store_true", default=False, help="Run training with multiple GPUs or nodes."
 )
 parser.add_argument("--export_io_descriptors", action="store_true", default=False, help="Export IO descriptors.")
+parser.add_argument("--warm_start", type=Path, help="PPO checkpoint weights for a new run; reset optimizer and iteration.")
+parser.add_argument("--warm_start_min_std", type=float, help="Optional exploration std minimum applied once after warm start.")
 # append RSL-RL cli arguments
 cli_args.add_rsl_rl_args(parser)
 # append AppLauncher cli args
 AppLauncher.add_app_launcher_args(parser)
 args_cli, hydra_args = parser.parse_known_args()
+if args_cli.warm_start:
+    args_cli.warm_start = args_cli.warm_start.expanduser().resolve()
+    if not args_cli.warm_start.is_file():
+        parser.error(f"Warm-start checkpoint does not exist: {args_cli.warm_start}")
+    if args_cli.resume or args_cli.checkpoint or args_cli.load_run:
+        parser.error("--warm_start cannot be combined with --resume, --checkpoint or --load_run")
+if args_cli.warm_start_min_std is not None:
+    import math
+    if not args_cli.warm_start or not math.isfinite(args_cli.warm_start_min_std) or args_cli.warm_start_min_std <= 0:
+        parser.error("--warm_start_min_std requires --warm_start and a finite positive value")
 
 # always enable cameras to record video
 if args_cli.video:
@@ -109,6 +122,10 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     """Train with RSL-RL agent."""
     # override configurations with non-hydra CLI arguments
     agent_cfg = cli_args.update_rsl_rl_cfg(agent_cfg, args_cli)
+    if args_cli.warm_start and (
+        agent_cfg.resume or agent_cfg.class_name != "OnPolicyRunner" or agent_cfg.algorithm.class_name != "PPO"
+    ):
+        raise ValueError("--warm_start requires a new OnPolicyRunner/PPO run without --resume")
     env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
     agent_cfg.max_iterations = (
         args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
@@ -199,6 +216,16 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         print(f"[INFO]: Loading model checkpoint from: {resume_path}")
         # load previously trained model
         runner.load(resume_path)
+
+    if args_cli.warm_start:
+        import json
+        from warm_start import load_warm_start
+        report = load_warm_start(runner, args_cli.warm_start, args_cli.warm_start_min_std)
+        os.makedirs(log_dir, exist_ok=True)
+        with open(os.path.join(log_dir, "warm_start.json"), "x") as stream:
+            json.dump(report, stream, indent=2, allow_nan=False)
+            stream.write("\n")
+        print(f"[WARM_START] {report}", flush=True)
 
     # dump the configuration into log-directory
     dump_yaml(os.path.join(log_dir, "params", "env.yaml"), env_cfg)

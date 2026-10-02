@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "num_envs": 16,
+  "observation_dim": 123,
+  "training_reward_terms": 9,
+  "evaluation_reward_terms": 7,
+  "forced_failure_penalty": -5,
+  "timeout_penalty": 0,
+  "old_configs_unchanged": true,
+  "policy_performance_evaluation": false
+}

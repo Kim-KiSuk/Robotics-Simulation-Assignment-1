@@ -56,5 +56,23 @@
     "transitions": 131072000,
     "observation_dimension": 123,
     "training_task": "Isaac-Ant-Six-TrainMix-HeightScan-v0"
+  },
+  {
+    "model": "Stability",
+    "original_run": "ant_six_height_stability/2026-10-02_09-37-03_height_stability_seed42",
+    "checkpoint": "artifacts/checkpoints/Stability/model_499.pt",
+    "sha256": "5a3e1e1da844e961d7ea9111dbbd71bbe27a6897ec902b2aa9d1e49444806010",
+    "training_seed": 42,
+    "terrain_seed": 1200,
+    "max_iterations": 500,
+    "num_envs": 1024,
+    "num_steps_per_env": 32,
+    "additional_transitions": 16384000,
+    "observation_dimension": 123,
+    "training_task": "Isaac-Ant-Six-TrainMix-HeightScan-Stability-v0",
+    "parent_model": "HeightScan",
+    "parent_sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+    "warm_start_min_std": 0.02,
+    "optimizer_state_restored": false
   }
 ]

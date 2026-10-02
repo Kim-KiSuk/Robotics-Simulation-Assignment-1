@@ -1,0 +1,237 @@
+{
+  "status": "ready_for_500_iteration_experiment; performance improvement NOT established",
+  "implemented": "123D warm start, 70/30 terrain mixture, two training-only penalties, cautious PPO updates",
+  "verification_logs": [
+    {
+      "console": "/tmp/ant_stability_physics.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_082424.log",
+      "exit_code": 0,
+      "error_matches": 0
+    },
+    {
+      "console": "/tmp/ant_stability_conservative_train.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_083257.log",
+      "exit_code": 0,
+      "error_matches": 0
+    },
+    {
+      "console": "/tmp/ant_stability_parent_clean.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_084147.log",
+      "exit_code": 0,
+      "error_matches": 0
+    },
+    {
+      "console": "/tmp/ant_stability_conservative_eval.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_083819.log",
+      "exit_code": 0,
+      "error_matches": 0
+    }
+  ],
+  "cpu": {
+    "passed": true,
+    "terrain_cases": 72,
+    "checkpoint_transfer": {
+      "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42/model_3999.pt",
+      "checkpoint_sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+      "source_iteration": 3999,
+      "new_iteration": 0,
+      "optimizer_state_restored": false,
+      "optimizer_learning_rates": [
+        1e-05
+      ],
+      "min_std_at_initialization": 0.02,
+      "std_before": [
+        0.0031444726046174765,
+        0.012045154348015785,
+        0.003747364738956094,
+        0.003786314046010375,
+        0.006983411498367786,
+        0.006063365843147039,
+        0.006716775707900524,
+        0.025380004197359085
+      ],
+      "std_after": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.025380004197359085
+      ]
+    },
+    "original_config_unchanged": true,
+    "deterministic_actor_unchanged": true,
+    "initial_expanded_positions": 353,
+    "initial_positions": 1024,
+    "failure_penalty_dt_invariant": true,
+    "clearance_risk_boundary_checks": true
+  },
+  "physics": {
+    "passed": true,
+    "num_envs": 16,
+    "observation_dim": 123,
+    "training_reward_terms": 9,
+    "evaluation_reward_terms": 7,
+    "forced_failure_penalty": -5,
+    "timeout_penalty": 0,
+    "old_configs_unchanged": true,
+    "policy_performance_evaluation": false
+  },
+  "training": {
+    "run": "logs/rsl_rl/ant_six_stability_validation/2026-10-02_08-33-07_stability_conservative",
+    "iterations": 60,
+    "num_envs": 1024,
+    "transitions": 1966080,
+    "model_tensors_finite": 17,
+    "scalar_tags_finite": 23,
+    "learning_rate": 1e-05,
+    "noise_std_mean": 0.02054711803793907,
+    "warm_start": {
+      "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42/model_3999.pt",
+      "checkpoint_sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+      "source_iteration": 3999,
+      "new_iteration": 0,
+      "optimizer_state_restored": false,
+      "optimizer_learning_rates": [
+        1e-05
+      ],
+      "min_std_at_initialization": 0.02,
+      "std_before": [
+        0.0031444726046174765,
+        0.012045154348015785,
+        0.003747364738956094,
+        0.003786314046010375,
+        0.006983411498367786,
+        0.006063365843147039,
+        0.006716775707900524,
+        0.025380004197359085
+      ],
+      "std_after": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.025380004197359085
+      ]
+    },
+    "exit_code": 0
+  },
+  "matched_parent_summary": {
+    "reward": {
+      "mean": 42.60849022596958,
+      "std": 25.11087527408405
+    },
+    "steps": {
+      "mean": 703.33,
+      "std": 366.86496303135846
+    },
+    "forward_displacement_m": {
+      "mean": 39.3904907104373,
+      "std": 23.64237968337604
+    },
+    "target_progress_m": {
+      "mean": 39.38482148192969,
+      "std": 23.634967571411178
+    },
+    "episode_duration_s": {
+      "mean": 11.722166666666666,
+      "std": 6.114416050522641
+    },
+    "target_speed_m_s": {
+      "mean": 2.8550238488376345,
+      "std": 1.208145270669894
+    },
+    "timeout_without_failure_rate": 0.6,
+    "termination_rate": 0.4,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "conservative_pilot_summary": {
+    "reward": {
+      "mean": 41.60040907085175,
+      "std": 24.469228373518355
+    },
+    "steps": {
+      "mean": 680.3100000000001,
+      "std": 359.8441522381599
+    },
+    "forward_displacement_m": {
+      "mean": 38.540642055273054,
+      "std": 22.986814414447224
+    },
+    "target_progress_m": {
+      "mean": 38.534993472590344,
+      "std": 22.98066199059276
+    },
+    "episode_duration_s": {
+      "mean": 11.3385,
+      "std": 5.997402537302665
+    },
+    "target_speed_m_s": {
+      "mean": 2.9210754861846544,
+      "std": 1.1967947947725166
+    },
+    "timeout_without_failure_rate": 0.54,
+    "termination_rate": 0.46,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "original_evaluation_task_unchanged": true,
+  "final_holdout_seed_9417_policy_evaluated": false,
+  "excluded_control_log": {
+    "path": "/tmp/ant_stability_parent_control.log",
+    "reason": "Startup CPU-info/GPU-foundation dependency errors; clean retry produced identical result"
+  },
+  "user_reported_score_mismatch": "Evaluation command requested; supplied score and matched headless control are recorded separately",
+  "old_file_sha256": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/robust_mdp.py": "1679fa6a3054c5056446f0bd90a49845127cacf69913698519473fa0072c7f29",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_continuous_eval_env_cfg.py": "e2064e17dbaa719d51356e05bc8866e314c10693b862a42e876c62880a50166f",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_height_scan_env_cfg.py": "4f39defe7299a67e69ee26920bd0b351c00072858b8d7c0f96b6d532c02a6b28",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain_spec.py": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_varied_env_cfg.py": "b18282437e366b933e24cc8b6f2170f6ac65bed5ebcc6253f9eb09738b5dd97e",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_rough_dr_env_cfg.py": "0c97110ffcd6ba6b66e016caa9ca2f99f577f300406ba4a2387c1d7169949d34",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/varied_terrain_spec.py": "45ccd90968f394902ca5979643ba7192c33bf1e1ecf06cea3249649d1e8e0732",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/height_scan_mdp.py": "f671285d674d0a223c4aa2268d4bb6996031ada2e29390997359eadc9bec135a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/blocks_eval_spec.py": "f312544f8942629bb71cf7a57af999235ccd82342fc09a7a6d95a52b3c7fffff",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/continuous_eval_spec.py": "f15fd7cb4a14ef09998345080e1df298f78f1879ba291827b39c44a72587d4e7",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain_mdp.py": "2d6446fbb680f4b3062071a05169e5535772b04d6bc569e7204e9f67f4741838",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/height_scan_sensor.py": "e89878dab93b5d682d73e494277f8c0a6f7bcb0a0eb73a9a1fdd85437c76f6e0",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain_dr.py": "f431f6a2feec26f55b8fc539b4f7e1c347999e888ef3bb7dfe778b608a1e92f4",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/friction_utils.py": "0d4cfd0f9bd6a472b65a6c4a8233653d29cec0a2b8155bf966e73a5ea9e3f5ec",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_rough_env_cfg.py": "e1059248a020e37c0f21a3fb6342af0fb5b2d747a3435bf0ac7bf55eacb99915",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_robust_env_cfg.py": "52a0c445fb0166dca4f816f38f7e8bcbf3a10963f0eba16def20815e0ef2d704",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain.py": "605675922d6e8382f85e19e19eff63b9788f74675efe64c1406585573d01de9e",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_blocks_eval_env_cfg.py": "8403e26326d38f34428cd49adc7b7e31aaf158acd1948eab0e840e6289f78d35",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/evaluation_mdp.py": "6a0e1c8b1d5b7ffc24c09e3597fa211e6c53036093ee488a0c0d3b41a7f351e4",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/continuous_eval_surface.py": "25ae649d89cc7bde22a31af97c32ed7344fb98b5358a62320f1fdb69c39bbd07",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py": "fd17a386c8482f0d22fa2f0b5959514e0ba6aff5dcefd59a46c87ce749e59c44",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/block_surface.py": "0cb111fa3d0cbb5396a6b3f81a7ebf2f0a05de274914cc026c5d4bffee4aa90a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_six_env_cfg.py": "c3e8c5b97d8f217d92e899a9b1746b10bd0fb15027b50366483b7540475336e8",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain.py": "ef2602780fc1dd84b469004a5cb88c886fdccd1aeb1ee5bb267c1b5adec70d72",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/rsl_rl_ppo_cfg.py": "9d3ae28bc6bdf8078d36829c7a68113feab40ed36c0418ce8a42b045a8c1a109",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_six_ppo_cfg.py": "8650ed49dde70ad6c7f63cd3f29b9e575998ad34b3bca8c039f3936f7d910615",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_height_scan_ppo_cfg.py": "471219239002f55f2368211a1d6f3bf8dbe8b7587b2cf78a35f1857f4f1b03da",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_rough_dr_ppo_cfg.py": "3ab20852ee1d89f54c0d8b67d1f14df9bf9b49d3bf8771824221a6340f41b56b",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_robust_ppo_cfg.py": "b60efc0899b1495ea0951ce2f9b452bd205bbb582099d4b50c3b6af0c3b30b92",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_rough_ppo_cfg.py": "c069381670413590422ddfe1e8ea6cf92163bfecc1eb008894177b099087502d",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_varied_ppo_cfg.py": "5f0949b59e83e705fe36a79ff49c902918fc8eb73d1d50574f016b047d493fe7",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/__init__.py": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
+    "scripts/reinforcement_learning/rsl_rl/play_one_episode.py": "db741dde9935707aa5c91964a921041b427d9431150d2286d6165683059d0765",
+    "source/isaaclab/isaaclab/terrains/config/rough.py": "4ae6c727d1ff5c1b483b7321a284fd9c241cfe26417c66d74ccbb33c3405fabc"
+  },
+  "source_sha256": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/stability_terrain_spec.py": "58ce780301e89fff48e130f165009e1b25151c43ea1e29749ce29d2c24082fba",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_height_stability_env_cfg.py": "f9864b343c1bb92219df1c98efb9d50cac87151c719fa7de31373f81982f31e8",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_height_stability_ppo_cfg.py": "58b72e62a9cd520a6945d6901c4767f5043498a3b2da6be6d02a678ce68bf104",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/__init__.py": "57e52e6acd5d36a3df45aa03b90bddc03d5adc8ca6a34b2d65983c67715ff045",
+    "scripts/reinforcement_learning/rsl_rl/train.py": "198ccedc3c336876676c04a2e499b5bf0117ec92222e65c19ff3c0bfecb724fc",
+    "scripts/reinforcement_learning/rsl_rl/warm_start.py": "40f1abcb6bfe5e5c02e5a8b87c026dbe558a998fe3badd2fac9d748e17e56c87",
+    "scripts/environments/test_ant_stability.py": "1b9e2b7a8210fb3d3d8ba66af67c2f63d715abb228cd2105a69f140744ecf14c",
+    "scripts/environments/check_ant_stability.py": "c15927f2fe90826bfbc1fd30677632c9d7c58c82b43fa16e16828578835fb51f"
+  }
+}

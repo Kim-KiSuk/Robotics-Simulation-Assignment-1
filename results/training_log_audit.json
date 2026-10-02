@@ -1,0 +1,348 @@
+[
+  {
+    "model": "SixMix",
+    "scalar_tags": 21,
+    "all_values_finite": true,
+    "tags": [
+      {
+        "tag": "Episode_Reward/progress",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/alive",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/upright",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/move_to_target",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/action_l2",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/energy",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/joint_pos_limits",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Termination/time_out",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Termination/torso_height",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/value_function",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/surrogate",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/entropy",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/learning_rate",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Policy/mean_noise_std",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/total_fps",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/collection time",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/learning_time",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_reward",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_episode_length",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_reward/time",
+        "count": 4000,
+        "last_step": 7572
+      },
+      {
+        "tag": "Train/mean_episode_length/time",
+        "count": 4000,
+        "last_step": 7572
+      }
+    ]
+  },
+  {
+    "model": "HeightScan",
+    "scalar_tags": 21,
+    "all_values_finite": true,
+    "tags": [
+      {
+        "tag": "Episode_Reward/progress",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/alive",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/upright",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/move_to_target",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/action_l2",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/energy",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Reward/joint_pos_limits",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Termination/time_out",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Episode_Termination/torso_height",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/value_function",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/surrogate",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/entropy",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Loss/learning_rate",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Policy/mean_noise_std",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/total_fps",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/collection time",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Perf/learning_time",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_reward",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_episode_length",
+        "count": 4000,
+        "last_step": 3999
+      },
+      {
+        "tag": "Train/mean_reward/time",
+        "count": 4000,
+        "last_step": 8195
+      },
+      {
+        "tag": "Train/mean_episode_length/time",
+        "count": 4000,
+        "last_step": 8195
+      }
+    ]
+  },
+  {
+    "model": "Stability",
+    "scalar_tags": 23,
+    "all_values_finite": true,
+    "tags": [
+      {
+        "tag": "Episode_Reward/progress",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/alive",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/upright",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/move_to_target",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/action_l2",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/energy",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/joint_pos_limits",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/failure",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Reward/clearance_risk",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Termination/time_out",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Episode_Termination/torso_height",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Loss/value_function",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Loss/surrogate",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Loss/entropy",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Loss/learning_rate",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Policy/mean_noise_std",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Perf/total_fps",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Perf/collection time",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Perf/learning_time",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Train/mean_reward",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Train/mean_episode_length",
+        "count": 500,
+        "last_step": 499
+      },
+      {
+        "tag": "Train/mean_reward/time",
+        "count": 500,
+        "last_step": 1100
+      },
+      {
+        "tag": "Train/mean_episode_length/time",
+        "count": 500,
+        "last_step": 1100
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "run": "logs/rsl_rl/ant_six_stability_validation/2026-10-02_08-33-07_stability_conservative",
+  "iterations": 60,
+  "num_envs": 1024,
+  "transitions": 1966080,
+  "model_tensors_finite": 17,
+  "scalar_tags_finite": 23,
+  "learning_rate": 1e-05,
+  "noise_std_mean": 0.02054711803793907,
+  "warm_start": {
+    "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42/model_3999.pt",
+    "checkpoint_sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+    "source_iteration": 3999,
+    "new_iteration": 0,
+    "optimizer_state_restored": false,
+    "optimizer_learning_rates": [
+      1e-05
+    ],
+    "min_std_at_initialization": 0.02,
+    "std_before": [
+      0.0031444726046174765,
+      0.012045154348015785,
+      0.003747364738956094,
+      0.003786314046010375,
+      0.006983411498367786,
+      0.006063365843147039,
+      0.006716775707900524,
+      0.025380004197359085
+    ],
+    "std_after": [
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.019999999552965164,
+      0.025380004197359085
+    ]
+  },
+  "exit_code": 0
+}

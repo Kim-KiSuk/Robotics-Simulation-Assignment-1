@@ -3,87 +3,48 @@
     "model": "A",
     "sha256": "a1c536f2115a9b780440f6473393aa64db2f7f5a5d9230bb8e6a7fb54bc5de87",
     "iteration": 999,
-    "actor_input_dimension": 60,
-    "finite_policy_tensors": 17
+    "input_dimension": 60,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
   },
   {
     "model": "B",
     "sha256": "94096daf83a1c56fb52a37cc221ad9314db6745099bf92d5c69eaaefebe478f6",
     "iteration": 999,
-    "actor_input_dimension": 60,
-    "finite_policy_tensors": 17
+    "input_dimension": 60,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
   },
   {
     "model": "C",
     "sha256": "fcd10a2d4fe6935a549e83ab043168eac6c7e07301bcb79e0d404c2e256e1a30",
     "iteration": 999,
-    "actor_input_dimension": 60,
-    "finite_policy_tensors": 17
+    "input_dimension": 60,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
   },
   {
     "model": "SixMix",
     "sha256": "61ab13d93fe7317faad89c1630ac6de91f8cab46cb37ee3b2205aff047f79071",
     "iteration": 3999,
-    "actor_input_dimension": 60,
-    "finite_policy_tensors": 17,
-    "finite_scalar_tags": 21,
-    "last_logged_iteration": 3999,
-    "scalar_sample_counts": {
-      "Episode_Reward/progress": 4000,
-      "Episode_Reward/alive": 4000,
-      "Episode_Reward/upright": 4000,
-      "Episode_Reward/move_to_target": 4000,
-      "Episode_Reward/action_l2": 4000,
-      "Episode_Reward/energy": 4000,
-      "Episode_Reward/joint_pos_limits": 4000,
-      "Episode_Termination/time_out": 4000,
-      "Episode_Termination/torso_height": 4000,
-      "Loss/value_function": 4000,
-      "Loss/surrogate": 4000,
-      "Loss/entropy": 4000,
-      "Loss/learning_rate": 4000,
-      "Policy/mean_noise_std": 4000,
-      "Perf/total_fps": 4000,
-      "Perf/collection time": 4000,
-      "Perf/learning_time": 4000,
-      "Train/mean_reward": 4000,
-      "Train/mean_episode_length": 4000,
-      "Train/mean_reward/time": 4000,
-      "Train/mean_episode_length/time": 4000
-    },
-    "note": "Tags ending /time use elapsed seconds, not iteration indices."
+    "input_dimension": 60,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
   },
   {
     "model": "HeightScan",
     "sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
     "iteration": 3999,
-    "actor_input_dimension": 123,
-    "finite_policy_tensors": 17,
-    "finite_scalar_tags": 21,
-    "last_logged_iteration": 3999,
-    "scalar_sample_counts": {
-      "Episode_Reward/progress": 4000,
-      "Episode_Reward/alive": 4000,
-      "Episode_Reward/upright": 4000,
-      "Episode_Reward/move_to_target": 4000,
-      "Episode_Reward/action_l2": 4000,
-      "Episode_Reward/energy": 4000,
-      "Episode_Reward/joint_pos_limits": 4000,
-      "Episode_Termination/time_out": 4000,
-      "Episode_Termination/torso_height": 4000,
-      "Loss/value_function": 4000,
-      "Loss/surrogate": 4000,
-      "Loss/entropy": 4000,
-      "Loss/learning_rate": 4000,
-      "Policy/mean_noise_std": 4000,
-      "Perf/total_fps": 4000,
-      "Perf/collection time": 4000,
-      "Perf/learning_time": 4000,
-      "Train/mean_reward": 4000,
-      "Train/mean_episode_length": 4000,
-      "Train/mean_reward/time": 4000,
-      "Train/mean_episode_length/time": 4000
-    },
-    "note": "Tags ending /time use elapsed seconds, not iteration indices."
+    "input_dimension": 123,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
+  },
+  {
+    "model": "Stability",
+    "sha256": "5a3e1e1da844e961d7ea9111dbbd71bbe27a6897ec902b2aa9d1e49444806010",
+    "iteration": 499,
+    "input_dimension": 123,
+    "policy_tensor_count": 17,
+    "all_policy_tensors_finite": true
   }
 ]

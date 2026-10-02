@@ -1,0 +1,48 @@
+{
+  "source": "User-pasted first-episode terminal output; per-episode JSON not available",
+  "height_scan": {
+    "reward": {
+      "mean": 53.930177,
+      "std": 23.518258
+    },
+    "steps": {
+      "mean": 775.28,
+      "std": 297.93033
+    },
+    "target_progress_m": {
+      "mean": 52.982837,
+      "std": 23.187748
+    },
+    "forward_displacement_m": {
+      "mean": 52.992913,
+      "std": 23.189865
+    },
+    "timeout_without_failure_rate": 0.61,
+    "termination_rate": 0.39,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "baseline": {
+    "reward": {
+      "mean": 9.344116,
+      "std": 8.764984
+    },
+    "steps": {
+      "mean": 386.83,
+      "std": 332.840444
+    },
+    "target_progress_m": {
+      "mean": 9.585305,
+      "std": 9.210645
+    },
+    "forward_displacement_m": {
+      "mean": 9.604842,
+      "std": 9.244595
+    },
+    "timeout_without_failure_rate": 0.17,
+    "termination_rate": 0.83,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "completed": 100
+}

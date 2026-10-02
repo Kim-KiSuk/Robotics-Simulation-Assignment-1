@@ -1,5 +1,6 @@
 # Ant 환경 제작 기록: 학습용 5개 + 평가용 E1/E2/E3 + 높이 관측
 
+> 이 문서는 HeightScan까지의 상세 제작 당시 기록입니다. 최신 Stability까지의 설명은 [환경 구성](../ENVIRONMENTS.md), [실행 명령](../REPRODUCE.md), [평가 결과](../../results/SIX_RESULTS.md)를 참고하세요.
 ## 이 결과물의 목적
 
 기본 `Isaac-Ant-v0`에서 출발해, 지형과 마찰이 달라져도 제한 시간 내 전진할 수 있는

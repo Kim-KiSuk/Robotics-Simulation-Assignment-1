@@ -1,0 +1,9 @@
+[INFO] All 100 environments finished their first episode.
+[INFO] Completed first episodes: 100/100
+[RESULT] Episode reward total: mean=41.514310, std=24.873176
+[RESULT] Episode steps: mean=696.620000, std=366.142917
+[RESULT] Target progress (m): mean=38.242646, std=23.541899
+[RESULT] Forward displacement (m): mean=38.250226, std=23.549009
+[RESULT] Timeout without failure rate: 0.590000
+[RESULT] Termination rate: 0.410000
+[RESULT] Missing ground/scan episodes: 0/0

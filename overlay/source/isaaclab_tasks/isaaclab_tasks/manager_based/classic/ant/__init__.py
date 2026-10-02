@@ -14,8 +14,10 @@ from . import agents
 from .six_terrain_spec import TASKS as _SIX_TASKS
 from .continuous_eval_spec import TASK as _CONTINUOUS_EVAL_TASK
 from . import blocks_eval_spec as _BLOCKS_SPEC
+from .stability_terrain_spec import TASK as _STABILITY_TASK
 
 for _task, _module, _cfg, _agent_module, _agent_cfg in (
+    (_STABILITY_TASK, "ant_height_stability_env_cfg", "AntHeightStabilityEnvCfg", "ant_height_stability_ppo_cfg", "AntHeightStabilityPPORunnerCfg"),
     (_BLOCKS_SPEC.TASK, "ant_blocks_eval_env_cfg", "AntBlocksEvalEnvCfg", "ant_six_ppo_cfg", "AntSixPPORunnerCfg"),
     (_BLOCKS_SPEC.SCAN_TASK, "ant_height_scan_env_cfg", "AntHeightScanEvalEnvCfg", "ant_height_scan_ppo_cfg", "AntHeightScanPPORunnerCfg"),
     (_BLOCKS_SPEC.TRAIN_TASK, "ant_height_scan_env_cfg", "AntHeightScanTrainEnvCfg", "ant_height_scan_ppo_cfg", "AntHeightScanPPORunnerCfg"),

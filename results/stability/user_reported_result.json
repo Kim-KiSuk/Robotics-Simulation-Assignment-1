@@ -1,0 +1,35 @@
+{
+  "source": "User-provided command and terminal output in the conversation; no new simulator evaluation in this publication.",
+  "command": "./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \\\n  --task Isaac-Ant-Six-Eval-Blocks-HeightScan-v0 \\\n  --checkpoint \"logs/rsl_rl/ant_six_height_stability/2026-10-02_09-37-03_height_stability_seed42/model_499.pt\" \\\n  --num_envs 100 --seed 24 --real-time --diagnostics --video --video_length 960",
+  "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+  "checkpoint": "artifacts/checkpoints/Stability/model_499.pt",
+  "checkpoint_sha256_at_packaging": "5a3e1e1da844e961d7ea9111dbbd71bbe27a6897ec902b2aa9d1e49444806010",
+  "checkpoint_hash_recorded_at_evaluation": false,
+  "seed": 24,
+  "num_envs": 100,
+  "terrain_seed_from_current_default": 9317,
+  "completed": 100,
+  "per_episode_json_available": false,
+  "summary": {
+    "reward": {
+      "mean": 41.51431,
+      "std": 24.873176
+    },
+    "steps": {
+      "mean": 696.62,
+      "std": 366.142917
+    },
+    "target_progress_m": {
+      "mean": 38.242646,
+      "std": 23.541899
+    },
+    "forward_displacement_m": {
+      "mean": 38.250226,
+      "std": 23.549009
+    },
+    "timeout_without_failure_rate": 0.59,
+    "termination_rate": 0.41,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  }
+}

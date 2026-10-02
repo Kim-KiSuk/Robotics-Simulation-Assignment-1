@@ -1,0 +1,21 @@
+{
+  "overlay_files": 65,
+  "source_files_byte_identical": true,
+  "python_files_parsed": 59,
+  "base_commit": "e83a5d2f11ca1b5f03b690e1978479e620c500e2",
+  "installer_checks": [
+    "Validated 57 files; existing matching files preserved",
+    "Installed 57 files; existing matching files preserved",
+    "Validated 0 files; existing matching files preserved"
+  ],
+  "local_change_refused_before_overwrite": true,
+  "fixture": "/tmp/ant-six-publication-check",
+  "height_scan_math_tests_passed": 4,
+  "friction_tests_passed": 4,
+  "stability_cpu_report": "results/stability/publication_cpu_check.json",
+  "checkpoint_audit": "results/checkpoint_audit.json",
+  "training_log_audit": "results/training_log_audit.json",
+  "gpu_evaluation_run_in_this_publication": false,
+  "primary_document_relative_links_checked": 61,
+  "missing_primary_document_links": []
+}
