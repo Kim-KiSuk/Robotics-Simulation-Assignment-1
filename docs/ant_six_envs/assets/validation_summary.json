@@ -1,0 +1,158 @@
+{
+  "created_for": "five training scenarios and one held-out evaluation scenario",
+  "new_python_files_sha256": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain_spec.py": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain.py": "35ab109bd04879d582f7b5d53bc676e03c4fe51fb097eecbfc1b8180aef23033",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_six_env_cfg.py": "56a416893b8ea605934ba9eacd009dc1d2047cf0fee41e4c197d612734d598b3",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_six_ppo_cfg.py": "8650ed49dde70ad6c7f63cd3f29b9e575998ad34b3bca8c039f3936f7d910615",
+    "scripts/environments/inspect_ant_six.py": "93ca4101881b0213b532fe04b22cffc4a11cd8797fde4aab5b1b1bb336fe49c6",
+    "scripts/environments/check_ant_six.py": "6da5a886f96acc87110496687b6d9282a1fa483e2c7d5f739b79e5b4c7ce5b71"
+  },
+  "unchanged_original_files": [
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/rsl_rl_ppo_cfg.py",
+    "source/isaaclab/isaaclab/terrains/config/rough.py"
+  ],
+  "physics_checks": {
+    "T1": {
+      "profile": "T1",
+      "task": "Isaac-Ant-Six-Train1-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T1": [
+          1.0,
+          1.0
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 3484800,
+      "observation_dim": 60
+    },
+    "T2": {
+      "profile": "T2",
+      "task": "Isaac-Ant-Six-Train2-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T2": [
+          0.8,
+          0.6
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 3484800,
+      "observation_dim": 60
+    },
+    "T3": {
+      "profile": "T3",
+      "task": "Isaac-Ant-Six-Train3-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T3": [
+          1.2,
+          1.0
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 3484800,
+      "observation_dim": 60
+    },
+    "T4": {
+      "profile": "T4",
+      "task": "Isaac-Ant-Six-Train4-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T4": [
+          0.6,
+          0.45
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 6830208,
+      "observation_dim": 60
+    },
+    "T5": {
+      "profile": "T5",
+      "task": "Isaac-Ant-Six-Train5-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T5": [
+          1.4,
+          1.1
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 3378216,
+      "observation_dim": 60
+    },
+    "E1": {
+      "profile": "E1",
+      "task": "Isaac-Ant-Six-Eval-v0",
+      "passed": true,
+      "scope": "100 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "terrain_seed": 9117,
+      "rng_check": true,
+      "materials": {
+        "T1": [
+          0.9,
+          0.75
+        ],
+        "T2": [
+          0.9,
+          0.75
+        ],
+        "T3": [
+          0.9,
+          0.75
+        ],
+        "T4": [
+          0.9,
+          0.75
+        ],
+        "T5": [
+          0.9,
+          0.75
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 4150608,
+      "observation_dim": 60
+    },
+    "Mix": {
+      "profile": "Mix",
+      "task": "Isaac-Ant-Six-TrainMix-v0",
+      "passed": true,
+      "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+      "materials": {
+        "T1": [
+          1.0,
+          1.0
+        ],
+        "T2": [
+          0.8,
+          0.6
+        ],
+        "T3": [
+          1.2,
+          1.0
+        ],
+        "T4": [
+          0.6,
+          0.45
+        ],
+        "T5": [
+          1.4,
+          1.1
+        ]
+      },
+      "tiles": 1936,
+      "triangles": 4109328,
+      "observation_dim": 60
+    }
+  },
+  "training_or_policy_evaluation_performed": false
+}

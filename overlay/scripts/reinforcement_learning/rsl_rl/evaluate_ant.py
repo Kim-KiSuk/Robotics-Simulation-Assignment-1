@@ -54,6 +54,8 @@ def main(env_cfg, agent_cfg):
     if args.task not in {
         "Isaac-Ant-v0", "Isaac-Ant-Rough-v0", "Isaac-Ant-Rough-DR-v0",
         "Isaac-Ant-Rough-Reward-v0", "Isaac-Ant-Rough-History-v0", "Isaac-Ant-Rough-History-Reward-v0",
+        "Isaac-Ant-Varied-v0", "Isaac-Ant-Varied-Reward-v0",
+        "Isaac-Ant-Varied-History-v0", "Isaac-Ant-Varied-History-Reward-v0",
     }:
         raise ValueError("This evaluator supports only this project's Ant tasks")
     if getattr(env_cfg.scene.terrain, "randomize_friction", False):

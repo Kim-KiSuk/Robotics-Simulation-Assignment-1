@@ -28,5 +28,33 @@
     "max_iterations": 1000,
     "num_envs": 4096,
     "num_steps_per_env": 32
+  },
+  {
+    "model": "SixMix",
+    "original_run": "ant_six/2026-10-02_01-42-52_six_mix_1024_seed42",
+    "checkpoint": "artifacts/checkpoints/SixMix/model_3999.pt",
+    "sha256": "61ab13d93fe7317faad89c1630ac6de91f8cab46cb37ee3b2205aff047f79071",
+    "training_seed": 42,
+    "terrain_seed": 1100,
+    "max_iterations": 4000,
+    "num_envs": 1024,
+    "num_steps_per_env": 32,
+    "transitions": 131072000,
+    "observation_dimension": 60,
+    "training_task": "Isaac-Ant-Six-TrainMix-v0"
+  },
+  {
+    "model": "HeightScan",
+    "original_run": "ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42",
+    "checkpoint": "artifacts/checkpoints/HeightScan/model_3999.pt",
+    "sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
+    "training_seed": 42,
+    "terrain_seed": 1100,
+    "max_iterations": 4000,
+    "num_envs": 1024,
+    "num_steps_per_env": 32,
+    "transitions": 131072000,
+    "observation_dimension": 123,
+    "training_task": "Isaac-Ant-Six-TrainMix-HeightScan-v0"
   }
 ]

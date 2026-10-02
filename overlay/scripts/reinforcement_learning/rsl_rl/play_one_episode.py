@@ -8,6 +8,7 @@
 """Launch Isaac Sim Simulator first."""
 
 import argparse
+from pathlib import Path
 import sys
 
 from isaaclab.app import AppLauncher
@@ -34,12 +35,22 @@ parser.add_argument(
     help="Use the pre-trained checkpoint from Nucleus.",
 )
 parser.add_argument("--real-time", action="store_true", default=False, help="Run in real-time, if possible.")
+parser.add_argument("--diagnostics", action="store_true", help="Ant: original rewards, first-episode distance and terminations.")
+parser.add_argument("--results_file", type=Path, help="Ant: new result JSON path; implies --diagnostics; never overwrites.")
+parser.add_argument("--video_folder", type=str, help="Optional recording directory, e.g. a separate folder for each map.")
 # append RSL-RL cli arguments
 cli_args.add_rsl_rl_args(parser)
 # append AppLauncher cli args
 AppLauncher.add_app_launcher_args(parser)
 # parse the arguments
 args_cli, hydra_args = parser.parse_known_args()
+if args_cli.results_file:
+    args_cli.diagnostics = True
+    args_cli.results_file = args_cli.results_file.expanduser().resolve()
+    for path in (args_cli.results_file, args_cli.results_file.with_suffix(".env.yaml"),
+                 args_cli.results_file.with_suffix(".agent.yaml")):
+        if path.exists():
+            parser.error(f"Result/config already exists: {path}; choose a new --results_file")
 # always enable cameras to record video
 if args_cli.video:
     args_cli.enable_cameras = True
@@ -122,6 +133,19 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     env_cfg.viewer.eye = (-4.0, 4.0, 2.5)
     env_cfg.viewer.lookat = (0.0, 0.0, 0.5)
 
+    if args_cli.diagnostics:
+        from isaaclab_tasks.manager_based.classic.ant.ant_env_cfg import AntEnvCfg, RewardsCfg
+        from isaaclab_tasks.manager_based.classic.ant.evaluation_mdp import AntEvaluationRecorderCfg
+        if not isinstance(env_cfg, AntEnvCfg):
+            raise ValueError("--diagnostics/--results_file currently support this project's Ant tasks only")
+        env_cfg.rewards = RewardsCfg()
+        env_cfg.recorders = AntEvaluationRecorderCfg()
+        if args_cli.results_file:
+            from isaaclab.utils.io import dump_yaml
+            args_cli.results_file.parent.mkdir(parents=True, exist_ok=True)
+            dump_yaml(str(args_cli.results_file.with_suffix(".env.yaml")), env_cfg)
+            dump_yaml(str(args_cli.results_file.with_suffix(".agent.yaml")), agent_cfg)
+
     # create isaac environment
     env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
 
@@ -132,7 +156,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     # wrap for video recording
     if args_cli.video:
         video_kwargs = {
-            "video_folder": os.path.join(log_dir, "videos", "play"),
+            "video_folder": args_cli.video_folder or os.path.join(log_dir, "videos", "play"),
             "step_trigger": lambda step: step == 0,
             "video_length": args_cli.video_length,
             "disable_logger": True,
@@ -187,6 +211,11 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     episode_rewards = torch.zeros(env.num_envs, dtype=torch.float64, device=env.device)
     episode_steps = torch.zeros(env.num_envs, dtype=torch.long, device=env.device)
     finished = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
+    diagnostics = None
+    if args_cli.diagnostics:
+        from ant_episode_diagnostics import FirstEpisodeDiagnostics
+        diagnostics = FirstEpisodeDiagnostics(env.unwrapped.scene["robot"].data.root_pos_w)
+        snapshot = env.unwrapped.ant_evaluation_snapshot
     # simulate environment
     while simulation_app.is_running():
         start_time = time.time()
@@ -200,6 +229,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             active = ~finished
             episode_rewards[active] += rewards[active]
             episode_steps[active] += 1
+            if diagnostics is not None:
+                diagnostics.update(snapshot.position, env.unwrapped.reset_terminated,
+                                   env.unwrapped.reset_time_outs, snapshot.missing_ground, snapshot.missing_scan)
             finished |= dones.bool()
         timestep += 1
 
@@ -236,6 +268,34 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             f"[RESULT] Episode steps: mean={steps.mean().item():.6f}, "
             f"std={steps.std(unbiased=False).item():.6f}"
         )
+
+    if diagnostics is not None and completed == env.num_envs:
+        import hashlib
+        import json
+        result = diagnostics.result(episode_rewards, episode_steps, dt)
+        terrain = env_cfg.scene.terrain
+        result.update(schema_version=1, task=args_cli.task, checkpoint=os.path.abspath(resume_path),
+                      checkpoint_sha256=hashlib.sha256(Path(resume_path).read_bytes()).hexdigest(),
+                      seed=env_cfg.seed, terrain_seed=getattr(terrain.terrain_generator, "seed", None),
+                      static_friction=terrain.physics_material.static_friction,
+                      dynamic_friction=terrain.physics_material.dynamic_friction,
+                      material_note="Mix uses per-profile friction; see the resolved env config",
+                      reward_protocol="original_Ant_7_terms_v1", completed=completed,
+                      step_dt=dt, max_episode_steps=env.max_episode_length,
+                      observation_dimension=env.unwrapped.observation_manager.group_obs_dim["policy"][0])
+        for key, label in (("target_progress_m", "Target progress (m)"),
+                           ("forward_displacement_m", "Forward displacement (m)")):
+            values = result["summary"][key]
+            print(f"[RESULT] {label}: mean={values['mean']:.6f}, std={values['std']:.6f}")
+        print(f"[RESULT] Timeout without failure rate: {result['summary']['timeout_without_failure_rate']:.6f}")
+        print(f"[RESULT] Termination rate: {result['summary']['termination_rate']:.6f}")
+        print(f"[RESULT] Missing ground/scan episodes: {result['summary']['missing_ground_episodes']}/"
+              f"{result['summary']['missing_scan_episodes']}")
+        if args_cli.results_file:
+            with args_cli.results_file.open("x") as stream:
+                json.dump(result, stream, indent=2, allow_nan=False)
+                stream.write("\n")
+            print(f"[RESULT] JSON: {args_cli.results_file}")
 
     # close the simulator
     env.close()

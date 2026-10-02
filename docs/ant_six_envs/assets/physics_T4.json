@@ -1,0 +1,15 @@
+{
+  "profile": "T4",
+  "task": "Isaac-Ant-Six-Train4-v0",
+  "passed": true,
+  "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+  "materials": {
+    "T4": [
+      0.6,
+      0.45
+    ]
+  },
+  "tiles": 1936,
+  "triangles": 6830208,
+  "observation_dim": 60
+}

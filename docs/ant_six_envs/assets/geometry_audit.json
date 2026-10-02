@@ -1,0 +1,398 @@
+{
+  "scope": "CPU tile geometry only; not PhysX or locomotion validation",
+  "spec_sha256": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+  "profile_parameters": {
+    "T1": {
+      "title": "Small roughness",
+      "seed": 1101,
+      "friction": [
+        1.0,
+        1.0
+      ]
+    },
+    "T2": {
+      "title": "Waves",
+      "seed": 1102,
+      "friction": [
+        0.8,
+        0.6
+      ]
+    },
+    "T3": {
+      "title": "Slopes",
+      "seed": 1103,
+      "friction": [
+        1.2,
+        1.0
+      ]
+    },
+    "T4": {
+      "title": "Uneven square blocks",
+      "seed": 1104,
+      "friction": [
+        0.6,
+        0.45
+      ]
+    },
+    "T5": {
+      "title": "IsaacLab terrain mixture",
+      "seed": 1105,
+      "friction": [
+        1.4,
+        1.1
+      ]
+    },
+    "E1": {
+      "title": "Held-out mixture",
+      "seed": 9117,
+      "friction": [
+        0.9,
+        0.75
+      ]
+    }
+  },
+  "geometry": [
+    {
+      "profile": "T1",
+      "tile": "T1__small",
+      "difficulty": 0.0,
+      "surface_min": -0.03500000014901161,
+      "surface_max": 0.03500000014901161,
+      "triangles": 1800
+    },
+    {
+      "profile": "T1",
+      "tile": "T1__small",
+      "difficulty": 0.5,
+      "surface_min": -0.03500000014901161,
+      "surface_max": 0.03500000014901161,
+      "triangles": 1800
+    },
+    {
+      "profile": "T1",
+      "tile": "T1__small",
+      "difficulty": 1.0,
+      "surface_min": -0.03500000014901161,
+      "surface_max": 0.03500000014901161,
+      "triangles": 1800
+    },
+    {
+      "profile": "T1",
+      "tile": "T1__medium",
+      "difficulty": 0.0,
+      "surface_min": -0.08500000089406967,
+      "surface_max": 0.09000000357627869,
+      "triangles": 1800
+    },
+    {
+      "profile": "T1",
+      "tile": "T1__medium",
+      "difficulty": 0.5,
+      "surface_min": -0.08500000089406967,
+      "surface_max": 0.09000000357627869,
+      "triangles": 1800
+    },
+    {
+      "profile": "T1",
+      "tile": "T1__medium",
+      "difficulty": 1.0,
+      "surface_min": -0.08500000089406967,
+      "surface_max": 0.09000000357627869,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__long",
+      "difficulty": 0.0,
+      "surface_min": -0.019999999552965164,
+      "surface_max": 0.019999999552965164,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__long",
+      "difficulty": 0.5,
+      "surface_min": -0.05999999865889549,
+      "surface_max": 0.05999999865889549,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__long",
+      "difficulty": 1.0,
+      "surface_min": -0.10000000149011612,
+      "surface_max": 0.10000000149011612,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__short",
+      "difficulty": 0.0,
+      "surface_min": -0.019999999552965164,
+      "surface_max": 0.019999999552965164,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__short",
+      "difficulty": 0.5,
+      "surface_min": -0.05999999865889549,
+      "surface_max": 0.05999999865889549,
+      "triangles": 1800
+    },
+    {
+      "profile": "T2",
+      "tile": "T2__short",
+      "difficulty": 1.0,
+      "surface_min": -0.10000000149011612,
+      "surface_max": 0.10000000149011612,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope",
+      "difficulty": 0.0,
+      "surface_min": 0.0,
+      "surface_max": 0.25999999046325684,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope",
+      "difficulty": 0.5,
+      "surface_min": 0.0,
+      "surface_max": 0.6600000262260437,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope",
+      "difficulty": 1.0,
+      "surface_min": 0.0,
+      "surface_max": 1.059999942779541,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope_inv",
+      "difficulty": 0.0,
+      "surface_min": -0.25999999046325684,
+      "surface_max": 0.0,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope_inv",
+      "difficulty": 0.5,
+      "surface_min": -0.6600000262260437,
+      "surface_max": 0.0,
+      "triangles": 1800
+    },
+    {
+      "profile": "T3",
+      "tile": "T3__slope_inv",
+      "difficulty": 1.0,
+      "surface_min": -1.059999942779541,
+      "surface_max": 0.0,
+      "triangles": 1800
+    },
+    {
+      "profile": "T4",
+      "tile": "T4__blocks",
+      "difficulty": 0.0,
+      "surface_min": -0.019906174391508102,
+      "surface_max": 0.020000000000000018,
+      "triangles": 3528
+    },
+    {
+      "profile": "T4",
+      "tile": "T4__blocks",
+      "difficulty": 0.5,
+      "surface_min": -0.05971852317452431,
+      "surface_max": 0.06000000000000005,
+      "triangles": 3528
+    },
+    {
+      "profile": "T4",
+      "tile": "T4__blocks",
+      "difficulty": 1.0,
+      "surface_min": -0.09953087568283081,
+      "surface_max": 0.10000000000000003,
+      "triangles": 3528
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs",
+      "difficulty": 0.0,
+      "surface_min": 0.0,
+      "surface_max": 0.3,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs",
+      "difficulty": 0.5,
+      "surface_min": 0.0,
+      "surface_max": 0.55,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs",
+      "difficulty": 1.0,
+      "surface_min": 0.0,
+      "surface_max": 0.8,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs_inv",
+      "difficulty": 0.0,
+      "surface_min": -0.3,
+      "surface_max": 0.0,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs_inv",
+      "difficulty": 0.5,
+      "surface_min": -0.55,
+      "surface_max": 0.0,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__stairs_inv",
+      "difficulty": 1.0,
+      "surface_min": -0.8,
+      "surface_max": 0.0,
+      "triangles": 492
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__grid",
+      "difficulty": 0.0,
+      "surface_min": -0.019906174391508102,
+      "surface_max": 0.020000000000000018,
+      "triangles": 3948
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__grid",
+      "difficulty": 0.5,
+      "surface_min": -0.049765437841415405,
+      "surface_max": 0.050000000000000044,
+      "triangles": 3948
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__grid",
+      "difficulty": 1.0,
+      "surface_min": -0.07962469756603241,
+      "surface_max": 0.08000000000000002,
+      "triangles": 3948
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope",
+      "difficulty": 0.0,
+      "surface_min": 0.0,
+      "surface_max": 0.25999999046325684,
+      "triangles": 1800
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope",
+      "difficulty": 0.5,
+      "surface_min": 0.0,
+      "surface_max": 0.6600000262260437,
+      "triangles": 1800
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope",
+      "difficulty": 1.0,
+      "surface_min": 0.0,
+      "surface_max": 1.059999942779541,
+      "triangles": 1800
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope_inv",
+      "difficulty": 0.0,
+      "surface_min": -0.25999999046325684,
+      "surface_max": 0.0,
+      "triangles": 1800
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope_inv",
+      "difficulty": 0.5,
+      "surface_min": -0.6600000262260437,
+      "surface_max": 0.0,
+      "triangles": 1800
+    },
+    {
+      "profile": "T5",
+      "tile": "T5__slope_inv",
+      "difficulty": 1.0,
+      "surface_min": -1.059999942779541,
+      "surface_max": 0.0,
+      "triangles": 1800
+    }
+  ],
+  "full_map_profile_counts": {
+    "T1": {
+      "T1": 1936
+    },
+    "T2": {
+      "T2": 1936
+    },
+    "T3": {
+      "T3": 1936
+    },
+    "T4": {
+      "T4": 1936
+    },
+    "T5": {
+      "T5": 1936
+    },
+    "E1": {
+      "T4": 394,
+      "T2": 398,
+      "T5": 410,
+      "T3": 382,
+      "T1": 352
+    },
+    "Mix": {
+      "T1": 375,
+      "T4": 398,
+      "T2": 380,
+      "T3": 404,
+      "T5": 379
+    }
+  },
+  "spawn_coverage": {
+    "E1": {
+      "num_envs": 100,
+      "initial_profile_counts": {
+        "T2": 21,
+        "T3": 12,
+        "T4": 29,
+        "T1": 21,
+        "T5": 17
+      }
+    },
+    "Mix": {
+      "num_envs": 4096,
+      "initial_profile_counts": {
+        "T3": 865,
+        "T2": 821,
+        "T4": 843,
+        "T1": 770,
+        "T5": 797
+      }
+    }
+  },
+  "reference_image": "Based on user description: square blocks of different heights; image unavailable"
+}

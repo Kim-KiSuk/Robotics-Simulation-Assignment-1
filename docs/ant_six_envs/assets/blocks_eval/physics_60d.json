@@ -1,0 +1,17 @@
+{
+  "task": "Isaac-Ant-Six-Eval-Blocks-v0",
+  "passed": true,
+  "num_envs": 100,
+  "observation_dim": 60,
+  "action_dim": 8,
+  "triangles": 2812944,
+  "colliders": 9,
+  "original_rewards": true,
+  "minimum_support_clearance_m": 0.24987050890922546,
+  "terrain_rng_isolated": true,
+  "scan_reset_rng_neutral": false,
+  "yaw_ray_alignment_checked": false,
+  "old_configs_unchanged": true,
+  "steps": 300,
+  "policy_evaluation_performed": false
+}

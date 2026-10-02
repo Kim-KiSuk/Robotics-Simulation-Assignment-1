@@ -11,9 +11,53 @@ import gymnasium as gym
 
 from . import agents
 
+from .six_terrain_spec import TASKS as _SIX_TASKS
+from .continuous_eval_spec import TASK as _CONTINUOUS_EVAL_TASK
+from . import blocks_eval_spec as _BLOCKS_SPEC
+
+for _task, _module, _cfg, _agent_module, _agent_cfg in (
+    (_BLOCKS_SPEC.TASK, "ant_blocks_eval_env_cfg", "AntBlocksEvalEnvCfg", "ant_six_ppo_cfg", "AntSixPPORunnerCfg"),
+    (_BLOCKS_SPEC.SCAN_TASK, "ant_height_scan_env_cfg", "AntHeightScanEvalEnvCfg", "ant_height_scan_ppo_cfg", "AntHeightScanPPORunnerCfg"),
+    (_BLOCKS_SPEC.TRAIN_TASK, "ant_height_scan_env_cfg", "AntHeightScanTrainEnvCfg", "ant_height_scan_ppo_cfg", "AntHeightScanPPORunnerCfg"),
+):
+    gym.register(
+        id=_task,
+        entry_point="isaaclab.envs:ManagerBasedRLEnv",
+        disable_env_checker=True,
+        kwargs={
+            "env_cfg_entry_point": f"{__name__}.{_module}:{_cfg}",
+            "rsl_rl_cfg_entry_point": f"{agents.__name__}.{_agent_module}:{_agent_cfg}",
+        },
+    )
+
+# Five scenarios + one held-out scenario. Mix reuses the five training profiles.
+for _profile, _task in _SIX_TASKS.items():
+    _cfg = {"E1": "AntSixEvalEnvCfg", "Mix": "AntSixTrainMixEnvCfg"}.get(
+        _profile, f"AntSixTrain{_profile[1:]}EnvCfg"
+    )
+    gym.register(
+        id=_task,
+        entry_point="isaaclab.envs:ManagerBasedRLEnv",
+        disable_env_checker=True,
+        kwargs={
+            "env_cfg_entry_point": f"{__name__}.ant_six_env_cfg:{_cfg}",
+            "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_six_ppo_cfg:AntSixPPORunnerCfg",
+        },
+    )
+
 ##
 # Register Gym environments.
 ##
+
+gym.register(
+    id=_CONTINUOUS_EVAL_TASK,
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.ant_continuous_eval_env_cfg:AntContinuousEvalEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_six_ppo_cfg:AntSixPPORunnerCfg",
+    },
+)
 
 gym.register(
     id="Isaac-Ant-v0",
@@ -79,5 +123,49 @@ gym.register(
     kwargs={
         "env_cfg_entry_point": f"{__name__}.ant_robust_env_cfg:AntRoughHistoryRewardEnvCfg",
         "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_robust_ppo_cfg:AntRoughHistoryRewardPPORunnerCfg",
+    },
+)
+
+
+gym.register(
+    id="Isaac-Ant-Varied-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.ant_varied_env_cfg:AntVariedEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_varied_ppo_cfg:AntVariedPPORunnerCfg",
+    },
+)
+
+
+gym.register(
+    id="Isaac-Ant-Varied-Reward-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.ant_varied_env_cfg:AntVariedRewardEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_varied_ppo_cfg:AntVariedRewardPPORunnerCfg",
+    },
+)
+
+
+gym.register(
+    id="Isaac-Ant-Varied-History-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.ant_varied_env_cfg:AntVariedHistoryEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_varied_ppo_cfg:AntVariedHistoryPPORunnerCfg",
+    },
+)
+
+
+gym.register(
+    id="Isaac-Ant-Varied-History-Reward-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.ant_varied_env_cfg:AntVariedHistoryRewardEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.ant_varied_ppo_cfg:AntVariedHistoryRewardPPORunnerCfg",
     },
 )

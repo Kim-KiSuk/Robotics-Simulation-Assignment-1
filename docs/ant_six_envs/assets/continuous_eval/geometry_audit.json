@@ -1,0 +1,159 @@
+{
+  "scope": "CPU actual tile geometry and spawn coverage; no policy evaluation",
+  "task": "Isaac-Ant-Six-Eval-Continuous-v0",
+  "terrain_seed": 9217,
+  "spec_sha256": "f15fd7cb4a14ef09998345080e1df298f78f1879ba291827b39c44a72587d4e7",
+  "surface_sha256": "25ae649d89cc7bde22a31af97c32ed7344fb98b5358a62320f1fdb69c39bbd07",
+  "configured_proportions": {
+    "rough": 0.4,
+    "wave_3": 0.15,
+    "wave_5": 0.15,
+    "slope": 0.15,
+    "slope_inv": 0.15
+  },
+  "tiles": 1600,
+  "actual_tile_counts": {
+    "rough": 632,
+    "slope_inv": 256,
+    "slope": 245,
+    "wave_3": 221,
+    "wave_5": 246
+  },
+  "triangles": 3276800,
+  "flat_tiles": 0,
+  "minimum_tile_relief_m": 0.14500000000000002,
+  "map_size_m": [
+    320.0,
+    320.0
+  ],
+  "initial_100_counts": {
+    "wave_3": 16,
+    "slope": 7,
+    "wave_5": 12,
+    "rough": 56,
+    "slope_inv": 9
+  },
+  "tile_checks": [
+    {
+      "kind": "rough",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "z_min": -0.095,
+      "z_max": 0.09,
+      "horizontal_face_fraction": 0.00927734375
+    },
+    {
+      "kind": "rough",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "z_min": -0.095,
+      "z_max": 0.09,
+      "horizontal_face_fraction": 0.00927734375
+    },
+    {
+      "kind": "rough",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "z_min": -0.095,
+      "z_max": 0.09,
+      "horizontal_face_fraction": 0.00927734375
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "z_min": -0.08,
+      "z_max": 0.08,
+      "horizontal_face_fraction": 0.009765625
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "z_min": -0.125,
+      "z_max": 0.13,
+      "horizontal_face_fraction": 0.0009765625
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "z_min": -0.17500000000000002,
+      "z_max": 0.18,
+      "horizontal_face_fraction": 0.0009765625
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "z_min": -0.08,
+      "z_max": 0.08,
+      "horizontal_face_fraction": 0.0087890625
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "z_min": -0.13,
+      "z_max": 0.13,
+      "horizontal_face_fraction": 0.00634765625
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "z_min": -0.18,
+      "z_max": 0.18,
+      "horizontal_face_fraction": 0.00390625
+    },
+    {
+      "kind": "slope",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "z_min": 0.0,
+      "z_max": 0.56,
+      "horizontal_face_fraction": 0.005859375
+    },
+    {
+      "kind": "slope",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "z_min": 0.0,
+      "z_max": 0.85,
+      "horizontal_face_fraction": 0.001953125
+    },
+    {
+      "kind": "slope",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "z_min": 0.0,
+      "z_max": 1.145,
+      "horizontal_face_fraction": 0.0009765625
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "z_min": -0.56,
+      "z_max": 0.0,
+      "horizontal_face_fraction": 0.005859375
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "z_min": -0.85,
+      "z_max": 0.0,
+      "horizontal_face_fraction": 0.001953125
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "z_min": -1.145,
+      "z_max": 0.0,
+      "horizontal_face_fraction": 0.0009765625
+    }
+  ],
+  "flat_surface_note": "No flat tile/platform; local horizontal triangle faces still exist due to discretization."
+}

@@ -1,0 +1,46 @@
+{
+  "task": "Isaac-Ant-Six-Eval-Continuous-v0",
+  "passed": true,
+  "num_envs": 100,
+  "robot_seed": 24,
+  "terrain_seed": 9217,
+  "observation_dim": 60,
+  "action_dim": 8,
+  "collision_meshes": 13,
+  "collision_triangles": 3276800,
+  "scope": "120 normal zero-action steps + 180-step no-reset support probe; no policy scoring",
+  "minimum_support_probe_clearance_m": 0.2500779628753662,
+  "friction": [
+    0.9,
+    0.75
+  ],
+  "original_reward": true,
+  "old_configs_unchanged": true,
+  "terrain_rng_isolated": true,
+  "process_exit_code": 0,
+  "console_and_kit_error_count": 0,
+  "kit_log": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_044306.log",
+  "hydra_config_path_checked": true,
+  "hardware": "RTX 2080 8GB",
+  "command": "./isaaclab.sh -p scripts/environments/check_ant_continuous_eval.py --headless --num_envs 100 --output /tmp/ant_e2_final_physics_v2.json",
+  "source_sha256": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/continuous_eval_spec.py": "f15fd7cb4a14ef09998345080e1df298f78f1879ba291827b39c44a72587d4e7",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/continuous_eval_surface.py": "25ae649d89cc7bde22a31af97c32ed7344fb98b5358a62320f1fdb69c39bbd07",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_continuous_eval_env_cfg.py": "e2064e17dbaa719d51356e05bc8866e314c10693b862a42e876c62880a50166f",
+    "scripts/environments/inspect_ant_continuous_eval.py": "09940d5daf66d2400689d92b3df3970d3d77074667b73057b7337e4ac887ab1c",
+    "scripts/environments/check_ant_continuous_eval.py": "2ebcc9b048ecc713999393b1869b9f1ce193e67f8847c3ae259f0eaa1af907f9"
+  },
+  "unchanged_original_and_existing_sources": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py": "fd17a386c8482f0d22fa2f0b5959514e0ba6aff5dcefd59a46c87ce749e59c44",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_rough_env_cfg.py": "e1059248a020e37c0f21a3fb6342af0fb5b2d747a3435bf0ac7bf55eacb99915",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_six_env_cfg.py": "c3e8c5b97d8f217d92e899a9b1746b10bd0fb15027b50366483b7540475336e8",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain_spec.py": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain.py": "ef2602780fc1dd84b469004a5cb88c886fdccd1aeb1ee5bb267c1b5adec70d72",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain.py": "605675922d6e8382f85e19e19eff63b9788f74675efe64c1406585573d01de9e",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain_mdp.py": "2d6446fbb680f4b3062071a05169e5535772b04d6bc569e7204e9f67f4741838",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/rsl_rl_ppo_cfg.py": "9d3ae28bc6bdf8078d36829c7a68113feab40ed36c0418ce8a42b045a8c1a109",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_six_ppo_cfg.py": "8650ed49dde70ad6c7f63cd3f29b9e575998ad34b3bca8c039f3936f7d910615",
+    "source/isaaclab/isaaclab/terrains/config/rough.py": "4ae6c727d1ff5c1b483b7321a284fd9c241cfe26417c66d74ccbb33c3405fabc"
+  },
+  "policy_evaluation_performed": false
+}

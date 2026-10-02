@@ -1,0 +1,160 @@
+{
+  "scope": "CPU geometry only, no policy evaluation",
+  "terrain_seed": 9317,
+  "triangles": 2812944,
+  "flat_tiles": 0,
+  "tiles": 1600,
+  "actual_tile_counts": {
+    "rough": 439,
+    "wave_3": 150,
+    "slope": 170,
+    "blocks": 547,
+    "slope_inv": 144,
+    "wave_5": 150
+  },
+  "initial_100_counts": {
+    "wave_5": 6,
+    "rough": 40,
+    "slope_inv": 7,
+    "slope": 9,
+    "blocks": 36,
+    "wave_3": 2
+  },
+  "proportions": {
+    "rough": 0.25,
+    "wave_3": 0.1,
+    "wave_5": 0.1,
+    "slope": 0.1,
+    "slope_inv": 0.1,
+    "blocks": 0.35
+  },
+  "tile_checks": [
+    {
+      "kind": "rough",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "surface_min_m": -0.115,
+      "surface_max_m": 0.08
+    },
+    {
+      "kind": "rough",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "surface_min_m": -0.115,
+      "surface_max_m": 0.08
+    },
+    {
+      "kind": "rough",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "surface_min_m": -0.115,
+      "surface_max_m": 0.08
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "surface_min_m": -0.08,
+      "surface_max_m": 0.08
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "surface_min_m": -0.125,
+      "surface_max_m": 0.13
+    },
+    {
+      "kind": "wave_3",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "surface_min_m": -0.17500000000000002,
+      "surface_max_m": 0.18
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "surface_min_m": -0.08,
+      "surface_max_m": 0.08
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "surface_min_m": -0.13,
+      "surface_max_m": 0.13
+    },
+    {
+      "kind": "wave_5",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "surface_min_m": -0.18,
+      "surface_max_m": 0.18
+    },
+    {
+      "kind": "slope",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "surface_min_m": 0.0,
+      "surface_max_m": 0.56
+    },
+    {
+      "kind": "slope",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "surface_min_m": 0.0,
+      "surface_max_m": 0.85
+    },
+    {
+      "kind": "slope",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "surface_min_m": 0.0,
+      "surface_max_m": 1.145
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 0.0,
+      "triangles": 2048,
+      "surface_min_m": -0.56,
+      "surface_max_m": 0.0
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 0.5,
+      "triangles": 2048,
+      "surface_min_m": -0.85,
+      "surface_max_m": 0.0
+    },
+    {
+      "kind": "slope_inv",
+      "difficulty": 1.0,
+      "triangles": 2048,
+      "surface_min_m": -1.145,
+      "surface_max_m": 0.0
+    },
+    {
+      "kind": "blocks",
+      "difficulty": 0.0,
+      "triangles": 1200,
+      "surface_min_m": -0.02903224759829899,
+      "surface_max_m": 0.02972150892204105
+    },
+    {
+      "kind": "blocks",
+      "difficulty": 0.5,
+      "triangles": 1200,
+      "surface_min_m": -0.07258061899574747,
+      "surface_max_m": 0.07430377230510261
+    },
+    {
+      "kind": "blocks",
+      "difficulty": 1.0,
+      "triangles": 1200,
+      "surface_min_m": -0.11612899039319596,
+      "surface_max_m": 0.1188860356881642
+    }
+  ],
+  "note": "Block tops are horizontal; there are no flat-only tiles, central platforms or flat borders."
+}

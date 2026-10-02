@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-02",
+  "scope": "Short PPO resource and numerical validity check, not a complete training run or performance evaluation",
+  "hardware": "NVIDIA GeForce RTX 2080, 8192 MiB VRAM",
+  "task": "Isaac-Ant-Six-TrainMix-v0",
+  "num_envs": 1024,
+  "robot_seed": 42,
+  "terrain_seed": 1100,
+  "iterations_completed": 60,
+  "steps_per_env": 32,
+  "transitions": 1966080,
+  "process_exit_code": 0,
+  "headless": true,
+  "console_and_kit_errors": {
+    "/tmp/ant_six_env1024_train.log": [],
+    "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_012712.log": []
+  },
+  "console_log": "logs/rsl_rl/ant_six_validation/2026-10-02_01-27-23_env1024_verification/validation_console.log",
+  "kit_log": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_012712.log",
+  "command": "./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Ant-Six-TrainMix-v0 --headless --num_envs 1024 --max_iterations 60 --seed 42 --run_name env1024_verification agent.experiment_name=ant_six_validation",
+  "sampled_gpu_memory_used_mib": 6236,
+  "sampled_gpu_memory_note": "A sample during training, not the peak or a guarantee for concurrent GPU workloads",
+  "checkpoint": "logs/rsl_rl/ant_six_validation/2026-10-02_01-27-23_env1024_verification/model_59.pt",
+  "finite_checkpoint_tensors": 68,
+  "finite_tensorboard_scalar_tags": 21,
+  "terrain_triangles": 4109328,
+  "terrain_colliders": 87,
+  "spawn_coverage": {
+    "E1": {
+      "num_envs": 100,
+      "initial_profile_counts": {
+        "T2": 21,
+        "T3": 12,
+        "T4": 29,
+        "T1": 21,
+        "T5": 17
+      }
+    },
+    "Mix": {
+      "num_envs": 1024,
+      "initial_profile_counts": {
+        "T5": 160,
+        "T4": 195,
+        "T3": 235,
+        "T2": 224,
+        "T1": 210
+      }
+    }
+  },
+  "files_sha256": {
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain_spec.py": "da175f033d9932773d138ed94dd85da37bcf0bfec7e232756ae1cffc3178141a",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/six_terrain.py": "ef2602780fc1dd84b469004a5cb88c886fdccd1aeb1ee5bb267c1b5adec70d72",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_six_env_cfg.py": "c3e8c5b97d8f217d92e899a9b1746b10bd0fb15027b50366483b7540475336e8",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_six_ppo_cfg.py": "8650ed49dde70ad6c7f63cd3f29b9e575998ad34b3bca8c039f3936f7d910615",
+    "scripts/environments/inspect_ant_six.py": "8defab76ff244518811604f9754f892c4fb3f6751dc503ddda53353bc535eebc",
+    "scripts/environments/check_ant_six.py": "2438b8e6ad3fa968353c07add0f79b30aad076736528d8fc907f52c0404fb477"
+  },
+  "original_files_unchanged_vs_git_head": [
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py",
+    "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/rsl_rl_ppo_cfg.py",
+    "source/isaaclab/isaaclab/terrains/config/rough.py"
+  ],
+  "failed_user_runs_do_not_resume": [
+    "2026-10-02_01-09-56_six_mix_seed42",
+    "2026-10-02_01-12-48_six_mix_seed42"
+  ],
+  "limitations": [
+    "1000/4000 iterations not completed in this check",
+    "Other terrain profiles were previously checked only at 16 environments (E1 at 100)",
+    "4096 environments remain unsupported by this memory workaround on the tested GPU"
+  ]
+}

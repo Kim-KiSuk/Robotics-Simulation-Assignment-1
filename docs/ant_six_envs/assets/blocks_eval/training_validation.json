@@ -1,0 +1,28 @@
+{
+  "training_exit_code": 0,
+  "num_envs": 1024,
+  "iterations": 60,
+  "transitions": 1966080,
+  "checkpoint": "logs/rsl_rl/ant_six_height_validation/2026-10-02_05-13-21_height_scan_smoke/model_59.pt",
+  "finite_tensors": 17,
+  "finite_scalar_tags": 21,
+  "observation_dim": 123,
+  "gpu_memory_sample_mib": 6834,
+  "logs": [
+    {
+      "console": "/tmp/ant_e3_scan_check.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_050956.log",
+      "error_matches": 0
+    },
+    {
+      "console": "/tmp/ant_e3_base_check.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_051152.log",
+      "error_matches": 0
+    },
+    {
+      "console": "/tmp/ant_height_train_smoke.log",
+      "kit": "/home/kisuk/miniforge3/envs/lerobot-arena/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261002_051311.log",
+      "error_matches": 0
+    }
+  ]
+}

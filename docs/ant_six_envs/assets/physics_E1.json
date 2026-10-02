@@ -1,0 +1,33 @@
+{
+  "profile": "E1",
+  "task": "Isaac-Ant-Six-Eval-v0",
+  "passed": true,
+  "scope": "100 robots, full map, 120 zero-action steps; no training or policy scoring",
+  "terrain_seed": 9117,
+  "rng_check": true,
+  "materials": {
+    "T1": [
+      0.9,
+      0.75
+    ],
+    "T2": [
+      0.9,
+      0.75
+    ],
+    "T3": [
+      0.9,
+      0.75
+    ],
+    "T4": [
+      0.9,
+      0.75
+    ],
+    "T5": [
+      0.9,
+      0.75
+    ]
+  },
+  "tiles": 1936,
+  "triangles": 4150608,
+  "observation_dim": 60
+}

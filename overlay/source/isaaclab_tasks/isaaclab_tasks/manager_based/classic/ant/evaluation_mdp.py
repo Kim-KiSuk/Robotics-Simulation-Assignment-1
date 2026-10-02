@@ -16,12 +16,16 @@ class AntStepSnapshot(RecorderTerm):
         env.ant_evaluation_snapshot = self
         self.position = torch.zeros(env.num_envs, 3, device=env.device)
         self.missing_ground = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
+        self.missing_scan = torch.zeros_like(self.missing_ground)
 
     def record_post_step(self):
         self.position.copy_(self._env.scene["robot"].data.root_pos_w)
         if "ground_height" in self._env.scene.sensors:
             hits = self._env.scene["ground_height"].data.ray_hits_w[:, 0, 2]
             self.missing_ground.copy_(~torch.isfinite(hits))
+        if "height_scanner" in self._env.scene.sensors:
+            hits = self._env.scene["height_scanner"].data.ray_hits_w
+            self.missing_scan.copy_(~torch.isfinite(hits).all(dim=(1, 2)))
         return None, None
 
 

@@ -1,0 +1,6 @@
+map,model,source,completed,reward_mean,reward_std,steps_mean,steps_std,target_progress_mean_m,target_progress_std_m,forward_displacement_mean_m,forward_displacement_std_m,timeout_without_failure_rate,termination_rate,missing_ground_episodes,missing_scan_episodes,command_provided,per_episode_json_available,reproduced_in_this_upload
+E1,SixMix,user_provided_terminal_output,100,72.007249,24.702503,854.81,254.199083,,,,,,,,,True,False,False
+E2,A,user_provided_terminal_output,100,14.283684,12.772225,409.94,339.345423,,,,,,,,,True,False,False
+E2,SixMix,user_provided_terminal_output,100,54.428906,29.085658,733.49,328.546846,,,,,,,,,True,False,False
+E3,A,user_provided_terminal_output,100,9.344116,8.764984,386.83,332.840444,9.585305,9.210645,9.604842,9.244595,0.17,0.83,0,0,False,False,False
+E3,HeightScan,user_provided_terminal_output,100,53.930177,23.518258,775.28,297.93033,52.982837,23.187748,52.992913,23.189865,0.61,0.39,0,0,False,False,False

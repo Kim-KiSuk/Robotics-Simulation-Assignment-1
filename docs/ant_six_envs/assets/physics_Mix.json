@@ -1,0 +1,31 @@
+{
+  "profile": "Mix",
+  "task": "Isaac-Ant-Six-TrainMix-v0",
+  "passed": true,
+  "scope": "16 robots, full map, 120 zero-action steps; no training or policy scoring",
+  "materials": {
+    "T1": [
+      1.0,
+      1.0
+    ],
+    "T2": [
+      0.8,
+      0.6
+    ],
+    "T3": [
+      1.2,
+      1.0
+    ],
+    "T4": [
+      0.6,
+      0.45
+    ],
+    "T5": [
+      1.4,
+      1.1
+    ]
+  },
+  "tiles": 1936,
+  "triangles": 4109328,
+  "observation_dim": 60
+}
