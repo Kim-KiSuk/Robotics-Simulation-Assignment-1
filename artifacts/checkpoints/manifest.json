@@ -1,8 +1,8 @@
 [
   {
-    "model": "A",
+    "model": "Baseline",
     "original_run": "ant/2026-09-30_13-50-37_ant_baseline",
-    "checkpoint": "artifacts/checkpoints/A/model_999.pt",
+    "checkpoint": "artifacts/checkpoints/baseline/ant_baseline.pt",
     "sha256": "a1c536f2115a9b780440f6473393aa64db2f7f5a5d9230bb8e6a7fb54bc5de87",
     "training_seed": 42,
     "max_iterations": 1000,
@@ -10,9 +10,9 @@
     "num_steps_per_env": 32
   },
   {
-    "model": "B",
+    "model": "Rough",
     "original_run": "ant_rough/2026-09-30_23-29-27_rough_seed42",
-    "checkpoint": "artifacts/checkpoints/B/model_999.pt",
+    "checkpoint": "artifacts/checkpoints/rough/ant_rough.pt",
     "sha256": "94096daf83a1c56fb52a37cc221ad9314db6745099bf92d5c69eaaefebe478f6",
     "training_seed": 42,
     "max_iterations": 1000,
@@ -20,9 +20,9 @@
     "num_steps_per_env": 32
   },
   {
-    "model": "C",
+    "model": "FrictionDR",
     "original_run": "ant_rough_dr/2026-10-01_00-08-03_rough_dr_seed42",
-    "checkpoint": "artifacts/checkpoints/C/model_999.pt",
+    "checkpoint": "artifacts/checkpoints/friction_dr/ant_friction_dr.pt",
     "sha256": "fcd10a2d4fe6935a549e83ab043168eac6c7e07301bcb79e0d404c2e256e1a30",
     "training_seed": 42,
     "max_iterations": 1000,
@@ -30,9 +30,9 @@
     "num_steps_per_env": 32
   },
   {
-    "model": "SixMix",
+    "model": "TerrainMix",
     "original_run": "ant_six/2026-10-02_01-42-52_six_mix_1024_seed42",
-    "checkpoint": "artifacts/checkpoints/SixMix/model_3999.pt",
+    "checkpoint": "artifacts/checkpoints/terrain_mix/ant_terrain_mix.pt",
     "sha256": "61ab13d93fe7317faad89c1630ac6de91f8cab46cb37ee3b2205aff047f79071",
     "training_seed": 42,
     "terrain_seed": 1100,
@@ -46,7 +46,7 @@
   {
     "model": "HeightScan",
     "original_run": "ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42",
-    "checkpoint": "artifacts/checkpoints/HeightScan/model_3999.pt",
+    "checkpoint": "artifacts/checkpoints/height_scan/ant_height_scan.pt",
     "sha256": "c3ef7276408de1972dc1f48c86e1df815d1d0efad9d75e78a20b57204aeb4d34",
     "training_seed": 42,
     "terrain_seed": 1100,
@@ -60,7 +60,7 @@
   {
     "model": "Stability",
     "original_run": "ant_six_height_stability/2026-10-02_09-37-03_height_stability_seed42",
-    "checkpoint": "artifacts/checkpoints/Stability/model_499.pt",
+    "checkpoint": "artifacts/checkpoints/stability/ant_stability.pt",
     "sha256": "5a3e1e1da844e961d7ea9111dbbd71bbe27a6897ec902b2aa9d1e49444806010",
     "training_seed": 42,
     "terrain_seed": 1200,

@@ -22,11 +22,11 @@ python3 Robotics-Simulation-Assignment-1/apply_overlay.py --target IsaacLab_RS
 
 | 이름 | 파일 | 입력 | E3 평가 Task |
 |---|---|---:|---|
-| 평지 A | `artifacts/checkpoints/A/model_999.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
-| 초기 B/C | `artifacts/checkpoints/B/model_999.pt`, `C/model_999.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
-| SixMix | `artifacts/checkpoints/SixMix/model_3999.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
-| HeightScan | `artifacts/checkpoints/HeightScan/model_3999.pt` | 123 | `Isaac-Ant-Six-Eval-Blocks-HeightScan-v0` |
-| Stability | `artifacts/checkpoints/Stability/model_499.pt` | 123 | `Isaac-Ant-Six-Eval-Blocks-HeightScan-v0` |
+| 평지 A | `artifacts/checkpoints/baseline/ant_baseline.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
+| 초기 B/C | `artifacts/checkpoints/rough/ant_rough.pt`, `artifacts/checkpoints/friction_dr/ant_friction_dr.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
+| SixMix | `artifacts/checkpoints/terrain_mix/ant_terrain_mix.pt` | 60 | `Isaac-Ant-Six-Eval-Blocks-v0` |
+| HeightScan | `artifacts/checkpoints/height_scan/ant_height_scan.pt` | 123 | `Isaac-Ant-Six-Eval-Blocks-HeightScan-v0` |
+| Stability | `artifacts/checkpoints/stability/ant_stability.pt` | 123 | `Isaac-Ant-Six-Eval-Blocks-HeightScan-v0` |
 
 60/123차원 E3 Task는 같은 지형·마찰·로봇·원본 보상·시간·종료 기준을 사용하며 높이 스캔 입력 유무가 다릅니다. 체크포인트와 관측 설정을 맞춰야 합니다. R/H/HR의 H(240차원 이력)는 HeightScan(123차원)과 다릅니다.
 
@@ -39,28 +39,28 @@ cd ~/IsaacLab_RS
 # Stability: 최신 추가 학습 모델, 평가에는 원본 보상 사용
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-HeightScan-v0 \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/Stability/model_499.pt \
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/stability/ant_stability.pt \
   --headless --seed 24 --num_envs 100 \
   --results_file logs/ant_e3_public_eval/stability_seed24.json
 
 # 높이 관측 부모 모델: 같은 조건에서 비교
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-HeightScan-v0 \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/HeightScan/model_3999.pt \
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/height_scan/ant_height_scan.pt \
   --headless --seed 24 --num_envs 100 \
   --results_file logs/ant_e3_public_eval/height_scan_seed24.json
 
 # 평지 Baseline: 같은 E3의 60차원 관측 Task
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-v0 \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/A/model_999.pt \
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/baseline/ant_baseline.pt \
   --headless --seed 24 --num_envs 100 \
   --results_file logs/ant_e3_public_eval/baseline_seed24.json
 
 # 관측 추가의 효과를 비교할 때 사용할 60차원 SixMix
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-v0 \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/SixMix/model_3999.pt \
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/terrain_mix/ant_terrain_mix.pt \
   --headless --seed 24 --num_envs 100 \
   --results_file logs/ant_e3_public_eval/six_mix_seed24.json
 ```
@@ -75,12 +75,12 @@ E1 또는 E2에서 60차원 모델을 평가하려면 Task를 각각 `Isaac-Ant-
 
 ## 화면과 영상으로 확인
 
-정량 평가와 같은 100개 환경으로 녹화합니다. 체크포인트 파일이 들어 있는 공개 폴더에 영상이 섞이지 않도록 출력 폴더를 지정합니다. 아래는 HeightScan입니다. Stability를 보려면 checkpoint를 `../Robotics-Simulation-Assignment-1/artifacts/checkpoints/Stability/model_499.pt`로, video_folder를 `logs/ant_e3_public_video/stability`로 바꾸고 같은 Task를 사용합니다.
+정량 평가와 같은 100개 환경으로 녹화합니다. 체크포인트 파일이 들어 있는 공개 폴더에 영상이 섞이지 않도록 출력 폴더를 지정합니다. 아래는 HeightScan입니다. Stability를 보려면 checkpoint를 `../Robotics-Simulation-Assignment-1/artifacts/checkpoints/stability/ant_stability.pt`로, video_folder를 `logs/ant_e3_public_video/stability`로 바꾸고 같은 Task를 사용합니다.
 
 ```bash
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-HeightScan-v0 \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/HeightScan/model_3999.pt \
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/height_scan/ant_height_scan.pt \
   --seed 24 --num_envs 100 --real-time --diagnostics \
   --video --video_length 960 --video_folder logs/ant_e3_public_video/height_scan
 ```
@@ -120,13 +120,13 @@ SixMix와 HeightScan은 각각 처음부터 학습했습니다. 아래 설정은
   --task Isaac-Ant-Six-TrainMix-HeightScan-Stability-v0 \
   --headless --num_envs 1024 --max_iterations 500 --seed 42 \
   --run_name height_stability_seed42 \
-  --warm_start ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/HeightScan/model_3999.pt \
+  --warm_start ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/height_scan/ant_height_scan.pt \
   --warm_start_min_std 0.02
 ```
 
 결과는 `logs/rsl_rl/ant_six_height_stability/<실행시각>_height_stability_seed42/model_499.pt`입니다. 16,384,000 transition을 추가합니다. actor·critic·정책 noise를 읽고 optimizer와 반복 카운터는 초기화합니다. `--resume`과 함께 사용하지 않습니다. 0.02는 시작 시 noise의 하한이며 학습 내내 강제로 유지하는 값이 아닙니다.
 
-실제 실행에 사용한 부모 경로는 `logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42/model_3999.pt`였으며 [warm_start.json](../artifacts/checkpoints/Stability/warm_start.json)에 SHA와 초기화 기록이 있습니다.
+실제 실행에 사용한 부모 경로는 `logs/rsl_rl/ant_six_height/2026-10-02_05-21-39_six_mix_height_seed42/model_3999.pt`였으며 [warm_start.json](../artifacts/checkpoints/stability/warm_start.json)에 SHA와 초기화 기록이 있습니다.
 
 평가는 학습 Task 대신 **`Isaac-Ant-Six-Eval-Blocks-HeightScan-v0`**를 사용합니다. `Isaac-Ant-Six-Eval-Blocks-v0`는 60차원이라 이 모델을 불러올 수 없습니다.
 
@@ -146,7 +146,7 @@ TensorBoard는 학습 중에도 볼 수 있습니다. 학습 보상 곡선과 �
 python scripts/environments/test_ant_height_scan_math.py
 python scripts/environments/test_ant_friction.py
 python scripts/environments/test_ant_stability.py \
-  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/HeightScan/model_3999.pt
+  --checkpoint ../Robotics-Simulation-Assignment-1/artifacts/checkpoints/height_scan/ant_height_scan.pt
 ./isaaclab.sh -p scripts/environments/check_ant_height_scan.py --help
 ```
 

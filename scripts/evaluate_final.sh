@@ -12,7 +12,7 @@ elif [[ $# -ne 0 ]]; then
   exit 2
 fi
 export TEAM_ANT_EVAL_V21_ROOT="$ROOT/evaluation/team_v21"
-CHECKPOINT="$ROOT/artifacts/checkpoints/final_lift/model_5999.pt"
+CHECKPOINT="$ROOT/artifacts/checkpoints/final/ant_final.pt"
 EXPECTED=c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382
 test "$(sha256sum "$CHECKPOINT" | cut -d ' ' -f 1)" = "$EXPECTED"
 (

@@ -1,6 +1,6 @@
 {
   "status": "completed; frozen before team v2.1 evaluation",
-  "checkpoint": "artifacts/checkpoints/final_lift/model_5999.pt",
+  "checkpoint": "artifacts/checkpoints/final/ant_final.pt",
   "checkpoint_sha256": "c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382",
   "training_task": "Isaac-Ant-WaveRange-Diverse-Balance-v0",
   "training_env": "/home/kisuk/IsaacLab_RS/source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_diverse_train_env_cfg.py:AntDiverseBalanceEnvCfg",

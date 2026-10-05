@@ -15,3 +15,8 @@ PASS: PPTX rendered by LibreOffice into 7-page PDF; all seven page previews insp
 PASS: self-evaluation MP4 decoded as 60fps/960 frames.
 Learning iteration numbers removed from active prose and presentation; raw configs/checkpoints retained.
 No new policy training/evaluation performed; LMS submission not performed.
+
+Checkpoint rename review: 2026-10-06 Asia/Seoul
+PASS: nine checkpoint files renamed by role; every SHA-256 unchanged.
+PASS: public command, model manifests, documentation links, project archive and submission hashes updated.
+Historical runtime paths in raw logs/CSV/JSON retained as measured; no policy re-run.

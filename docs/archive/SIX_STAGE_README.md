@@ -4,9 +4,9 @@
 
 | 모델 | 해결하려는 문제와 변경 | 관측 | 학습 | 체크포인트 |
 |---|---|---:|---|---|
-| **SixMix** | 한 바닥에만 적응하지 않도록 다섯 지형 구성과 마찰 조건을 한 정책으로 학습 | 60D | 처음부터 4000회 | [model_3999.pt](../../artifacts/checkpoints/SixMix/model_3999.pt) |
-| **HeightScan** | 앞쪽 높낮이를 알 수 있도록 주변 지면 높이 63개 추가 | 123D | 처음부터 4000회 | [model_3999.pt](../../artifacts/checkpoints/HeightScan/model_3999.pt) |
-| **Stability** | 남아 있는 조기 종료를 줄이려 지형 범위 확대와 위험 감점을 적용 | 123D | HeightScan에서 500회 추가 | [model_499.pt](../../artifacts/checkpoints/Stability/model_499.pt) |
+| **SixMix** | 한 바닥에만 적응하지 않도록 다섯 지형 구성과 마찰 조건을 한 정책으로 학습 | 60D | 처음부터 4000회 | [ant_terrain_mix.pt](../../artifacts/checkpoints/terrain_mix/ant_terrain_mix.pt) |
+| **HeightScan** | 앞쪽 높낮이를 알 수 있도록 주변 지면 높이 63개 추가 | 123D | 처음부터 4000회 | [ant_height_scan.pt](../../artifacts/checkpoints/height_scan/ant_height_scan.pt) |
+| **Stability** | 남아 있는 조기 종료를 줄이려 지형 범위 확대와 위험 감점을 적용 | 123D | HeightScan에서 500회 추가 | [ant_stability.pt](../../artifacts/checkpoints/stability/ant_stability.pt) |
 
 모델별 입력·학습 예산·부모 체크포인트는 [모델 목록](../../artifacts/checkpoints/manifest.json)에서 확인할 수 있습니다.
 

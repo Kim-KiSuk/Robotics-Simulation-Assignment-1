@@ -78,7 +78,7 @@ python scripts/environments/inspect_ant_varied.py
 아래 경로는 현재 작업 중인 `IsaacLab_RS` 기준이다.
 
 ```bash
-B_CKPT="ant_submission/artifacts/checkpoints/B/model_999.pt"
+B_CKPT="ant_submission/artifacts/checkpoints/rough/ant_rough.pt"
 R_CKPT="logs/rsl_rl/ant_rough_reward/2026-10-01_01-34-45_reward_seed42/model_999.pt"
 
 bash ant_submission/evaluate_matrix.sh B Isaac-Ant-Varied-v0 \

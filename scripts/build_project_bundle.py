@@ -25,14 +25,14 @@ def build(source):
                 continue
     for p in (ROOT/'overlay').rglob('*'):
         if p.is_file():entries[str(p.relative_to(ROOT/'overlay'))]=(p.read_bytes(),0o755 if p.suffix=='.sh' else 0o644)
-    for folder in ('evaluation/team_v21','artifacts/checkpoints/final_lift'):
+    for folder in ('evaluation/team_v21','artifacts/checkpoints/final'):
         for p in (ROOT/folder).rglob('*'):
             if p.is_file():entries[str(p.relative_to(ROOT))]=(p.read_bytes(),0o644)
     entries['EVALUATION_COMMAND.txt']=((ROOT/'submission/evaluation_command.txt').read_bytes(),0o644)
     entries['SUBMISSION_README.md']=(
         ('# unseen 지형 보행 학습 — 제출 프로젝트\n\n'
          f'원본 commit: {BASE}\n\n'
-         '수업 원본 소스 + 과제 overlay + 최종 model_5999.pt + 팀 평가 배포본을 포함한다.\n'
+         '수업 원본 소스 + 과제 overlay + 최종 ant_final.pt + 팀 평가 배포본을 포함한다.\n'
          'Isaac Sim, conda 의존성, 다운로드되는 USD는 별도 설치가 필요하다.\n'
          '저장소 설치 안내를 따라 이 프로젝트의 editable package를 설치한 뒤 EVALUATION_COMMAND.txt를 실행한다.\n'
          '팀 v2.1 평가 시 TEAM_ANT_EVAL_V21_ROOT를 이 프로젝트의 evaluation/team_v21 절대경로로 지정한다.\n'

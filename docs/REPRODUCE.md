@@ -20,7 +20,7 @@ cd ~/IsaacLab_RS_final
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
   --seed 24 --num_envs 100 \
-  --checkpoint artifacts/checkpoints/final_lift/model_5999.pt \
+  --checkpoint artifacts/checkpoints/final/ant_final.pt \
   --headless --diagnostics --video --video_length 960 \
   --video_folder logs/final_self_eval/video
 ```
@@ -31,7 +31,7 @@ cd ~/IsaacLab_RS_final
 
 ## 기존 checkout에 적용할 경우
 
-프로젝트 압축본 대신 고정된 원본 checkout을 준비하고 루트의 `apply_overlay.py`를 사용해도 된다. `--target`은 대상 checkout, `--check`는 쓰기 전 검사다. 예상하지 못한 로컬 변경은 덮어쓰지 않는다. 이 경우 최종 체크포인트 위치를 공개 저장소의 `artifacts/checkpoints/final_lift/model_5999.pt` 절대경로로 맞춘다.
+프로젝트 압축본 대신 고정된 원본 checkout을 준비하고 루트의 `apply_overlay.py`를 사용해도 된다. `--target`은 대상 checkout, `--check`는 쓰기 전 검사다. 예상하지 못한 로컬 변경은 덮어쓰지 않는다. 이 경우 최종 체크포인트 위치를 공개 저장소의 `artifacts/checkpoints/final/ant_final.pt` 절대경로로 맞춘다.
 
 ## 팀 공통 v2.1 재현
 

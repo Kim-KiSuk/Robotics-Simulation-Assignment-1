@@ -9,7 +9,7 @@ R/H/HR의 본 학습도 같은 학습량을 기준으로 비교합니다.
 ## 저장소 구성
 
 - `overlay/`: 원본 checkout에 설치할 Ant 설정, 새 task, 학습·평가 스크립트
-- `artifacts/checkpoints/{A,B,C}/model_999.pt`: 최종 모델 및 `params/*.yaml`
+- `artifacts/checkpoints/baseline/ant_baseline.pt`, `rough/ant_rough.pt`, `friction_dr/ant_friction_dr.pt`: 최종 모델 및 `params/*.yaml`
 - `artifacts/tensorboard/{A,B,C}/`: 학습 곡선
 - `artifacts/evaluation_logs/`: 기존 15개 평가 로그
 - `artifacts/videos/`: 기존 play 녹화. 별도 메타데이터가 없어 특정 마찰/seed의
@@ -64,7 +64,7 @@ B/C reward와 직접 비교하지 않습니다.
 ```bash
 # 기존 B를 새 평가기로 평가. 평가 출력 폴더는 새로운 경로를 사용합니다.
 bash ant_submission/evaluate_matrix.sh B Isaac-Ant-Rough-v0 \
-  ant_submission/artifacts/checkpoints/B/model_999.pt logs/ant_common_eval 2001 2002
+  ant_submission/artifacts/checkpoints/rough/ant_rough.pt logs/ant_common_eval 2001 2002
 
 # R 학습 완료 후 CKPT를 실제 경로로 바꿉니다.
 CKPT='logs/rsl_rl/ant_rough_reward/실제_학습폴더/model_999.pt'

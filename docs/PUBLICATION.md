@@ -6,7 +6,7 @@
 - 제출용 프로젝트 압축본, 평가 명령어 TXT, 7장 PPTX·PDF 및 5분 발표 원고.
 
 - 원본 IsaacLab_RS에 적용할 overlay, 파일별 SHA-256, 원본 commit.
-- 최종 모델과 개발 비교용 Balance6000/Failure2 모델, 실제 학습 설정과 최종 TensorBoard.
+- 최종 모델과 개발 비교용 Balance6000/FailurePenalty 모델, 실제 학습 설정과 최종 TensorBoard.
 - 최종 v2.1 최초 평가의 네 JSON·CSV·로그·환경/runner 설정·smoke 검사 기록.
 - 같은 모델로 진행한 영상 재실행 결과와 16초 MP4 네 개, 6초 GIF 미리보기, 생성 코드.
 - 팀 v2.1 배포 파일의 변경 없는 사본과 실제 평가 코드 스냅샷.

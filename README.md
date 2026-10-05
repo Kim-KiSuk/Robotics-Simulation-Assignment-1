@@ -28,7 +28,7 @@
 | --- | --- | --- |
 | 다양한 접촉 조건을 경험하면 특정 바닥에 대한 의존이 줄어든다 | T1~T5 혼합, 파도 수·블록/계단 폭 확대, 로봇 마찰 randomization | 공통 지형에서 평가; 개별 요소의 기여는 완전히 분리하지 못함 |
 | 앞의 지형 정보를 주면 발 디딤에 활용할 수 있다 | 기존 상태 60개 + 주변 지면 높이 63개 | 123D 모델을 처음부터 학습; 센서 단독 효과와 최종 개선 효과는 구분 |
-| 흔들림·실패에 작은 비용을 주면 전진을 더 오래 유지한다 | 액션 변화 −0.002, roll/pitch 각속도 −0.01, 실패 사건 −2 | 같은 E3에서 Balance과 Failure2 비교 |
+| 흔들림·실패에 작은 비용을 주면 전진을 더 오래 유지한다 | 액션 변화 −0.002, roll/pitch 각속도 −0.01, 실패 사건 −2 | 같은 E3에서 Balance과 FailurePenalty 비교 |
 | 시작 시 지형과의 겹침은 정책 외적인 조기 실패를 만든다 | 영 행동 진단 후 학습 reset Z +0.15m | 양쪽 모델을 동일한 SpawnLift E3에서 비교 |
 
 이는 단일 학습 seed 중심의 단계별 실험이다. 모든 조합을 독립적으로 비교한 완전한 ablation은 아니며, 참고 저장소의 Curriculum·4-frame History·3-seed 실험을 수행했다고 주장하지 않는다. [가설별 검증 범위](docs/METHOD.md)
@@ -56,15 +56,15 @@
 | SixMix | 지형·마찰 조건을 혼합 | 60D, 새 정책 학습 |
 | HeightScan | 앞쪽을 포함한 9×7 높이 스캔 추가 | 123D, 새 정책 학습 |
 | Balance | 다양한 지형·마찰 + 작은 액션 변화·각속도 비용 | 처음부터 학습 |
-| Failure2 | 넘어지는 사건에 −2 추가 | 처음부터 학습 |
-| **최종 Failure2Lift** | Failure2의 학습 초기 높이를 +0.15m 조정 | **처음부터 학습**, 추가 학습 아님 |
+| FailurePenalty | 넘어지는 사건에 −2 추가 | 처음부터 학습 |
+| **최종 Final** | FailurePenalty의 학습 초기 높이를 +0.15m 조정 | **처음부터 학습**, 추가 학습 아님 |
 
 로봇 링크·관절·USD·8개 effort 행동은 유지했다. 강한 자세 감점이나 수직 움직임 억제는 기대한 개선을 보이지 않아 최종 모델에서 제외했다.
 
 
 ![평가 조건을 분리한 개발 실험](artifacts/figures/development_comparison.png)
 
-원래 E3에서 Balance → Failure2는 보상 **68.62 → 72.80**, 생존율 **81% → 86%**였다. SpawnLift E3에서 기존 Failure2 → 최종 모델은 보상 **73.75 → 81.90**, 생존율 **82% → 88%**였다. 두 표의 reset 조건이 다르므로 하나의 연속 개선 수치로 합치지 않는다. [실패한 실험을 포함한 결과](docs/RESULTS.md)
+원래 E3에서 Balance → FailurePenalty는 보상 **68.62 → 72.80**, 생존율 **81% → 86%**였다. SpawnLift E3에서 기존 FailurePenalty → 최종 모델은 보상 **73.75 → 81.90**, 생존율 **82% → 88%**였다. 두 표의 reset 조건이 다르므로 하나의 연속 개선 수치로 합치지 않는다. [실패한 실험을 포함한 결과](docs/RESULTS.md)
 
 ## 4. 우리가 만든 자체 평가맵
 
@@ -115,7 +115,7 @@ cd ~/IsaacLab_RS_final
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
   --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
   --seed 24 --num_envs 100 \
-  --checkpoint artifacts/checkpoints/final_lift/model_5999.pt \
+  --checkpoint artifacts/checkpoints/final/ant_final.pt \
   --headless --diagnostics --video --video_length 960 \
   --video_folder logs/final_self_eval/video
 ```
@@ -132,7 +132,8 @@ cd ~/IsaacLab_RS_final
 | [Results](docs/RESULTS.md) | 개발 비교, 실패 사례, 최종 평가 해석 |
 | [Reproduce](docs/REPRODUCE.md) | 설치, 제출용 평가, 실행 설정 기록 |
 | [변경 코드](overlay) / [원본 설정](reference/original) | 기존 코드에 적용할 파일과 비교 기준 |
-| [최종 모델](artifacts/checkpoints/final_lift/model_5999.pt) / [학습 설정](configs/final) | 제출 정책과 저장된 실제 설정 |
+| [모델 9개 안내](artifacts/checkpoints/README.md) | 역할별 파일 이름과 체크포인트 목록 |
+| [최종 모델](artifacts/checkpoints/final/ant_final.pt) / [학습 설정](configs/final) | 제출 정책과 저장된 실제 설정 |
 | [TensorBoard](artifacts/tensorboard/final_lift) / [그래프 코드](scripts/build_figures.py) | 학습 기록과 그림 재생성 |
 | [공개 파일 검증](docs/PUBLICATION.md) | 재현 범위, 영상과 원자료의 관계 |
 

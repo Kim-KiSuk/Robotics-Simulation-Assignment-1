@@ -9,11 +9,11 @@ seed 24, 100개 환경, 지형 seed 9317, 지면 마찰 0.9/0.75, 지면 상대 
 | 모델 | 보상 mean ± std | 생존율 | 평균 +x 거리 |
 | --- | ---: | ---: | ---: |
 | Balance | 68.62 ± 24.65 | 81% | 71.77m |
-| Failure2 | 72.80 ± 25.00 | 86% | 77.50m |
+| FailurePenalty | 72.80 ± 25.00 | 86% | 77.50m |
 
-[Balance](../results/development/balance6000/results.json) · [Failure2](../results/development/failure2/results.json)
+[Balance](../results/development/balance6000/results.json) · [FailurePenalty](../results/development/failure2/results.json)
 
-Balance→Failure2는 동일 학습 조건에서 실패 사건 비용 −2를 넣은 비교다. 보상 +4.18, 생존 +5%p, 거리 +5.73m가 관찰됐다. 이는 해당 seed의 결과이며 다른 seed에서도 효과가 유지된다는 증명은 아니다.
+Balance→FailurePenalty는 동일 학습 조건에서 실패 사건 비용 −2를 넣은 비교다. 보상 +4.18, 생존 +5%p, 거리 +5.73m가 관찰됐다. 이는 해당 seed의 결과이며 다른 seed에서도 효과가 유지된다는 증명은 아니다.
 
 ## 2. 잘되지 않은 접근도 남긴다
 
@@ -30,12 +30,12 @@ Balance→Failure2는 동일 학습 조건에서 실패 사건 비용 −2를 �
 
 ## 3. 초기 소환 보완: 같은 SpawnLift E3에서 비교
 
-발과 블록의 겹침을 관찰한 뒤 reset Z +0.15m를 별도 평가 Task에 적용했다. 기존 Failure2의 원래 E3 점수와 바로 이어 붙이지 않고, **양쪽 모두 같은 SpawnLift 평가**로 비교한다.
+발과 블록의 겹침을 관찰한 뒤 reset Z +0.15m를 별도 평가 Task에 적용했다. 기존 FailurePenalty의 원래 E3 점수와 바로 이어 붙이지 않고, **양쪽 모두 같은 SpawnLift 평가**로 비교한다.
 
 | 모델 | 학습 reset 추가 높이 | 보상 mean ± std | 생존율 | 평균 steps | 평균 +x 거리 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 기존 Failure2 | 0m | 73.75 ± 21.31 | 82% | 890.92 | 78.66m |
-| 최종 Failure2Lift | +0.15m | 81.90 ± 17.05 | 88% | 934.19 | 82.79m |
+| 기존 FailurePenalty | 0m | 73.75 ± 21.31 | 82% | 890.92 | 78.66m |
+| 최종 Final | +0.15m | 81.90 ± 17.05 | 88% | 934.19 | 82.79m |
 
 [동일 조건의 기존 모델](../results/development/failure2_eval_lift/results.json) · [최종 모델](../results/development/final_lift/results.json)
 
@@ -44,7 +44,7 @@ Balance→Failure2는 동일 학습 조건에서 실패 사건 비용 −2를 �
 ## 4. 팀 공통 자체 평가 v2.1: 고정한 정책의 새로운 지형 평가
 
 
-평가한 체크포인트는 `final_lift/model_5999.pt`이며 SHA-256은 다음과 같다.
+평가한 체크포인트는 `final/ant_final.pt`이며 SHA-256은 다음과 같다.
 
 ```text
 c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382

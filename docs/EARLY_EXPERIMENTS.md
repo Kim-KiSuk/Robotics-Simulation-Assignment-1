@@ -31,7 +31,7 @@
 보상 크기로 모델의 순위를 매기지 않습니다. A를 동일한 험지에서 평가하는 비교는
 후속 과제로 남아 있습니다.
 
-[A 체크포인트](../artifacts/checkpoints/A/model_999.pt) · [A 보행 녹화](../artifacts/videos/A_play.mp4)
+[A 체크포인트](../artifacts/checkpoints/baseline/ant_baseline.pt) · [A 보행 녹화](../artifacts/videos/A_play.mp4)
 
 ## 2. 지형 형상에 대응하도록 보완 — B
 
@@ -51,7 +51,7 @@ A와 B는 각각 처음부터 같은 1000-iteration 예산으로 학습했습니
 
 현재 B는 아래 B/C 비교에서 기본·고마찰 조건의 평균 보상이 더 높은 모델입니다.
 
-[B 체크포인트](../artifacts/checkpoints/B/model_999.pt) · [B 보행 녹화](../artifacts/videos/B_play.mp4)
+[B 체크포인트](../artifacts/checkpoints/rough/ant_rough.pt) · [B 보행 녹화](../artifacts/videos/B_play.mp4)
 
 ## 3. 마찰 조건에도 대응하도록 보완 — C
 
@@ -66,7 +66,7 @@ A와 B는 각각 처음부터 같은 1000-iteration 예산으로 학습했습니
 C도 처음부터 1000 iterations 학습했습니다. 여러 마찰 조건을 경험하면 새 바닥에
 잘 대응할 것이라는 가설이었지만, **현재 측정 결과에서는 B보다 나아지지 않았습니다.**
 
-[C 체크포인트](../artifacts/checkpoints/C/model_999.pt) · [C 보행 녹화](../artifacts/videos/C_play.mp4)
+[C 체크포인트](../artifacts/checkpoints/friction_dr/ant_friction_dr.pt) · [C 보행 녹화](../artifacts/videos/C_play.mp4)
 
 ### 같은 조건에서 비교한 B와 C
 

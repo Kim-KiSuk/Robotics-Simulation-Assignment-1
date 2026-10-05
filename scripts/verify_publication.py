@@ -22,6 +22,11 @@ def verify():
         assert sha(ROOT/'overlay'/e['path'])==e['sha256'],e['path']
     for e in json.loads((ROOT/'artifacts/checkpoints/final_models_manifest.json').read_text()):
         assert sha(ROOT/e['path'])==e['sha256'],e['name']
+    for e in json.loads((ROOT/'artifacts/checkpoints/manifest.json').read_text()):
+        assert sha(ROOT/e['checkpoint'])==e['sha256'],e['model']
+    checkpoints=list((ROOT/'artifacts/checkpoints').rglob('*.pt'))
+    assert len(checkpoints)==9
+    assert all(not re.search(r'\d',str(p.relative_to(ROOT/'artifacts/checkpoints'))) for p in checkpoints)
     for e in json.loads((ROOT/'artifacts/media/manifest.json').read_text()):
         assert sha(ROOT/e['path'])==e['sha256'],e['path']
     for p in (ROOT/'overlay').rglob('*.py'):ast.parse(p.read_text(),filename=str(p))
@@ -67,8 +72,8 @@ def verify():
     command=(ROOT/'submission/evaluation_command.txt').read_text()
     assert command.count('./isaaclab.sh')==1 and '--seed 24' in command and '--num_envs 100' in command
     assert 'Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0' in command
-    assert '--checkpoint artifacts/checkpoints/final_lift/model_5999.pt' in command
-    docs=[ROOT/'README.md']+[ROOT/'docs'/n for n in ('METHOD.md','IMPLEMENTATION.md','RESULTS.md','REPRODUCE.md','MEDIA.md','PUBLICATION.md','SELF_EVALUATION.md','ASSIGNMENT_CHECK.md')]
+    assert '--checkpoint artifacts/checkpoints/final/ant_final.pt' in command
+    docs=[ROOT/'README.md',ROOT/'artifacts/checkpoints/README.md']+[ROOT/'docs'/n for n in ('METHOD.md','IMPLEMENTATION.md','RESULTS.md','REPRODUCE.md','MEDIA.md','PUBLICATION.md','SELF_EVALUATION.md','ASSIGNMENT_CHECK.md')]
     for p in docs:
         for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
             if target.startswith(('https://','http://','#')):continue
