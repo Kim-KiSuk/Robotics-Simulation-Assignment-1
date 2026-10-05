@@ -1,0 +1,5 @@
+member,checkpoint_name,checkpoint_sha256,task_id,environment,seed,num_envs,obs_dim,action_dim,reward_mean,reward_std,steps_mean,steps_std,survival_rate,forward_mean_m,forward_std_m,completed_episodes,notes
+<member>,<checkpoint>,<sha256>,<task>,seen_control,24,100,<obs>,8,,,,,,,,100,
+<member>,<checkpoint>,<sha256>,<task>,unseen_easy,24,100,<obs>,8,,,,,,,,100,
+<member>,<checkpoint>,<sha256>,<task>,unseen_medium,24,100,<obs>,8,,,,,,,,100,
+<member>,<checkpoint>,<sha256>,<task>,unseen_hard,24,100,<obs>,8,,,,,,,,100,

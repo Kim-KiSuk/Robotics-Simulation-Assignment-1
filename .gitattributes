@@ -1,0 +1,4 @@
+# Preserve the exact distributed and recorded evidence bytes, including CRLF CSVs.
+evaluation/team_v21/** -text -whitespace
+results/team_v21/** -text -whitespace
+results/development/**/*.log -text -whitespace

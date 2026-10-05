@@ -1,0 +1,11 @@
+TEAM ANT EVALUATION SUITE v2.1.0
+Frozen: 2026-10-04 Asia/Seoul
+Replaces: team_ant_eval_environment_only_v1.zip and v2.zip
+
+Do not distribute or use v1. Its spawn policy could leave only 24 m of
+forward terrain for some environments and could contaminate results with
+boundary falls.
+
+Do not distribute v2.0. Medium used a block-like geometry that was too close
+to a teammate's declared random-grid/block training family. v2.1 replaces it
+with a narrow gap family and a fresh seed.

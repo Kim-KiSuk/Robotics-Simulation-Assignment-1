@@ -1,0 +1,29 @@
+[
+  {
+    "name": "balance6000",
+    "path": "artifacts/checkpoints/balance6000/model_5999.pt",
+    "sha256": "3adf43c48e70b78c2cc7ae1d646e63411d771641aa7d8f15a7f933f6f3708986",
+    "source": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_6000_scratch/2026-10-05_11-56-17_balance_6000_scratch_seed42/model_5999.pt",
+    "iterations": 6000,
+    "training_seed": 42,
+    "warm_start": false
+  },
+  {
+    "name": "failure2",
+    "path": "artifacts/checkpoints/failure2/model_5999.pt",
+    "sha256": "0c3e9e8f5699d3ec8fad26478b0f65ba2badd283b6e4c8df145fa7d6db5948c1",
+    "source": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_failure2_scratch/2026-10-05_15-47-08_balance_failure2_scratch_seed42/model_5999.pt",
+    "iterations": 6000,
+    "training_seed": 42,
+    "warm_start": false
+  },
+  {
+    "name": "final_lift",
+    "path": "artifacts/checkpoints/final_lift/model_5999.pt",
+    "sha256": "c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382",
+    "source": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_failure2_lift_scratch/2026-10-05_20-27-23_balance_failure2_lift_scratch_seed42/model_5999.pt",
+    "iterations": 6000,
+    "training_seed": 42,
+    "warm_start": false
+  }
+]

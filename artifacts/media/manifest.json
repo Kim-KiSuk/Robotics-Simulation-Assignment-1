@@ -1,0 +1,30 @@
+[
+  {
+    "environment": "SeenControl",
+    "path": "artifacts/media/team_v21/SeenControl.mp4",
+    "sha256": "fe017df59e90cb7d31f2d3ed227dc93966848bb9d83487b7731dac8f7b89f774",
+    "source_run": "team_eval_v21_video_hdtwZBvG",
+    "role": "video repeat; original evaluation remains final"
+  },
+  {
+    "environment": "UnseenEasy",
+    "path": "artifacts/media/team_v21/UnseenEasy.mp4",
+    "sha256": "628a3f486b37801095220614e97e377334bde92f82cc944753589bf71f8ba054",
+    "source_run": "team_eval_v21_video_hdtwZBvG",
+    "role": "video repeat; original evaluation remains final"
+  },
+  {
+    "environment": "UnseenMedium",
+    "path": "artifacts/media/team_v21/UnseenMedium.mp4",
+    "sha256": "8100ad5a99032d5e506a178620b067f981a7f9473402a1dbc92c3036e6785603",
+    "source_run": "team_eval_v21_video_hdtwZBvG",
+    "role": "video repeat; original evaluation remains final"
+  },
+  {
+    "environment": "UnseenHard",
+    "path": "artifacts/media/team_v21/UnseenHard.mp4",
+    "sha256": "cf6604ce1c8008b82d4e4819d6f972d01b7ac76c846d607483d6fd0b878a407b",
+    "source_run": "team_eval_v21_video_hdtwZBvG",
+    "role": "video repeat; original evaluation remains final"
+  }
+]

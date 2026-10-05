@@ -1,0 +1,8 @@
+GPT_EVALUATION_PROMPT_KO.md: OK
+README_KO.md: OK
+VALIDATION_REPORT.md: OK
+VERSION.txt: OK
+environment/team_eval_material_event.py: OK
+environment/team_eval_terrain_cfg_v2.py: OK
+result_template.csv: OK
+조원에게_보낼_메시지.txt: OK

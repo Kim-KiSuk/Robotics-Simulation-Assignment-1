@@ -1,0 +1,22 @@
+{
+  "collected": "2026-10-06 Asia/Seoul",
+  "python": "3.11.16",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "isaacsim": "5.1.0.0",
+    "isaaclab": "0.47.2",
+    "isaaclab_tasks": "0.11.6",
+    "isaaclab_rl": "0.4.4",
+    "rsl-rl-lib": "3.0.1",
+    "torch": "2.7.0+cu128",
+    "gymnasium": "1.2.0",
+    "warp-lang": "1.17.0",
+    "numpy": "1.26.0",
+    "moviepy": "2.2.1",
+    "imageio": "2.37.0",
+    "opencv-python": "not registered under this package name",
+    "Pillow": "11.3.0",
+    "matplotlib": "3.10.3"
+  },
+  "note": "Local installed metadata at publication, not a new simulator run"
+}

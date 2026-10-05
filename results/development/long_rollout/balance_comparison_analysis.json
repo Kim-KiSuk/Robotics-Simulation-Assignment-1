@@ -1,0 +1,92 @@
+{
+  "baseline_summary": {
+    "reward": {
+      "mean": 63.35975587257417,
+      "std": 25.960723167294677
+    },
+    "steps": {
+      "mean": 830.14,
+      "std": 282.0108870238878
+    },
+    "forward_displacement_m": {
+      "mean": 64.85637168586254,
+      "std": 26.496982739941245
+    },
+    "target_progress_m": {
+      "mean": 64.85115681353729,
+      "std": 26.494928509863197
+    },
+    "episode_duration_s": {
+      "mean": 13.835666666666667,
+      "std": 4.700181450398129
+    },
+    "target_speed_m_s": {
+      "mean": 4.246212616882402,
+      "std": 1.530970216216252
+    },
+    "timeout_without_failure_rate": 0.78,
+    "termination_rate": 0.22,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "candidate_summary": {
+    "reward": {
+      "mean": 58.30760547685408,
+      "std": 22.55644923761972
+    },
+    "steps": {
+      "mean": 848.82,
+      "std": 265.62907898044597
+    },
+    "forward_displacement_m": {
+      "mean": 58.858321322668345,
+      "std": 22.943284962963634
+    },
+    "target_progress_m": {
+      "mean": 58.84758118417467,
+      "std": 22.93479306880793
+    },
+    "episode_duration_s": {
+      "mean": 14.146999999999998,
+      "std": 4.427151316340765
+    },
+    "target_speed_m_s": {
+      "mean": 3.8906555890055325,
+      "std": 1.271515708171043
+    },
+    "timeout_without_failure_rate": 0.81,
+    "termination_rate": 0.19,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  "baseline_transitions": 131072000,
+  "candidate_transitions": 262144000,
+  "groups": {
+    "baseline_survivors": {
+      "n": 78,
+      "mean_reward": 74.72367937430867,
+      "mean_target_progress_m": 76.40609044799926
+    },
+    "long_survivors": {
+      "n": 81,
+      "mean_reward": 66.36792617191145,
+      "mean_target_progress_m": 66.9150797727715
+    }
+  },
+  "terrain_diagnosis_limitation": "Episode JSON contains no initial/terminal positions, terrain type labels, trajectories or contact traces; cannot establish terrain-specific failure causes.",
+  "evaluation_config_difference": "log_dir only",
+  "training_environment_difference": "log_dir and io_descriptors_output_dir only",
+  "physics_error_patterns_found": false,
+  "CXXABI_1_3_15_occurrences": 46,
+  "new_training_or_evaluation_executed": false,
+  "planned_exact_budget_checkpoint": {
+    "name": "model_1999.pt",
+    "exists": false
+  },
+  "available_near_budget_checkpoint": {
+    "name": "model_2000.pt",
+    "exists": true,
+    "transitions": 131137536,
+    "difference_from_baseline_percent": 0.05
+  }
+}

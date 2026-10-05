@@ -59,3 +59,21 @@ class AntHeightScanTrainEnvCfg(AntRoughEnvCfg):
 class AntHeightScanEvalEnvCfg(AntHeightScanTrainEnvCfg):
     # E3 geometry, friction, reset, termination, reward, time limit match the 60D task.
     scene: AntHeightScanSceneCfg = with_height_scanner(make_blocks_scene())
+
+
+@configclass
+class AntHeightScanSpawnLiftEvalEnvCfg(AntHeightScanEvalEnvCfg):
+    """Separate E3 reset-height experiment; not the original evaluation protocol.
+
+    Keep the terrain and policy interface intact. Lift every reset by 0.15 m
+    using the stock root-reset event, as in the env-39 zero-effort diagnosis.
+    This fixed margin is not a full collision-shape overlap guarantee.
+    """
+
+    def __post_init__(self):
+        super().__post_init__()
+        reset = self.events.reset_base
+        self.events.reset_base = reset.replace(params={
+            **reset.params,
+            "pose_range": {**reset.params["pose_range"], "z": (0.15, 0.15)},
+        })

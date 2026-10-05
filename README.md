@@ -1,97 +1,120 @@
 # unseen 지형 보행 학습
 
-`Isaac-Ant-v0`를 기반으로, **학습에 사용하지 않은 지형과 마찰 조건에서도 제한 시간 16초 안에 멀리 전진하는 정책**을 학습합니다. 학습용 환경 5개와 평가용 환경 1개를 구성한 뒤, 주변 높이 관측과 안정성 보상을 적용하는 순서로 실험했습니다.
+**처음 보는 지형에서도 넘어지지 않고 16초 동안 멀리 전진하는 Ant**를 목표로 한다. 학습용 지형 5개와 자체 평가 환경을 만든 뒤, 주변 높이 관측·마찰 다양화·안정성 보상·초기 소환 높이를 검토했다. 최종 모델은 별도의 팀 공통 **v2.1** 환경 네 개에서 평가했다.
 
-| 모델 | 해결하려는 문제와 변경 | 관측 | 학습 | 체크포인트 |
-|---|---|---:|---|---|
-| **SixMix** | 한 바닥에만 적응하지 않도록 다섯 지형 구성과 마찰 조건을 한 정책으로 학습 | 60D | 처음부터 4000회 | [model_3999.pt](artifacts/checkpoints/SixMix/model_3999.pt) |
-| **HeightScan** | 앞쪽 높낮이를 알 수 있도록 주변 지면 높이 63개 추가 | 123D | 처음부터 4000회 | [model_3999.pt](artifacts/checkpoints/HeightScan/model_3999.pt) |
-| **Stability** | 남아 있는 조기 종료를 줄이려 지형 범위 확대와 위험 감점을 적용 | 123D | HeightScan에서 500회 추가 | [model_499.pt](artifacts/checkpoints/Stability/model_499.pt) |
+최종 결과는 **Seen 94.77점 / Easy 91.24점 / Medium 69.91점 / Hard 88.64점**이다. 처음 보는 세 환경의 960-step 생존율은 **79% / 74% / 70%**였다. 평균 점수가 높아도 모든 개체가 안정적으로 완주한 것은 아니다.
 
-모델별 입력·학습 예산·부모 체크포인트는 [모델 목록](artifacts/checkpoints/manifest.json)에서 확인할 수 있습니다.
+[문제·가설](docs/METHOD.md) · [실험 결과](docs/RESULTS.md) · [구현](docs/IMPLEMENTATION.md) · [재현 명령](docs/REPRODUCE.md) · [영상](docs/MEDIA.md)
 
-## 1. 학습·평가 환경 구성
+## 최종 모델: 네 지형에서의 보행
 
-특정 지형 하나에서만 잘 걷는 정책을 피하려고 서로 다른 보행 문제를 T1~T5로 나눴습니다. 평가용 E1은 학습에 쓰지 않은 배치와 마찰 조합으로 남겼습니다.
+이미지는 **실제 평가 영상 앞 6초를 원래 속도로** 반복한다. 클릭하면 16초 전체 MP4로 이동한다. 카메라에 보이는 일부 로봇과 **100개 환경 전체의 통계**를 구분한다. 영상은 최종 모델을 고정한 채 녹화용으로 재실행한 기록이다.
 
-| 구성 | 경험하게 할 지형 | 지면 정적 / 동적 마찰 | 개별 terrain seed | 선정 이유 |
-|---|---|---:|---:|---|
-| T1 | 작은 랜덤 요철 | 1.0 / 1.0 | 1101 | 불규칙한 지면에서 자세 유지 |
-| T2 | 파도: 반복되는 높낮이 | 0.8 / 0.6 | 1102 | 오르내림에 맞춘 보행 |
-| T3 | 경사·역경사 | 1.2 / 1.0 | 1103 | 연속적인 기울기 변화 대응 |
-| T4 | 높이가 다른 사각 블록 | 0.6 / 0.45 | 1104 | 과제 예시 설명에 맞춘 발 디딤 연습 |
-| T5 | 계단 상하·random grid·경사 상하 | 1.4 / 1.1 | 1105 | IsaacLab의 다섯 생성기를 함께 경험 |
-| E1 | 위 구성의 새 배치 | 0.9 / 0.75 | 9117 | 같은 생성 분포의 미사용 조건 확인 |
+| Seen Control · 익숙한 지형 계열 | Unseen Easy · 낮은 rails |
+| --- | --- |
+| [![Seen Control 보행](artifacts/media/team_v21/SeenControl_preview.gif)](artifacts/media/team_v21/SeenControl.mp4) | [![Unseen Easy 보행](artifacts/media/team_v21/UnseenEasy_preview.gif)](artifacts/media/team_v21/UnseenEasy.mp4) |
+| **94.77 ± 32.68점 · 생존 89%** | **91.24 ± 40.22점 · 생존 79%** |
 
-실제 학습에는 **`Isaac-Ant-Six-TrainMix-v0`**를 사용합니다. seed **1100**으로 T1~T5의 생성 구성을 각각 20% 확률로 선택한 혼합 지도를 만들고, 여러 로봇이 **하나의 정책**으로 경험을 수집합니다.
+| Unseen Medium · 좁은 틈새 | Unseen Hard · 반복 원기둥 |
+| --- | --- |
+| [![Unseen Medium 보행](artifacts/media/team_v21/UnseenMedium_preview.gif)](artifacts/media/team_v21/UnseenMedium.mp4) | [![Unseen Hard 보행](artifacts/media/team_v21/UnseenHard_preview.gif)](artifacts/media/team_v21/UnseenHard.mp4) |
+| **69.91 ± 35.04점 · 생존 74%** | **88.64 ± 45.20점 · 생존 70%** |
 
-마찰은 타일 종류별로 지정하여 실행 중 유지합니다. 실제 접촉 마찰은 지면과 로봇 재질의 `average` 결합 규칙을 따릅니다.
+## 1. 무엇을 해결하려 했는가?
 
-![T1~T5와 E1 지형 표본](docs/ant_six_envs/assets/six_terrains.png)
+평지에서는 반복되는 접촉만으로 전진할 수 있지만, 블록·요철·경사는 발 디딤과 몸체 높이를 바꾼다. 마찰이 달라지면 같은 관절 토크도 다른 움직임을 만든다. 우리는 **경험의 다양성, 지형 정보, 넘어짐에 대한 학습 신호**가 새로운 환경의 전진 성능에 어떻게 연결되는지 조사했다.
 
-실제 생성 메시의 CPU 시각화이며 세로를 4배 확대했습니다. 평지 전용 타일은 제외했고, 학습 지형의 중앙 플랫폼과 국소 평탄 구간은 유지했습니다. T4는 과제 예시에 대한 “높이가 다른 사각 블록”이라는 설명을 기준으로 구성했습니다. [전체 수치·seed·파일 경로](docs/ENVIRONMENTS.md)
+| 가설 | 적용한 방법 | 확인할 근거 |
+| --- | --- | --- |
+| 다양한 접촉 조건을 경험하면 특정 바닥에 대한 의존이 줄어든다 | T1~T5 혼합, 파도 수·블록/계단 폭 확대, 로봇 마찰 randomization | 공통 지형에서 평가; 개별 요소의 기여는 완전히 분리하지 못함 |
+| 앞의 지형 정보를 주면 발 디딤에 활용할 수 있다 | 기존 상태 60개 + 주변 지면 높이 63개 | 123D 모델을 처음부터 학습; 센서 단독 효과와 최종 개선 효과는 구분 |
+| 흔들림·실패에 작은 비용을 주면 전진을 더 오래 유지한다 | 액션 변화 −0.002, roll/pitch 각속도 −0.01, 실패 사건 −2 | 같은 E3에서 Balance 6000과 Failure2 비교 |
+| 시작 시 지형과의 겹침은 정책 외적인 조기 실패를 만든다 | 영 행동 진단 후 학습 reset Z +0.15m | 양쪽 모델을 동일한 SpawnLift E3에서 비교 |
 
-## 2. HeightScan: 주변 높이 관측 추가
+이는 단일 학습 seed 중심의 단계별 실험이다. 모든 조합을 독립적으로 비교한 완전한 ablation은 아니며, 참고 저장소의 Curriculum·4-frame History·3-seed 실험을 수행했다고 주장하지 않는다. [가설별 검증 범위](docs/METHOD.md)
 
-SixMix의 60차원 입력에는 자세·속도·관절 상태 등이 있지만 주변 높낮이는 없습니다. 몸 아래 한 점의 지면 높이는 몸통 높이 관측과 낙상 판정에만 사용합니다.
+## 2. 다섯 학습 환경에서 하나의 정책으로
 
-HeightScan은 **9×7 지점의 상대 지면 높이 63개**를 더해 입력을 **123차원**으로 늘렸습니다. 몸통 방향을 기준으로 앞 1.8m, 뒤 0.6m, 좌우 0.9m를 0.3m 간격으로 읽습니다. 블록이나 경사를 만나기 전에 정책이 높낮이를 활용할 수 있도록 한 변경입니다.
+| 구성 | 지형과 의도 | 초기 개별 지형 seed |
+| --- | --- | ---: |
+| T1 | 작은 요철에서 자세·전진 유지 | 1101 |
+| T2 | 파도의 반복 높낮이에 대응 | 1102 |
+| T3 | 경사·역경사에서 균형 유지 | 1103 |
+| T4 | 높이가 다른 사각 블록에서 발 디딤 연습 | 1104 |
+| T5 | 계단 상하·random grid·경사 상하 혼합 | 1105 |
 
-학습 지형·마찰·원본 7개 보상·8개 관절 effort 행동·PPO 설정은 SixMix와 같습니다. 관측은 **시뮬레이터 메시를 읽는 이상적인 높이 센서**로 구성하며, 123차원 입력에 맞춰 처음부터 학습했습니다.
+![초기 다섯 학습 환경과 E1의 실제 생성 메시](docs/ant_six_envs/assets/six_terrains.png)
 
-SixMix와 HeightScan 모두 1024개 환경 × 32 step × 4000회, 총 **131,072,000 transition**으로 학습했습니다.
+그림은 **초기 Six 구성**의 CPU 메시 시각화이며 세로를 4배 확대했다. 실제 학습은 다섯 Task를 따로 합치는 방식이 아니라, 각 구성을 20% 확률로 선택한 하나의 혼합 지도에서 한 정책을 학습한다. 평지 전용 학습 타일은 없지만 블록 윗면과 중앙 플랫폼은 평탄하다.
 
-## 3. 평가 지형 확장
+초기 Mix seed는 1100, E1은 9117이었다. **최종 학습 지형 seed는 1201**, 로봇 마찰 seed는 **42017**이며, 파도 수 2/4/6/8과 여러 블록·계단 폭을 사용한다. 한 실행 안에서 지형 메시와 시작 시 뽑은 마찰은 고정된다. [수치·마찰·파일 경로](docs/IMPLEMENTATION.md)
 
-| 평가맵 | 변경 이유 | 구성 | terrain seed |
-|---|---|---|---:|
-| E1 | 학습과 다른 배치·마찰에서 확인 | T1~T5 혼합 | 9117 |
-| E2 | 연속 높낮이가 뚜렷한 지형에서 확인 | 요철·파도·경사, 중앙 플랫폼 제거 | 9217 |
-| E3 | 블록 대응도 함께 확인 | 블록 35%, 요철 25%, 파도 20%, 경사 상하 20% | 9317 |
+## 3. 어떻게 보완했는가?
 
-![블록 포함 E3 지형 표본](docs/ant_six_envs/assets/blocks_eval/preview.png)
+| 단계 | 핵심 변경 | 학습 방식 |
+| --- | --- | --- |
+| SixMix | 지형·마찰 조건을 혼합 | 60D, 처음부터 4000회 |
+| HeightScan | 앞쪽을 포함한 9×7 높이 스캔 추가 | 123D, 처음부터 4000회 |
+| Balance | 다양한 지형·마찰 + 작은 액션 변화·각속도 비용 | 처음부터 4000/6000회 비교 |
+| Failure2 | 넘어지는 사건에 −2 추가 | 처음부터 6000회 |
+| **최종 Failure2Lift** | Failure2의 학습 초기 높이를 +0.15m 조정 | **처음부터 6000회**, 추가 학습 아님 |
 
-E3는 8m 타일 40×40개, 320×320m 지도입니다. 블록 폭은 0.8m, 높이 변동 크기는 3~12cm이며 이웃 칸의 높이차는 최대 약 24cm입니다. 평지 전용 타일·중앙 플랫폼·평탄 테두리는 없지만 블록 윗면 같은 국소 수평면은 있습니다. 그림은 CPU 메시이며 세로를 3배 확대했습니다.
+로봇 링크·관절·USD·8개 effort 행동은 유지했다. 강한 자세 감점이나 수직 움직임 억제는 기대한 개선을 보이지 않아 최종 모델에서 제외했다.
 
-평가 지면 마찰은 0.9 / 0.75, 실행 seed는 **24**, 환경 수는 **100**입니다. 실행 seed와 terrain seed는 별개입니다. E1~E3는 학습 데이터와 분리했으며, 이후 모델 개선 판단에 사용한 검증 환경입니다.
+[최종 6000회 학습 곡선](artifacts/figures/final_training_curve.png) · [iteration별 CSV](results/development/final_training_curve.csv). 학습 곡선은 추가 비용을 포함한 training reward이며 아래 원본 보상 평가값과 구분한다.
 
-## 4. Stability: 안정성을 위한 추가 학습
+![평가 조건을 분리한 개발 실험](artifacts/figures/development_comparison.png)
 
-높이 관측을 넣어도 시간 제한 전에 끝나는 에피소드가 남았습니다. 이미 학습한 보행을 출발점으로 아래 변경을 함께 적용했습니다.
+원래 E3에서 Balance 6000 → Failure2는 보상 **68.62 → 72.80**, 생존율 **81% → 86%**였다. SpawnLift E3에서 기존 Failure2 → 최종 모델은 보상 **73.75 → 81.90**, 생존율 **82% → 88%**였다. 두 표의 reset 조건이 다르므로 하나의 연속 개선 수치로 합치지 않는다. [실패한 실험을 포함한 결과](docs/RESULTS.md)
 
-- **지형:** 기존 생성 범위 70% + 확대 범위 30%, 새 terrain seed **1200**. 더 큰 높낮이·계단·기울기를 경험하게 했습니다.
-- **학습 보상:** 원본 7개 항을 유지하고 실패 사건당 **−5**, 몸통 높이가 지면 대비 0.40m 아래로 낮아질 때 연속 위험 감점을 추가했습니다. 정상 timeout에는 실패 감점을 주지 않습니다.
-- **학습 방식:** HeightScan 가중치를 불러오고 optimizer·반복 카운터는 초기화했습니다. 학습률 **1e-5 고정**, entropy **0.001**, 초기 행동 표준편차 하한 **0.02**로 500회 추가 학습했습니다.
+## 4. 최종 팀 공통 v2.1 평가
 
-관측은 123차원으로 유지합니다. 평가는 **원본 Ant의 7개 보상**을 사용하는 E3 HeightScan Task에서 진행합니다. [변경 코드와 상속 관계](docs/ENVIRONMENTS.md#코드와-상속-경로)
+![최종 평가 보상과 생존율](artifacts/figures/team_v21_results.png)
 
-## 5. 평가 결과
+| 환경 | 보상 mean ± std | Episode steps mean ± std | 960-step 생존율 | +x 전진 거리 mean ± std |
+| --- | ---: | ---: | ---: | ---: |
+| Seen Control | **94.77 ± 32.68** | 916.61 ± 146.35 | **89%** | 96.75 ± 33.45m |
+| Unseen Easy | **91.24 ± 40.22** | 811.33 ± 315.09 | **79%** | 93.18 ± 41.00m |
+| Unseen Medium | **69.91 ± 35.04** | 784.42 ± 330.97 | **74%** | 72.41 ± 36.04m |
+| Unseen Hard | **88.64 ± 45.20** | 774.51 ± 333.17 | **70%** | 90.84 ± 46.14m |
 
-`play_one_episode.py`, seed 24, 환경 100개에서 각 환경의 첫 에피소드를 측정합니다. 누적 보상·전진량·실패 없이 시간 제한에 도달한 비율을 함께 기록합니다.
+동일한 최종 checkpoint, CLI seed **24**, 환경 **100개**, 첫 episode만 집계했다. std는 에피소드 간 **모집단 표준편차(ddof=0)**이며, 학습 seed 간 표준편차가 아니다. 네 환경 모두 **100/100 완료**했고 **원본 7개 보상·원본 종료 조건·원본 reset**을 사용했다. 학습의 +0.15m reset은 팀 평가에 적용하지 않았다.
 
-| E3 결과 | HeightScan 부모 모델 재평가 기록¹ | Stability 500회 추가 학습² |
-|---|---:|---:|
-| 원본 누적 보상 mean ± std | 42.608490 ± 25.110875 | 41.514310 ± 24.873176 |
-| 목표까지 거리 감소 mean ± std (m) | 39.384821 ± 23.634968 | 38.242646 ± 23.541899 |
-| 에피소드 길이 mean ± std (step) | 703.33 ± 366.864963 | 696.62 ± 366.142917 |
-| 실패 없이 16초 도달 | 60% | 59% |
+**결과 해석:** 새 지형에서도 전진을 유지했지만 생존율 90%는 달성하지 못했다. Medium에서 보상이 가장 낮고 Hard에서 생존율이 가장 낮아, 보상만으로 안정성을 평가할 수 없다. Medium의 실제 빈 틈 때문에 지면 ray 미검출이 발생할 수 있으며, 관측 누락과 실패의 인과관계는 별도로 검증하지 않았다. [상세 분석](docs/RESULTS.md)
 
-¹ 저장된 에피소드별 JSON. ² 제공된 실행 명령과 터미널 출력. 부모 모델은 headless, Stability는 GUI·영상 실행 기록입니다.
+[제출 CSV](results/team_v21/final/result_template.csv) · [원본 400 episode·로그·설정](results/team_v21/final) · [영상 재실행 결과](results/team_v21/video_repeat) · [모델·SHA-256](manifest.json)
 
-현재 기록에서는 Stability의 개선이 확인되지 않았습니다. 후속 비교는 동일한 실행 모드에서 진행합니다.
+## 5. 실행과 자료
 
-E2에서 보고된 SixMix의 보상은 **54.428906 ± 29.085658**, 평지 Baseline은 **14.283684 ± 12.772225**입니다. [평가 조건과 상세 기록](results/SIX_RESULTS.md)
+이 저장소는 수업 원본에 적용하는 **코드 overlay와 실험 자료**다. 설치된 Isaac Lab 전체나 로봇 USD는 포함하지 않는다. [재현 안내](docs/REPRODUCE.md)에 따라 overlay를 적용한 뒤:
 
-## 실행과 자료
+```bash
+conda activate lerobot-arena
+export ISAACLAB_ROOT=/absolute/path/to/IsaacLab_RS
+# 이 공개 저장소 루트에서 실행: 네 환경 평가 + 영상 저장
+bash scripts/evaluate_final.sh --video
+```
 
 | 자료 | 내용 |
-|---|---|
-| [환경 구성](docs/ENVIRONMENTS.md) | 선정 기준, 높이·각도·마찰, seed, Task, 파일·부모 경로 |
-| [재현 명령](docs/REPRODUCE.md) | 설치, 세 모델 학습, 원본 보상 평가, GUI 플레이 |
-| [모델·SHA-256](artifacts/checkpoints/manifest.json) | 최종 파일과 부모 체크포인트 식별 |
-| [TensorBoard 로그](artifacts/tensorboard) | 실제 학습 곡선 |
-| [평가 결과](results/SIX_RESULTS.md) | 초기 보고값과 재평가·최신 결과 구분 |
-| [업로드 검증](results/UPLOAD_VALIDATION.md) | 코드 적용·파일 무결성·CPU 검사 범위 |
-| [변경 코드](overlay) | 고정한 수업 원본에 적용할 코드 |
+| --- | --- |
+| [Method](docs/METHOD.md) | 연구 문제, 가설, 통제 조건, 검증 한계 |
+| [Implementation](docs/IMPLEMENTATION.md) | 환경·관측·보상·마찰·초기화와 원본 대비 변경 |
+| [Results](docs/RESULTS.md) | 개발 비교, 실패 사례, 최종 평가 해석 |
+| [Reproduce](docs/REPRODUCE.md) | 설치, 실제 최종 학습 명령, 평가·영상 명령 |
+| [변경 코드](overlay) / [원본 설정](reference/original) | 기존 코드에 적용할 파일과 비교 기준 |
+| [최종 모델](artifacts/checkpoints/final_lift/model_5999.pt) / [학습 설정](configs/final) | 제출 정책과 저장된 실제 설정 |
+| [TensorBoard](artifacts/tensorboard/final_lift) / [그래프 코드](scripts/build_figures.py) | 학습 기록과 그림 재생성 |
+| [공개 파일 검증](docs/PUBLICATION.md) | 재현 범위, 영상과 원자료의 관계 |
 
-[Isaac Lab](https://github.com/isaac-sim/IsaacLab)과 [수업 원본](https://github.com/cailab-hy/IsaacLab_RS)의 `e83a5d2f11ca1b5f03b690e1978479e620c500e2`를 기반으로 합니다. 지면 높이·충돌 처리와 설명 구성은 [참고 프로젝트](https://github.com/Stick-0/isaac-ant-rough-terrain)를 참고했습니다. 해당 프로젝트의 모델·점수와 이 저장소의 결과는 구분합니다. [출처·라이선스](THIRD_PARTY_NOTICES.md)
+<details>
+<summary>초기 SixMix·HeightScan·Stability 기록</summary>
+
+[이전 README](docs/archive/SIX_STAGE_README.md), [초기 환경 구성](docs/ENVIRONMENTS.md), [초기 결과](results/SIX_RESULTS.md), [당시 학습 명령](docs/REPRODUCE_SIX_STAGE.md)을 보존했다. 최종 v2.1 수치와 별개의 개발 기록이다.
+
+</details>
+
+## 참고
+
+[Robotics_Simulation_8](https://github.com/baeminseongp/Robotics_Simulation_8)의 문제·가설·실험·한계 구성과 [isaac-ant-rough-terrain](https://github.com/Stick-0/isaac-ant-rough-terrain)의 단계별 설명·영상 중심 구성을 참고했다. 본문 수치와 영상은 모두 **본 프로젝트의 기록**이며 다른 저장소의 성능을 가져오지 않았다.
+
+[IsaacLab_RS 고정 원본](https://github.com/cailab-hy/IsaacLab_RS/tree/e83a5d2f11ca1b5f03b690e1978479e620c500e2)과 [Isaac Lab](https://github.com/isaac-sim/IsaacLab)을 기반으로 한다. [출처·라이선스](THIRD_PARTY_NOTICES.md)

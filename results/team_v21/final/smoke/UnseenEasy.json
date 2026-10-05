@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "scope": "reset and one control step; not a full evaluation",
+  "task": "Isaac-Ant-TeamEvalV21-Balance-UnseenEasy-v0",
+  "terrain_seed": 53001,
+  "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_failure2_lift_scratch/2026-10-05_20-27-23_balance_failure2_lift_scratch_seed42/model_5999.pt",
+  "checkpoint_sha256": "c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382",
+  "seed": 24,
+  "num_envs": 2,
+  "observation_dimension": 123,
+  "action_dimension": 8,
+  "world_z_termination_m": 0.31,
+  "origin_x_max": -124.0,
+  "max_init_terrain_level": 4,
+  "observation_order": [
+    "base_height",
+    "base_lin_vel",
+    "base_ang_vel",
+    "base_yaw_roll",
+    "base_angle_to_target",
+    "base_up_proj",
+    "base_heading_proj",
+    "joint_pos_norm",
+    "joint_vel_rel",
+    "feet_body_forces",
+    "actions",
+    "terrain_heights"
+  ],
+  "reward_terms": [
+    "progress",
+    "alive",
+    "upright",
+    "move_to_target",
+    "action_l2",
+    "energy",
+    "joint_pos_limits"
+  ],
+  "robot_material_pairs": [
+    [
+      1.0,
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      1.0,
+      0.0
+    ]
+  ],
+  "uniform_material_within_environment": true,
+  "original_rewards": true,
+  "frozen_generator_config_unchanged": true,
+  "preserved_robot_actions_sensors": true
+}

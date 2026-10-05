@@ -1,0 +1,308 @@
+[
+  {
+    "name": "balance4000",
+    "source_run": "balance_scratch_e3_vXA7NtXJ",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "38f247c8de7aefad2313ab05d527ea33942a4d1dae9a3dc4a5658c052b8d9b66",
+    "reward": {
+      "mean": 63.35975587257417,
+      "std": 25.960723167294677
+    },
+    "steps": {
+      "mean": 830.14,
+      "std": 282.0108870238878
+    },
+    "forward_displacement_m": {
+      "mean": 64.85637168586254,
+      "std": 26.496982739941245
+    },
+    "target_progress_m": {
+      "mean": 64.85115681353729,
+      "std": 26.494928509863197
+    },
+    "episode_duration_s": {
+      "mean": 13.835666666666667,
+      "std": 4.700181450398129
+    },
+    "target_speed_m_s": {
+      "mean": 4.246212616882402,
+      "std": 1.530970216216252
+    },
+    "timeout_without_failure_rate": 0.78,
+    "termination_rate": 0.22,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "balance6000",
+    "source_run": "balance_6000_scratch_e3_yuQOUmh3",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "3adf43c48e70b78c2cc7ae1d646e63411d771641aa7d8f15a7f933f6f3708986",
+    "reward": {
+      "mean": 68.61907548871008,
+      "std": 24.649630986330003
+    },
+    "steps": {
+      "mean": 852.9300000000001,
+      "std": 255.60994718515946
+    },
+    "forward_displacement_m": {
+      "mean": 71.77329089522362,
+      "std": 25.619321264082856
+    },
+    "target_progress_m": {
+      "mean": 71.75998899916605,
+      "std": 25.617520616094364
+    },
+    "episode_duration_s": {
+      "mean": 14.2155,
+      "std": 4.260165786419324
+    },
+    "target_speed_m_s": {
+      "mean": 4.746330862288985,
+      "std": 1.3534647475701764
+    },
+    "timeout_without_failure_rate": 0.81,
+    "termination_rate": 0.19,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "failure2",
+    "source_run": "balance_failure2_scratch_e3_4XE0mg7n",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "0c3e9e8f5699d3ec8fad26478b0f65ba2badd283b6e4c8df145fa7d6db5948c1",
+    "reward": {
+      "mean": 72.79854105004051,
+      "std": 25.00364829808473
+    },
+    "steps": {
+      "mean": 868.4,
+      "std": 243.65877780207305
+    },
+    "forward_displacement_m": {
+      "mean": 77.49888930678368,
+      "std": 26.265191379851792
+    },
+    "target_progress_m": {
+      "mean": 77.49121778933969,
+      "std": 26.262296297998475
+    },
+    "episode_duration_s": {
+      "mean": 14.473333333333333,
+      "std": 4.06097963003455
+    },
+    "target_speed_m_s": {
+      "mean": 5.0202046784792875,
+      "std": 1.4237498243848652
+    },
+    "timeout_without_failure_rate": 0.86,
+    "termination_rate": 0.14,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "failure2_eval_lift",
+    "source_run": "balance_failure2_spawnlift_e3_mQxgQ7rp",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0",
+    "checkpoint_sha256": "0c3e9e8f5699d3ec8fad26478b0f65ba2badd283b6e4c8df145fa7d6db5948c1",
+    "reward": {
+      "mean": 73.75004621366826,
+      "std": 21.311723657223094
+    },
+    "steps": {
+      "mean": 890.9200000000001,
+      "std": 166.36812675509694
+    },
+    "forward_displacement_m": {
+      "mean": 78.66050640791654,
+      "std": 22.74200932141914
+    },
+    "target_progress_m": {
+      "mean": 78.6469715107483,
+      "std": 22.729863677984422
+    },
+    "episode_duration_s": {
+      "mean": 14.848666666666668,
+      "std": 2.772802112584949
+    },
+    "target_speed_m_s": {
+      "mean": 5.219322658894107,
+      "std": 1.0421524147316745
+    },
+    "timeout_without_failure_rate": 0.8200000000000001,
+    "termination_rate": 0.18,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "final_lift",
+    "source_run": "balance_failure2_lift_spawnlift_e3_RvbZSCC1",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0",
+    "checkpoint_sha256": "c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382",
+    "reward": {
+      "mean": 81.90074105518055,
+      "std": 17.054608288382074
+    },
+    "steps": {
+      "mean": 934.19,
+      "std": 95.37564626255487
+    },
+    "forward_displacement_m": {
+      "mean": 82.78769186019898,
+      "std": 17.962324216812966
+    },
+    "target_progress_m": {
+      "mean": 82.7493300919043,
+      "std": 17.938102266415395
+    },
+    "episode_duration_s": {
+      "mean": 15.569833333333332,
+      "std": 1.589594104375915
+    },
+    "target_speed_m_s": {
+      "mean": 5.2982962997155845,
+      "std": 1.010611935355099
+    },
+    "timeout_without_failure_rate": 0.88,
+    "termination_rate": 0.12,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "long_rollout",
+    "source_run": "balance_long_scratch_e3_19oXqROX",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "9078915121974da1c706a94d7bef95cbfd8fb5732530d54199bfc541d66f0309",
+    "reward": {
+      "mean": 58.30760547685408,
+      "std": 22.55644923761972
+    },
+    "steps": {
+      "mean": 848.82,
+      "std": 265.62907898044597
+    },
+    "forward_displacement_m": {
+      "mean": 58.858321322668345,
+      "std": 22.943284962963634
+    },
+    "target_progress_m": {
+      "mean": 58.84758118417467,
+      "std": 22.93479306880793
+    },
+    "episode_duration_s": {
+      "mean": 14.146999999999998,
+      "std": 4.427151316340765
+    },
+    "target_speed_m_s": {
+      "mean": 3.8906555890055325,
+      "std": 1.271515708171043
+    },
+    "timeout_without_failure_rate": 0.81,
+    "termination_rate": 0.19,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "posture",
+    "source_run": "balance_posture_scratch_e3_T5N2ER02",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "731879c7f529ecbe80f17a6011e8cfdfb9bf0cec1383b550222ff0ab3608402a",
+    "reward": {
+      "mean": 48.57640110870008,
+      "std": 25.60404115412881
+    },
+    "steps": {
+      "mean": 719.1800000000001,
+      "std": 330.722311917415
+    },
+    "forward_displacement_m": {
+      "mean": 46.78412416577339,
+      "std": 24.820375871094775
+    },
+    "target_progress_m": {
+      "mean": 46.76836748034932,
+      "std": 24.807579380067075
+    },
+    "episode_duration_s": {
+      "mean": 11.986333333333333,
+      "std": 5.512038531956918
+    },
+    "target_speed_m_s": {
+      "mean": 3.5580821942776697,
+      "std": 1.2265423102443274
+    },
+    "timeout_without_failure_rate": 0.54,
+    "termination_rate": 0.46,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "vertical",
+    "source_run": "balance_vertical_scratch_e3_v1rbZZXI",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "767b6abd3b0931bfb195a330dc9ea37e42d72cb4601633d69aee0ca56ff9df8e",
+    "reward": {
+      "mean": 55.35112069716852,
+      "std": 28.667286257571433
+    },
+    "steps": {
+      "mean": 756.83,
+      "std": 328.67178324279683
+    },
+    "forward_displacement_m": {
+      "mean": 56.09425299942494,
+      "std": 29.082571580175543
+    },
+    "target_progress_m": {
+      "mean": 56.09088409770453,
+      "std": 29.083999508518115
+    },
+    "episode_duration_s": {
+      "mean": 12.613833333333332,
+      "std": 5.477863054046613
+    },
+    "target_speed_m_s": {
+      "mean": 4.017661957417098,
+      "std": 1.494489078643468
+    },
+    "timeout_without_failure_rate": 0.68,
+    "termination_rate": 0.32,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  },
+  {
+    "name": "random_spawn",
+    "source_run": "balance_spawn_scratch_e3_Cl78F74s",
+    "task": "Isaac-Ant-Six-Eval-Blocks-HeightScan-v0",
+    "checkpoint_sha256": "580a1275b93e16959a84cd8c07dd3255b0eafe03481b6a7ac7948d2b7cbe6835",
+    "reward": {
+      "mean": 44.7464693207253,
+      "std": 26.021994303298328
+    },
+    "steps": {
+      "mean": 679.12,
+      "std": 357.2925770289665
+    },
+    "forward_displacement_m": {
+      "mean": 44.7182210123539,
+      "std": 26.07049336040181
+    },
+    "target_progress_m": {
+      "mean": 44.702530790377075,
+      "std": 26.05911670798801
+    },
+    "episode_duration_s": {
+      "mean": 11.318666666666665,
+      "std": 5.954876283816109
+    },
+    "target_speed_m_s": {
+      "mean": 3.4606955689274845,
+      "std": 1.2718949402995183
+    },
+    "timeout_without_failure_rate": 0.55,
+    "termination_rate": 0.45,
+    "missing_ground_episodes": 0,
+    "missing_scan_episodes": 0
+  }
+]

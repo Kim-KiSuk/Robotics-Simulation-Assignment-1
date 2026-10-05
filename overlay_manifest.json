@@ -38,6 +38,11 @@
       "base_sha256": null
     },
     {
+      "path": "scripts/environments/check_ant_team_eval_v21.py",
+      "sha256": "cdee33b0d63e26df731d4ec0d6265cff72f5cb6aac07151502b3bb6726e4b96a",
+      "base_sha256": null
+    },
+    {
       "path": "scripts/environments/check_ant_varied.py",
       "sha256": "8ae33f9d4c74e4648ced2e7faec216ace8153b6e2d580fd6357fe675d1bf25df",
       "base_sha256": null
@@ -53,6 +58,11 @@
       "base_sha256": null
     },
     {
+      "path": "scripts/environments/inspect_ant_initial_state.py",
+      "sha256": "4cb86f7d22cfa7480603eb0799a0f1b300af11927ce43a6c8ba27eac169c4594",
+      "base_sha256": null
+    },
+    {
       "path": "scripts/environments/inspect_ant_six.py",
       "sha256": "8defab76ff244518811604f9754f892c4fb3f6751dc503ddda53353bc535eebc",
       "base_sha256": null
@@ -60,6 +70,16 @@
     {
       "path": "scripts/environments/inspect_ant_varied.py",
       "sha256": "2be48625a147fe3415d43b3bce0334e34def2f91f1bf562ca3d8b01c477694eb",
+      "base_sha256": null
+    },
+    {
+      "path": "scripts/environments/run_ant_team_eval_v21.sh",
+      "sha256": "fff7f6baf4cd9c0c0d80c6ddb518aa5073dccb2d4dc4083cc991cdbcb7ab79ac",
+      "base_sha256": null
+    },
+    {
+      "path": "scripts/environments/summarize_ant_team_eval_v21.py",
+      "sha256": "5b1c2725cf65315a09af1491f17a21f6f41dd9af97f0d31879b50900ee3a9fc7",
       "base_sha256": null
     },
     {
@@ -103,9 +123,19 @@
       "base_sha256": "70dd6d6674ca211f335b57fea5d8dca417fe670753adedf2d002a638b2b089d0"
     },
     {
+      "path": "scripts/reinforcement_learning/rsl_rl/run_ant_wave_experiment.py",
+      "sha256": "cbc2ce90813118ce4caf912ab53ee70f80a7dfeb68fc23d9a740afc48ee5a527",
+      "base_sha256": null
+    },
+    {
       "path": "scripts/reinforcement_learning/rsl_rl/train.py",
       "sha256": "198ccedc3c336876676c04a2e499b5bf0117ec92222e65c19ff3c0bfecb724fc",
       "base_sha256": "ba41d6afca3b6470b4bee05cb4a24f036046845c50f26970c9a944653e3f8d0a"
+    },
+    {
+      "path": "scripts/reinforcement_learning/rsl_rl/train_ant_diverse.py",
+      "sha256": "fb6235c7c78f5bea3e20d5a59aba02e7809f8aa3438799e1f920181dd4e6bc5d",
+      "base_sha256": null
     },
     {
       "path": "scripts/reinforcement_learning/rsl_rl/warm_start.py",
@@ -134,13 +164,28 @@
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/__init__.py",
-      "sha256": "57e52e6acd5d36a3df45aa03b90bddc03d5adc8ca6a34b2d65983c67715ff045",
+      "sha256": "e2e1672e442fccefbc509e9c3e179dfd5c415711b4e238f6ad12bde173409096",
       "base_sha256": "c7c87196ba2ccda19387ad4c57a9570ce637619c47a0726dde4459eb307eda4c"
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/__init__.py",
       "sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a",
       "base_sha256": "3849c25159e7b4008f874ddf36ce21caac46a31b171431160552550494293d1a"
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_diverse_train_ppo_cfg.py",
+      "sha256": "20a2912022424033135a73eaed37a9c9322e51953a78e7856866f63c12fbf714",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_forward_reward_ppo_cfg.py",
+      "sha256": "66449ff81a81492349bddbd12475f8297a54c882575ed5296b572339d3d4e7c9",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_friction_train_ppo_cfg.py",
+      "sha256": "87996790dbfa52b1fe74c7f91fb7d237e5abe517c62028105a24c173913ef397",
+      "base_sha256": null
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_height_scan_ppo_cfg.py",
@@ -173,8 +218,18 @@
       "base_sha256": null
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_team_eval_v21_ppo_cfg.py",
+      "sha256": "f6f08b8e54835d63b922cdb57a89be373022930376b25b09c92c95e11a38d680",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_varied_ppo_cfg.py",
       "sha256": "5f0949b59e83e705fe36a79ff49c902918fc8eb73d1d50574f016b047d493fe7",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_wave_range_ppo_cfg.py",
+      "sha256": "ccad20a0f200caf51416dbfb1ee60fbdfe11bcd444cf3aa2c5035a53ba426d0a",
       "base_sha256": null
     },
     {
@@ -208,13 +263,28 @@
       "base_sha256": null
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_diverse_train_env_cfg.py",
+      "sha256": "a90c5ece06d93d01f2d2e0c5a058175cd1bc4ec623aae87bc499a73bfbdfb36f",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py",
       "sha256": "fd17a386c8482f0d22fa2f0b5959514e0ba6aff5dcefd59a46c87ce749e59c44",
       "base_sha256": "fd17a386c8482f0d22fa2f0b5959514e0ba6aff5dcefd59a46c87ce749e59c44"
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_forward_reward_env_cfg.py",
+      "sha256": "0843900c42c603096df44a7946b30555ed5bc162bb31d1d5f67dd8ad85e4befe",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_friction_train_env_cfg.py",
+      "sha256": "0feb0e1c2a83e4024f193e5154552884c4ac72674c093583cd28685832364a5f",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_height_scan_env_cfg.py",
-      "sha256": "4f39defe7299a67e69ee26920bd0b351c00072858b8d7c0f96b6d532c02a6b28",
+      "sha256": "80e85159408f714d4d5c1fc34dcf78db9c1e4c3d6a4fb0729510267dee1472e8",
       "base_sha256": null
     },
     {
@@ -243,8 +313,23 @@
       "base_sha256": null
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_team_eval_env_cfg.py",
+      "sha256": "e443c115d1228f4b11890fd1c9ca056d98d7d3f42405d7e2809c89e26b938fe1",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_team_eval_v21_env_cfg.py",
+      "sha256": "475e8e772df5a60f8f1fa13b3196b1ba4bce27bfd14053890072ba6883a50340",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_varied_env_cfg.py",
       "sha256": "b18282437e366b933e24cc8b6f2170f6ac65bed5ebcc6253f9eb09738b5dd97e",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_wave_range_env_cfg.py",
+      "sha256": "941a3336c8e6299c564866abdbd31f0bb8df673ce9929f15f7fa73301589dbd3",
       "base_sha256": null
     },
     {
@@ -268,8 +353,18 @@
       "base_sha256": null
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/diverse_training_spec.py",
+      "sha256": "cc46a746c5d24f6db099951f15acffec5c3185c2c12498cd3991026a59f4cbe3",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/evaluation_mdp.py",
-      "sha256": "6a0e1c8b1d5b7ffc24c09e3597fa211e6c53036093ee488a0c0d3b41a7f351e4",
+      "sha256": "da6b7b83f3d1d0e7d5f542d3e1156283c7f906c82dc207b1d49cd87efc297c66",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/friction_train_mdp.py",
+      "sha256": "62a6e9c3ec96df41b1e315ca085575a45b7df462d8ec2e9e0d89ab967cad67fa",
       "base_sha256": null
     },
     {
@@ -289,7 +384,7 @@
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/robust_mdp.py",
-      "sha256": "1679fa6a3054c5056446f0bd90a49845127cacf69913698519473fa0072c7f29",
+      "sha256": "21eb1b3091cfc373e3503a1c37bd6162f44f76e6235e93c4340370b6d3e96718",
       "base_sha256": null
     },
     {
@@ -308,6 +403,16 @@
       "base_sha256": null
     },
     {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/team_eval_distribution.py",
+      "sha256": "d0d3100d963b3de79410620246d9d1b2ac891bd889ed20dc418d7d30c0a7cc77",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/team_eval_v21_distribution.py",
+      "sha256": "241b7d16902ae1592413940cce3bfc13108c2119643bfd5cebbaeeb80f712ac7",
+      "base_sha256": null
+    },
+    {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain.py",
       "sha256": "605675922d6e8382f85e19e19eff63b9788f74675efe64c1406585573d01de9e",
       "base_sha256": null
@@ -319,12 +424,17 @@
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/terrain_mdp.py",
-      "sha256": "2d6446fbb680f4b3062071a05169e5535772b04d6bc569e7204e9f67f4741838",
+      "sha256": "a7ac25ba06f285a6f73114d281b6f36a51a6358486a16cf5e414209ab46f53c7",
       "base_sha256": null
     },
     {
       "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/varied_terrain_spec.py",
       "sha256": "45ccd90968f394902ca5979643ba7192c33bf1e1ecf06cea3249649d1e8e0732",
+      "base_sha256": null
+    },
+    {
+      "path": "source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/wave_range_spec.py",
+      "sha256": "dfe34c2153cf4c4cd8d4a6b67f8c74ee73aafea409e75a4408d4fdbdcb053337",
       "base_sha256": null
     }
   ]

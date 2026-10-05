@@ -1,0 +1,37 @@
+{
+  "status": "final checkpoint selected 2026-10-06; v2.1 runtime checks and evaluation pending",
+  "checkpoint": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_failure2_lift_scratch/2026-10-05_20-27-23_balance_failure2_lift_scratch_seed42/model_5999.pt",
+  "checkpoint_sha256": "c0784d03e5d02882d0c57aa1d95bca94adfed85aaf88b8284d03839d6f70a382",
+  "training_task": "Isaac-Ant-WaveRange-Diverse-Balance-v0",
+  "training_env": "/home/kisuk/IsaacLab_RS/source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_diverse_train_env_cfg.py:AntDiverseBalanceEnvCfg",
+  "training_runner": "/home/kisuk/IsaacLab_RS/source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/agents/ant_diverse_train_ppo_cfg.py:AntDiverseBalancePPORunnerCfg",
+  "saved_training_params": "/home/kisuk/IsaacLab_RS/logs/rsl_rl/ant_wave_diverse_balance_failure2_lift_scratch/2026-10-05_20-27-23_balance_failure2_lift_scratch_seed42/params",
+  "distribution": "/home/kisuk/team_ant_eval_environment_only_v2_1",
+  "archive_sha256": "e4c62165986147549ff4932708cd6c1d8de1fb1bba0025c484c313f00af52233",
+  "distribution_files": {
+    "GPT_EVALUATION_PROMPT_KO.md": "7ec0c21d5d3952f8baf0b8e33fed2a770d8bebcf70df2ce99f7d4aca689744d9",
+    "README_KO.md": "f671a0146bbf97181da14ffd2c16080e1b182e9562454a9c19d92328b286d734",
+    "VALIDATION_REPORT.md": "b7dde2a07428dab47cd1258d50da32a7e1fdb8131f8612123e2968be76e87de1",
+    "VERSION.txt": "c7fdffde5276387957219f0856bd69b8b39288d254ac9de12ddfe6ddaba8a9b3",
+    "environment/team_eval_material_event.py": "720d66fa582ba9a2c15fb82a4c9a234e47d8fd99532f369e407fd67ce65ffc5a",
+    "environment/team_eval_terrain_cfg_v2.py": "f514cdfeb99eb5e113bea223517bb1b5bdbf325ee6da9b8d1cdaefc2754b1716",
+    "result_template.csv": "2d84804261277d7eec89ad3dbc4869d9390a25652854f20dd0b2a7bdd862109a",
+    "조원에게_보낼_메시지.txt": "8dca2729f4b86a6f6df04fa9294295cf64799031c9c832471bf5577fa3db1897"
+  },
+  "training_overrides": {
+    "max_iterations": 6000,
+    "learning_rate": 0.0005,
+    "schedule": "adaptive",
+    "failure_weight": -2.0,
+    "reset_z_range": [
+      0.15,
+      0.15
+    ],
+    "terrain_seed": 1201,
+    "material_seed": 42017
+  },
+  "evaluation_reset": "original EventCfg, no +0.15m lift",
+  "observation_dimension": 123,
+  "action_dimension": 8,
+  "member": "Kim-KiSuk"
+}
