@@ -114,7 +114,4 @@ bash scripts/evaluate_final.sh --video
 </details>
 
 ## 참고
-
-[Robotics_Simulation_8](https://github.com/baeminseongp/Robotics_Simulation_8)의 문제·가설·실험·한계 구성과 [isaac-ant-rough-terrain](https://github.com/Stick-0/isaac-ant-rough-terrain)의 단계별 설명·영상 중심 구성을 참고했다. 본문 수치와 영상은 모두 **본 프로젝트의 기록**이며 다른 저장소의 성능을 가져오지 않았다.
-
 [IsaacLab_RS 고정 원본](https://github.com/cailab-hy/IsaacLab_RS/tree/e83a5d2f11ca1b5f03b690e1978479e620c500e2)과 [Isaac Lab](https://github.com/isaac-sim/IsaacLab)을 기반으로 한다. [출처·라이선스](THIRD_PARTY_NOTICES.md)
