@@ -32,8 +32,8 @@ fig.savefig(OUT/'team_v21_results.png',dpi=180);plt.close(fig)
 data={d['name']:d for d in json.loads((ROOT/'results/development/summary.json').read_text())}
 fig,axes=plt.subplots(1,2,figsize=(10,4),layout='constrained')
 for ax,keys,labels,title in [
- (axes[0],['balance4000','balance6000','failure2'],['Balance\n4000','Balance\n6000','Failure −2\n6000'],'E3: original reset'),
- (axes[1],['failure2_eval_lift','final_lift'],['Failure −2\n6000','Final lift\n6000'],'E3: reset +0.15 m for BOTH models')]:
+ (axes[0],['balance6000','failure2'],['Balance','Failure −2'],'E3: original reset'),
+ (axes[1],['failure2_eval_lift','final_lift'],['Failure −2','Final lift'],'E3: reset +0.15 m for BOTH models')]:
     values=[data[k]['reward']['mean'] for k in keys]
     ax.bar(labels,values,color=['#94a3b8','#2563eb','#0891b2'][:len(keys)])
     for i,(k,v) in enumerate(zip(keys,values)):

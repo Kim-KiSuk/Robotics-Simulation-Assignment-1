@@ -7,6 +7,8 @@ import json
 import math
 import re
 import statistics
+import tarfile
+import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -46,11 +48,32 @@ def verify():
     for r,d in zip(rows,results):
         assert r['task_id']==d['task'] and r['checkpoint_sha256']==m['checkpoint_sha256']
         assert math.isclose(float(r['reward_mean']),d['summary']['reward']['mean'])
-    docs=[ROOT/'README.md']+[ROOT/'docs'/n for n in ('METHOD.md','IMPLEMENTATION.md','RESULTS.md','REPRODUCE.md','MEDIA.md','PUBLICATION.md')]
+    bundle=json.loads((ROOT/'artifacts/project/manifest.json').read_text())
+    archive=ROOT/'artifacts/project'/bundle['archive']
+    assert sha(archive)==bundle['sha256']
+    with tarfile.open(archive) as tar:
+        members=tar.getmembers()
+        assert len(members)==bundle['file_count']
+        for entry in members:
+            rel=Path(entry.name).relative_to('IsaacLab_RS_final')
+            assert not rel.is_absolute() and '..' not in rel.parts and entry.isfile()
+            assert hashlib.sha256(tar.extractfile(entry).read()).hexdigest()==bundle['files'][str(rel)]
+    ant='source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py'
+    assert sha(ROOT/'overlay'/ant)==sha(ROOT/'reference/original/ant_env_cfg.py')
+    assert not list((ROOT/'overlay').rglob('*.usd'))
+    with zipfile.ZipFile(ROOT/'submission/Ant_Unseen_Terrain_5min.pptx') as z:
+        assert len([n for n in z.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml',n)])==7
+        assert len([n for n in z.namelist() if re.fullmatch(r'ppt/notesSlides/notesSlide\d+\.xml',n)])==7
+    command=(ROOT/'submission/evaluation_command.txt').read_text()
+    assert command.count('./isaaclab.sh')==1 and '--seed 24' in command and '--num_envs 100' in command
+    assert 'Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0' in command
+    assert '--checkpoint artifacts/checkpoints/final_lift/model_5999.pt' in command
+    docs=[ROOT/'README.md']+[ROOT/'docs'/n for n in ('METHOD.md','IMPLEMENTATION.md','RESULTS.md','REPRODUCE.md','MEDIA.md','PUBLICATION.md','SELF_EVALUATION.md','ASSIGNMENT_CHECK.md')]
     for p in docs:
         for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
             if target.startswith(('https://','http://','#')):continue
             assert (p.parent/target.split('#')[0]).exists(),f'{p.name}: broken link {target}'
     print('PASS: checkpoint/distribution/overlay/media hashes; 800 recorded episode statistics; video repeat equality; Python syntax; documentation links')
+    print('PASS: project bundle inventory/hashes; unchanged original robot configuration; no USD overlay; seven slides/notes; one submission evaluation command')
 
 if __name__=='__main__':verify()

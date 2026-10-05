@@ -26,5 +26,12 @@
     "sha256": "cf6604ce1c8008b82d4e4819d6f972d01b7ac76c846d607483d6fd0b878a407b",
     "source_run": "team_eval_v21_video_hdtwZBvG",
     "role": "video repeat; original evaluation remains final"
+  },
+  {
+    "environment": "E3_SpawnLift",
+    "path": "artifacts/media/self_eval/E3_SpawnLift.mp4",
+    "sha256": "42cc2f726a5cbd2c6f96ad4ac443907dd8d3bd2f8afa9bb7cef304848a2bdcba",
+    "source_run": "balance_failure2_lift_spawnlift_e3_RvbZSCC1",
+    "role": "development self-evaluation; not team v2.1"
   }
 ]

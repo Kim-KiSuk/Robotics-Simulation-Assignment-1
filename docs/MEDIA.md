@@ -1,5 +1,13 @@
 # 최종 평가 영상
 
+## 직접 만든 E3-SpawnLift
+
+[16초 자체 평가 영상](../artifacts/media/self_eval/E3_SpawnLift.mp4) · [6초 미리보기](../artifacts/media/self_eval/E3_SpawnLift_preview.gif) · [맵 구성과 수치](SELF_EVALUATION.md)
+
+아래 팀 공통 v2.1과 별개의 개발 검증 환경이다. 학습·평가의 초기 높이를 맞춘 최종 모델의 기록을 보존했다.
+
+## 팀 공통 v2.1
+
 다음 네 영상은 최종 checkpoint를 고정한 상태에서 **v2.1, seed 24, num_envs 100**으로 녹화한 실제 시뮬레이터 화면이다. 원본 1280×720, 60fps, 960 frames, 각 16초이며 재생 속도를 바꾸지 않았다.
 
 | 환경 | 전체 영상 | 미리보기 | 프레임 |

@@ -2,6 +2,9 @@
 
 ## 포함한 자료
 
+- 자체 E1~E3의 설정·선정 이유·결과 설명과 E3-SpawnLift 실제 보행 영상.
+- 제출용 프로젝트 압축본, 평가 명령어 TXT, 7장 PPTX·PDF 및 5분 발표 원고.
+
 - 원본 IsaacLab_RS에 적용할 overlay, 파일별 SHA-256, 원본 commit.
 - 최종 모델과 개발 비교용 Balance6000/Failure2 모델, 실제 학습 설정과 최종 TensorBoard.
 - 최종 v2.1 최초 평가의 네 JSON·CSV·로그·환경/runner 설정·smoke 검사 기록.
@@ -16,6 +19,8 @@ Isaac Sim 설치 파일, 로봇 USD, 강의 PDF, 계정 인증정보는 포함�
 [verify_publication.py](../scripts/verify_publication.py)는 모델·배포 파일·overlay·영상 해시, 100개 episode의 mean/std와 생존율, 최초 평가와 녹화 재실행의 episode별 일치, 주요 문서 링크를 검사한다. 표준편차는 ddof=0으로 재계산한다. 검증 로그는 [publication_validation.txt](../results/publication_validation.txt)에 있다.
 
 네 MP4는 실제로 디코딩하여 1280×720, 60fps, 960 frames를 확인했다. GIF는 해당 영상 앞 6초의 원래 시간 간격을 유지한다. 보행을 합성한 영상이 아니다. 그래프는 공개 CSV/JSON에서 생성한다.
+
+추가한 자체 E3 영상도 같은 형식으로 디코딩했다. 제출 프로젝트는 고정 원본에서 문서·bytecode·외부 링크를 제외한 실행 소스에 overlay·최종 가중치를 결합한 것이다. 압축본의 모든 파일을 manifest 해시와 대조했다. PPT는 LibreOffice PDF로 변환해 7장의 표시 상태를 확인했다. LMS 제출은 사용자가 진행해야 한다.
 
 overlay 설치 검사는 별도 임시 checkout에서 수행하고 Python 문법을 검사한다. 배포 경로를 환경변수로 받은 코드와 공개 실행 wrapper는 CPU·shell 수준에서 검사했다. **공개 경로 wrapper로 시뮬레이션을 새로 실행하지는 않았다.** 실제 GPU 실행 근거는 사용자가 완료한 원본 평가/녹화 로그다.
 

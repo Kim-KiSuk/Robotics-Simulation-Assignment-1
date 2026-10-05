@@ -8,13 +8,12 @@ seed 24, 100개 환경, 지형 seed 9317, 지면 마찰 0.9/0.75, 지면 상대 
 
 | 모델 | 보상 mean ± std | 생존율 | 평균 +x 거리 |
 | --- | ---: | ---: | ---: |
-| Balance 4000 | 63.36 ± 25.96 | 78% | 64.86m |
-| Balance 6000 | 68.62 ± 24.65 | 81% | 71.77m |
-| Failure2 6000 | 72.80 ± 25.00 | 86% | 77.50m |
+| Balance | 68.62 ± 24.65 | 81% | 71.77m |
+| Failure2 | 72.80 ± 25.00 | 86% | 77.50m |
 
-[Balance 4000](../results/development/balance4000/results.json) · [Balance 6000](../results/development/balance6000/results.json) · [Failure2](../results/development/failure2/results.json)
+[Balance](../results/development/balance6000/results.json) · [Failure2](../results/development/failure2/results.json)
 
-Balance 4000→6000은 학습 예산이 바뀐다. Balance 6000→Failure2는 같은 예산에서 실패 사건 비용 −2를 넣은 비교다. 보상 +4.18, 생존 +5%p, 거리 +5.73m가 관찰됐다. 이는 해당 seed의 결과이며 다른 seed에서도 효과가 유지된다는 증명은 아니다.
+Balance→Failure2는 동일 학습 조건에서 실패 사건 비용 −2를 넣은 비교다. 보상 +4.18, 생존 +5%p, 거리 +5.73m가 관찰됐다. 이는 해당 seed의 결과이며 다른 seed에서도 효과가 유지된다는 증명은 아니다.
 
 ## 2. 잘되지 않은 접근도 남긴다
 
@@ -42,9 +41,8 @@ Balance 4000→6000은 학습 예산이 바뀐다. Balance 6000→Failure2는 �
 
 학습 높이 변경 후 보상 +8.15, 생존 +6%p, 거리 +4.13m를 관찰했다. 두 모델은 같은 초기 가중치 파일을 공유한 추가 학습이 아니라 각자 처음부터 학습했다. 새 정책이 모든 에피소드에서 더 빠르다는 뜻은 아니며, 길어진 생존 시간이 누적 전진에 영향을 준다.
 
-## 4. 최종 팀 v2.1: 고정한 정책의 새로운 지형 평가
+## 4. 팀 공통 자체 평가 v2.1: 고정한 정책의 새로운 지형 평가
 
-최종 학습은 iteration 0~5999를 완료했다. [학습 곡선](../artifacts/figures/final_training_curve.png)의 마지막 100 iteration 평균은 `Train/mean_reward=96.08`, `Train/mean_episode_length=908.50`이다. 이는 학습 환경에서 수집된 shaped return과 runner 집계이며, 아래 원본 보상 평가 또는 960-step 생존율과 같은 지표가 아니다. [곡선 원자료 CSV](../results/development/final_training_curve.csv)
 
 평가한 체크포인트는 `final_lift/model_5999.pt`이며 SHA-256은 다음과 같다.
 

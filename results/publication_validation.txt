@@ -6,3 +6,12 @@ PASS: GIF previews generated from original 0..6 seconds at 10fps, original speed
 PASS: shell syntax for public evaluator; credential pattern scan found no matches.
 No new simulator, training, or evaluation was launched during publication.
 PASS: checkpoint/distribution/overlay/media hashes; 800 recorded episode statistics; video repeat equality; Python syntax; documentation links
+
+Assignment packaging review: 2026-10-06 Asia/Seoul
+PASS: checkpoint/distribution/overlay/media hashes; 800 recorded episode statistics; video repeat equality; Python syntax; documentation links
+PASS: project bundle inventory/hashes; unchanged original robot configuration; no USD overlay; seven slides/notes; one submission evaluation command
+PASS: two E3-SpawnLift results use original seven rewards, seed24/100, same reset +0.15m.
+PASS: PPTX rendered by LibreOffice into 7-page PDF; all seven page previews inspected.
+PASS: self-evaluation MP4 decoded as 60fps/960 frames.
+Learning iteration numbers removed from active prose and presentation; raw configs/checkpoints retained.
+No new policy training/evaluation performed; LMS submission not performed.

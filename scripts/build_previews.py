@@ -4,7 +4,7 @@ import cv2
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-for path in sorted((ROOT/'artifacts/media/team_v21').glob('*.mp4')):
+for path in sorted((ROOT/'artifacts/media').rglob('*.mp4')):
     cap=cv2.VideoCapture(str(path))
     fps=cap.get(cv2.CAP_PROP_FPS)
     count=int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
