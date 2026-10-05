@@ -122,7 +122,6 @@ cd ~/IsaacLab_RS_final
 
 [제출할 명령어 TXT](submission/evaluation_command.txt) · [5분 발표 PPT](submission/Ant_Unseen_Terrain_5min.pptx) · [발표 PDF](submission/Ant_Unseen_Terrain_5min.pdf) · [과제 조건 대조표](docs/ASSIGNMENT_CHECK.md) · [설치 안내](docs/REPRODUCE.md)
 
-**제출 마감: 2026년 10월 6일 23:59 / 발표: 10월 8일, 5분.** GitHub 링크·평가 명령어·PPT를 LMS에 조별로 제출한다. 아래의 팀 자체 평가 수치는 조교가 추후 공개할 공식 unseen 평가 결과가 아니다.
 
 | 자료 | 내용 |
 | --- | --- |
