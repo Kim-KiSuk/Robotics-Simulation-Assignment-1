@@ -1,7 +1,7 @@
 {
   "base_commit": "e83a5d2f11ca1b5f03b690e1978479e620c500e2",
   "archive": "IsaacLab_RS_final.tar.gz",
-  "sha256": "9b4c388a54266c4ca846c590455b2c0b6aa1e170a487a7fcdf9d8d45c06e9c55",
+  "sha256": "aa15d6065184fd6073eabb8820584888e464ec3a8618f2d2581f21ddba88e061",
   "file_count": 1328,
   "excludes": [
     "base docs",
@@ -20,7 +20,7 @@
     "LICENSE-mimic": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
     "README.md": "680049fe2d1df23cd78597f0a621ad7ba71cdd06c4dd44d49ebeeea9183cf61a",
     "SECURITY.md": "8c39e67ca51b98bc36519109d00efbd63447fbf6c95669528f2e2d3ddee8ab48",
-    "SUBMISSION_README.md": "5781b3f64fda708028ac6556d22e2638e5e604a743cfdbd604c654182d60d3ae",
+    "SUBMISSION_README.md": "8d1e0d41746827ca56dd225bc617a9869b64f9b30b8cc37b0477db93be79fc20",
     "VERSION": "a42caf4a54bbbe27aa45b6efbc6356c5e299b19763e728b6cdb7201b02ebbe36",
     "apps/isaaclab.python.headless.kit": "a9c3d7a3293aca8dd58711923a302a6c4e632ae7112431a50dbf77c2bf598b06",
     "apps/isaaclab.python.headless.rendering.kit": "bfc70328ac0474b9739fe0f2fe05411af2b9e61d17dd9b46c8e090e7c50c670f",

@@ -106,19 +106,33 @@ E3는 **320×320m**, 8m 타일, 지면 마찰 **0.9/0.75**다. 블록 높이 변
 
 ## 6. 제출용 평가 명령어
 
-[프로젝트 압축본](artifacts/project/IsaacLab_RS_final.tar.gz)을 홈 디렉터리에 풀고 의존성을 설치한 환경에서 아래 명령 하나로 **자체 평가맵 E3-SpawnLift**를 평가한다. 최종 모델·원본 보상·seed 24·100개 환경을 사용하며 영상도 저장한다.
+이 저장소의 루트는 **문서·모델·프로젝트 압축본을 모아 둔 배포 폴더**다. 실행할 `isaaclab.sh`는 내부 [IsaacLab_RS_final.tar.gz](artifacts/project/IsaacLab_RS_final.tar.gz)를 풀어야 생긴다. GitHub의 Download ZIP을 푸는 것만으로 이 내부 압축본까지 풀리지는 않는다.
+
+아래는 **처음 다운로드하는 경우의 전체 명령**이다. Isaac Sim이 설치된 수업용 conda 환경이 필요하며, 압축파일에는 Isaac Sim 자체가 들어 있지 않다. `prepare_project.py`는 압축 해제와 파일 해시 검사만 수행한다. 설치 후 **자체 E3-SpawnLift**에서 최종 모델·원본 보상·seed 24·100개 환경으로 평가하고 영상을 저장한다.
 
 ```bash
-conda activate lerobot-arena
-cd ~/IsaacLab_RS_final
+# 처음 실행: Isaac Sim이 설치된 수업 conda 환경을 사용합니다.
+# 아래 전체 블록은 저장소 다운로드 → 압축 해제 → 패키지 설치 → 평가 순서입니다.
+conda activate lerobot-arena &&
+(
+  set -e
+  cd ~
+  git clone https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1.git
+  cd Robotics-Simulation-Assignment-1
+  python scripts/prepare_project.py --destination "$HOME/IsaacLab_RS_final"
+  cd "$HOME/IsaacLab_RS_final"
+  ./isaaclab.sh -i rsl_rl
 
-./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
-  --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
-  --seed 24 --num_envs 100 \
-  --checkpoint artifacts/checkpoints/final/ant_final.pt \
-  --headless --diagnostics --video --video_length 960 \
-  --video_folder logs/final_self_eval/video
+  ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
+    --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
+    --seed 24 --num_envs 100 \
+    --checkpoint artifacts/checkpoints/final/ant_final.pt \
+    --headless --diagnostics --video --video_length 960 \
+    --video_folder logs/final_self_eval/video
+)
 ```
+
+**이미 clone했거나 Download ZIP을 푼 경우:** 위의 `cd ~`, `git clone ...`, `cd Robotics-Simulation-Assignment-1` 세 줄을 실제 저장소 폴더로 이동하는 `cd "/절대경로/저장소폴더"`로 바꾼다. ZIP의 기본 폴더명은 `Robotics-Simulation-Assignment-1-main`이다. 기존 `~/IsaacLab_RS_final` 파일이 배포본과 다르면 덮어쓰지 않고 중단한다. 설치가 끝난 뒤 재평가만 하려면 [평가만 실행하는 명령](submission/evaluation_only.txt)을 사용한다.
 
 [제출할 명령어 TXT](submission/evaluation_command.txt) · [과제 조건 대조표](docs/ASSIGNMENT_CHECK.md) · [설치 안내](docs/REPRODUCE.md)
 

@@ -31,3 +31,9 @@ overlay 설치 검사는 별도 임시 checkout에서 수행하고 Python 문법
 `configs/final/source_manifest.json`과 원본 결과 폴더의 manifest는 평가 전 준비 스냅샷이어서 pending 문구가 남을 수 있다. 현재 완료 상태와 공개 파일 경로는 루트 [manifest.json](../manifest.json)을 기준으로 한다.
 
 출처는 [라이선스 고지](../THIRD_PARTY_NOTICES.md)에 정리했다. 설명의 형식을 참고했으며 다른 팀의 실험 수치·학습 방법을 본 프로젝트의 실적으로 기재하지 않았다.
+
+## 다운로드부터 실행까지의 준비 절차 보완
+
+README와 제출용 TXT에 저장소 다운로드 → 내부 프로젝트 압축 해제 → editable package 설치 → 평가 순서를 명시했다. GitHub 저장소 ZIP과 내부 실행 프로젝트 tar.gz의 차이를 구분하고, 준비 후 재평가만 할 때의 명령은 `submission/evaluation_only.txt`로 분리했다.
+
+`prepare_project.py`를 빈 임시 경로(공백 포함)에서 실행해 전체 파일 해시와 실행 권한을 확인했다. 같은 배포본은 재사용하고, 다른 파일이 있는 기존 목적지는 덮어쓰지 않고 중단하는 것을 검사했다. 프로젝트 압축본은 내부 설치 안내만 갱신했으며 실행 코드·평가 조건·모델 파일은 변경하지 않았다. 설치 명령이나 GPU 평가를 실제 실행한 검증은 아니며, 기존 conda 환경의 package 경로도 변경하지 않았다.

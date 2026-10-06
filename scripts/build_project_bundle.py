@@ -28,13 +28,15 @@ def build(source):
     for folder in ('evaluation/team_v21','artifacts/checkpoints/final'):
         for p in (ROOT/folder).rglob('*'):
             if p.is_file():entries[str(p.relative_to(ROOT))]=(p.read_bytes(),0o644)
-    entries['EVALUATION_COMMAND.txt']=((ROOT/'submission/evaluation_command.txt').read_bytes(),0o644)
+    entries['EVALUATION_COMMAND.txt']=((ROOT/'submission/evaluation_only.txt').read_bytes(),0o644)
     entries['SUBMISSION_README.md']=(
         ('# unseen 지형 보행 학습 — 제출 프로젝트\n\n'
          f'원본 commit: {BASE}\n\n'
          '수업 원본 소스 + 과제 overlay + 최종 ant_final.pt + 팀 평가 배포본을 포함한다.\n'
          'Isaac Sim, conda 의존성, 다운로드되는 USD는 별도 설치가 필요하다.\n'
-         '저장소 설치 안내를 따라 이 프로젝트의 editable package를 설치한 뒤 EVALUATION_COMMAND.txt를 실행한다.\n'
+         '이 폴더는 이미 압축 해제된 실행 프로젝트다. conda activate lerobot-arena 후 이 폴더에서 ./isaaclab.sh -i rsl_rl을 실행한다.\n'
+         '그 다음 EVALUATION_COMMAND.txt의 cd 경로를 이 폴더의 실제 위치로 맞추고 평가한다.\n'
+         '처음 다운로드부터의 안내: https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1/blob/main/docs/REPRODUCE.md\n'
          '팀 v2.1 평가 시 TEAM_ANT_EVAL_V21_ROOT를 이 프로젝트의 evaluation/team_v21 절대경로로 지정한다.\n'
          '코드/가중치 식별과 원자료: https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1\n').encode(),0o644)
     out=ROOT/'artifacts/project';out.mkdir(parents=True,exist_ok=True)

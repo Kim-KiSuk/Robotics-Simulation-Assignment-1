@@ -4,10 +4,37 @@
 
 [IsaacLab_RS_final.tar.gz](../artifacts/project/IsaacLab_RS_final.tar.gz)는 수업 원본의 실행 소스와 과제 overlay, 최종 가중치, 팀 v2.1 배포본을 포함한 프로젝트 폴더다. [manifest](../artifacts/project/manifest.json)에 원본 commit과 파일별 SHA-256을 기록했다. Isaac Sim과 다운로드되는 로봇 USD, conda 의존성은 별도 설치한다.
 
-1. 압축을 홈 디렉터리에 풀어 `~/IsaacLab_RS_final/isaaclab.sh`가 있는 상태로 만든다.
-2. 기존 `lerobot-arena` 환경을 활성화한다.
-3. 프로젝트 루트에서 `./isaaclab.sh -i rsl_rl`로 이 checkout의 editable package 경로를 설치한다.
-4. 아래 제출용 명령을 실행한다. 이미 다른 IsaacLab checkout이 설치되어 있으면 해당 경로를 확인한다.
+저장소를 내려받는 것과 내부 실행 프로젝트를 압축 해제하는 것은 **별도 단계**다. GitHub Download ZIP을 풀면 배포 저장소만 생기며, 그 안의 `artifacts/project/IsaacLab_RS_final.tar.gz`도 풀어야 한다.
+
+처음 다운로드부터 평가까지 한 번에 복사할 명령은 [evaluation_command.txt](../submission/evaluation_command.txt)에 있다. 이미 clone하거나 Download ZIP을 푼 경우에는 다음 준비 명령을 사용한다.
+
+```bash
+conda activate lerobot-arena &&
+(
+  set -e
+  # 아래 경로를 README.md와 artifacts 폴더가 있는 실제 저장소 위치로 바꾼다.
+  cd "/절대경로/Robotics-Simulation-Assignment-1"
+  python scripts/prepare_project.py --destination "$HOME/IsaacLab_RS_final"
+  cd "$HOME/IsaacLab_RS_final"
+  ./isaaclab.sh -i rsl_rl
+)
+```
+
+`prepare_project.py`는 내부 tar.gz와 파일별 SHA-256을 검사한 뒤 압축을 푼다. 같은 파일이 이미 있으면 재사용하고, 다른 파일이 있으면 덮어쓰지 않고 중단한다. 이때 다른 목적지를 선택하고 아래 평가 명령의 `cd`도 같은 위치로 바꾼다. 학습이나 평가, 패키지 설치를 자동 실행하지는 않는다.
+
+`./isaaclab.sh -i rsl_rl`은 해당 conda 환경의 IsaacLab editable package 경로를 이 프로젝트로 연결한다. 다른 checkout의 Python 코드를 잘못 불러오는 것을 막기 위해 최초 준비 시 실행한다. 기존 수업 환경에서 수행하며, 새 conda 환경에 Isaac Sim까지 설치해 주는 명령은 아니다. 설치 중 오류가 나면 평가로 넘어가지 말고 먼저 해결한다.
+
+저장소 대신 **내부 tar.gz만 직접 다운로드**한 경우에는 다음처럼 해제한다. 빈 목적지에서 실행하며 기존 폴더는 덮어쓰지 않는다.
+
+```bash
+(
+  set -e
+  test ! -e "$HOME/IsaacLab_RS_final"
+  tar -xzf "$HOME/Downloads/IsaacLab_RS_final.tar.gz" -C "$HOME"
+)
+```
+
+그 다음 같은 conda 환경에서 `cd ~/IsaacLab_RS_final`, `./isaaclab.sh -i rsl_rl`을 실행한다. 아래 평가 명령은 **이 준비가 끝난 뒤** 실행한다.
 
 실제 실행 환경은 Python 3.11, NVIDIA RTX 2080 8GB, 수업 원본 commit `e83a5d2f11ca1b5f03b690e1978479e620c500e2`다. [로컬 패키지 버전](../configs/software_versions.json)을 함께 제공한다.
 
@@ -27,7 +54,7 @@ cd ~/IsaacLab_RS_final
 
 이 명령은 원본 7항 보상으로 첫 episode를 집계한다. 터미널의 **Completed first episodes: 100/100**, 누적 reward mean/std, steps mean/std를 확인한다. 녹화 파일은 `logs/final_self_eval/video/rl-video-step-0.mp4`에 저장된다. 카메라 입력을 정책에 새로 추가하는 것이 아니라 화면 녹화만 켠다.
 
-[명령어 TXT](../submission/evaluation_command.txt) · [평가맵 설정](SELF_EVALUATION.md) · [기존 측정 결과](../results/development/final_lift/results.json)
+[전체 준비·평가 TXT](../submission/evaluation_command.txt) · [준비 완료 후 평가 TXT](../submission/evaluation_only.txt) · [평가맵 설정](SELF_EVALUATION.md) · [기존 측정 결과](../results/development/final_lift/results.json)
 
 ## 기존 checkout에 적용할 경우
 
