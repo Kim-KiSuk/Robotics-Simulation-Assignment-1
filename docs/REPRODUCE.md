@@ -6,7 +6,7 @@
 
 저장소를 내려받는 것과 내부 실행 프로젝트를 압축 해제하는 것은 **별도 단계**다. GitHub Download ZIP을 풀면 배포 저장소만 생기며, 그 안의 `artifacts/project/IsaacLab_RS_final.tar.gz`도 풀어야 한다.
 
-처음 다운로드부터 평가까지 한 번에 복사할 명령은 [evaluation_command.txt](../submission/evaluation_command.txt)에 있다. 이미 clone하거나 Download ZIP을 푼 경우에는 다음 준비 명령을 사용한다.
+처음 다운로드부터 평가까지의 LMS 제출용 명령은 [evaluation_command.txt](../submission/evaluation_command.txt)에 있다. 이 TXT의 `"<평가 환경>"`은 조교가 제공하는 실제 평가 Task ID로 대체해야 한다. 해당 Task는 프로젝트에 별도 등록되어 있고 최종 모델의 123D 관측·8D 행동·센서 구성과 호환되어야 한다. 비공개 평가 환경은 배포본에 포함되어 있지 않다. 이미 clone하거나 Download ZIP을 푼 경우에는 다음 준비 명령을 사용한다.
 
 ```bash
 conda activate lerobot-arena &&
@@ -38,7 +38,7 @@ conda activate lerobot-arena &&
 
 실제 실행 환경은 Python 3.11, NVIDIA RTX 2080 8GB, 수업 원본 commit `e83a5d2f11ca1b5f03b690e1978479e620c500e2`다. [로컬 패키지 버전](../configs/software_versions.json)을 함께 제공한다.
 
-## 제출용 평가 명령 — 자체 E3-SpawnLift
+## 자체 평가 재현 명령 — E3-SpawnLift
 
 ```bash
 conda activate lerobot-arena
@@ -54,7 +54,7 @@ cd ~/IsaacLab_RS_final
 
 이 명령은 원본 7항 보상으로 첫 episode를 집계한다. 터미널의 **Completed first episodes: 100/100**, 누적 reward mean/std, steps mean/std를 확인한다. 녹화 파일은 `logs/final_self_eval/video/rl-video-step-0.mp4`에 저장된다. 카메라 입력을 정책에 새로 추가하는 것이 아니라 화면 녹화만 켠다.
 
-[전체 준비·평가 TXT](../submission/evaluation_command.txt) · [준비 완료 후 평가 TXT](../submission/evaluation_only.txt) · [평가맵 설정](SELF_EVALUATION.md) · [기존 측정 결과](../results/development/final_lift/results.json)
+[LMS 제출용 준비·평가 TXT](../submission/evaluation_command.txt) · [준비 완료 후 자체 E3 평가 TXT](../submission/evaluation_only.txt) · [평가맵 설정](SELF_EVALUATION.md) · [기존 측정 결과](../results/development/final_lift/results.json)
 
 ## 기존 checkout에 적용할 경우
 

@@ -104,7 +104,9 @@ E3는 **320×320m**, 8m 타일, 지면 마찰 **0.9/0.75**다. 블록 높이 변
 
 [제출 CSV](results/team_v21/final/result_template.csv) · [원본 400 episode·로그·설정](results/team_v21/final) · [영상 재실행 결과](results/team_v21/video_repeat) · [모델·SHA-256](manifest.json)
 
-## 6. 제출용 평가 명령어
+## 6. 제출용 평가 명령어와 자체 평가 재현
+
+**LMS 제출용:** [평가 명령어 TXT](submission/evaluation_command.txt)는 `--task "<평가 환경>"`을 사용한다. 실행 전에 조교가 제공하는 실제 Task ID로 대체해야 한다. 해당 Task는 프로젝트에 등록되어 있어야 하며 최종 모델의 123D 관측·8D 행동·센서 구성과 호환되어야 한다. 비공개 평가 환경 자체는 이 저장소에 포함되어 있지 않다. 아래 명령은 별도로 제공하는 **자체 E3-SpawnLift 재현 예시**다.
 
 이 저장소의 루트는 **문서·모델·프로젝트 압축본을 모아 둔 배포 폴더**다. 실행할 `isaaclab.sh`는 내부 [IsaacLab_RS_final.tar.gz](artifacts/project/IsaacLab_RS_final.tar.gz)를 풀어야 생긴다. GitHub의 Download ZIP을 푸는 것만으로 이 내부 압축본까지 풀리지는 않는다.
 

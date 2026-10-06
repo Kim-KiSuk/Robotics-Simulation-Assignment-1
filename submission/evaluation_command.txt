@@ -1,5 +1,11 @@
-# 처음 실행: Isaac Sim이 설치된 수업 conda 환경을 사용합니다.
-# 아래 전체 블록은 저장소 다운로드 → 압축 해제 → 패키지 설치 → 평가 순서입니다.
+# 로보틱스시뮬레이션 실습 과제 1 — 모델 평가 명령어
+# GitHub: https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1
+# 평가 환경: <평가 환경>
+
+# 최종 모델: artifacts/checkpoints/final/ant_final.pt
+# 평가: seed 24 / num_envs 100 / 16초, 최대 960 steps / 원본 Ant 보상 7항
+
+
 conda activate lerobot-arena &&
 (
   set -e
@@ -11,19 +17,14 @@ conda activate lerobot-arena &&
   ./isaaclab.sh -i rsl_rl
 
   ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
-    --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
+    --task "<평가 환경>" \
     --seed 24 --num_envs 100 \
     --checkpoint artifacts/checkpoints/final/ant_final.pt \
     --headless --diagnostics --video --video_length 960 \
-    --video_folder logs/final_self_eval/video
+    --video_folder logs/final_eval/video
 )
 
 # 이미 저장소를 clone했거나 GitHub Download ZIP을 풀었다면:
 # 위 블록의 `cd ~`, `git clone ...`, `cd Robotics-Simulation-Assignment-1` 세 줄을
-# 실제 저장소 폴더로 이동하는 `cd "/절대경로/저장소폴더"` 한 줄로 바꾸세요.
-# Download ZIP 기본 폴더명은 Robotics-Simulation-Assignment-1-main입니다.
-# GitHub 저장소 ZIP을 푸는 것과 내부 artifacts/project/IsaacLab_RS_final.tar.gz를
-# 푸는 것은 다른 단계입니다. prepare_project.py가 내부 tar.gz를 검증하고 풉니다.
-# 기존 목적지 파일이 다르면 중단하며 덮어쓰지 않습니다.
-# 별도 목적지를 쓰면 --destination과 그 다음 cd를 같은 경로로 바꾸세요.
-# 설치까지 완료한 다음부터는 submission/evaluation_only.txt를 사용하세요.
+
+# 설치가 완료된 뒤에는 프로젝트 폴더에서 위의 play_one_episode.py 평가 명령만 실행하면 됩니다.

@@ -70,8 +70,8 @@ def verify():
         assert len([n for n in z.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml',n)])==7
         assert len([n for n in z.namelist() if re.fullmatch(r'ppt/notesSlides/notesSlide\d+\.xml',n)])==7
     command=(ROOT/'submission/evaluation_command.txt').read_text()
-    assert command.count('./isaaclab.sh -p ')==1 and '--seed 24' in command and '--num_envs 100' in command
-    assert 'Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0' in command
+    assert len(re.findall(r'^\s*\./isaaclab\.sh -p ', command, re.MULTILINE))==1 and '--seed 24' in command and '--num_envs 100' in command
+    assert '--task "<평가 환경>"' in command
     assert '--checkpoint artifacts/checkpoints/final/ant_final.pt' in command
     assert 'python scripts/prepare_project.py' in command and './isaaclab.sh -i rsl_rl' in command
     assert 'git clone https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1.git' in command

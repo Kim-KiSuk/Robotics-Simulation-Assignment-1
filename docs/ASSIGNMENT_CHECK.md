@@ -7,7 +7,7 @@
 | Isaac-Ant-v0 기반, 미지 지형 보행 | 원본 Ant에서 지형·마찰·관측·학습 보상을 설계 | [연구 문제·가설](METHOD.md), [구현](IMPLEMENTATION.md) |
 | 자체 새로운 환경 구성·평가 | E1~E3를 학습 메시와 분리; E3-SpawnLift에서 공통 비교 | [자체 평가맵](SELF_EVALUATION.md) |
 | 학습 코드·환경 코드·가중치 포함 프로젝트 | 고정 원본 + overlay + 최종 가중치가 들어 있는 프로젝트 압축본 | [IsaacLab_RS_final.tar.gz](../artifacts/project/IsaacLab_RS_final.tar.gz), [구성·해시](../artifacts/project/manifest.json) |
-| 실행 명령어 별도 제출 | 다운로드·압축 해제·설치 후 PDF 7쪽 형식의 `play_one_episode.py` 직접 실행 | [evaluation_command.txt](../submission/evaluation_command.txt) |
+| 실행 명령어 별도 제출 | 다운로드·압축 해제·설치 후 PDF 7쪽 형식으로 직접 실행; `<평가 환경>`을 실제 등록된 Task ID로 대체 | [evaluation_command.txt](../submission/evaluation_command.txt) |
 | seed 24, num_envs 100 | 자체 최종 평가와 팀 공통 평가 모두 사용 | [자체 JSON](../results/development/final_lift/results.json), [팀 CSV](../results/team_v21/final/result_template.csv) |
 | 100개 첫 episode mean/std | 원본 누적 보상·steps 평균/표준편차를 표와 PPT에 기재 | [결과](RESULTS.md) |
 | 학습 보상 수정 시 원본 보상으로 평가 | 평가 reward는 7항과 원본 가중치; 학습 안정성 비용 제외 | 평가 env.yaml 및 `RewardsCfg` |
