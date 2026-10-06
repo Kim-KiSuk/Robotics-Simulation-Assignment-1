@@ -102,7 +102,6 @@ E3는 **320×320m**, 8m 타일, 지면 마찰 **0.9/0.75**다. 블록 높이 변
 
 **결과 해석:** 새 지형에서도 전진을 유지했지만 생존율 90%는 달성하지 못했다. Medium에서 보상이 가장 낮고 Hard에서 생존율이 가장 낮아, 보상만으로 안정성을 평가할 수 없다. Medium의 실제 빈 틈 때문에 지면 ray 미검출이 발생할 수 있으며, 관측 누락과 실패의 인과관계는 별도로 검증하지 않았다. [상세 분석](docs/RESULTS.md)
 
-[제출 CSV](results/team_v21/final/result_template.csv) · [원본 400 episode·로그·설정](results/team_v21/final) · [영상 재실행 결과](results/team_v21/video_repeat) · [모델·SHA-256](manifest.json)
 
 ## 6. 제출용 평가 명령어와 자체 평가 재현
 
