@@ -3,7 +3,7 @@
 ## 포함한 자료
 
 - 자체 E1~E3의 설정·선정 이유·결과 설명과 E3-SpawnLift 실제 보행 영상.
-- 제출용 프로젝트 압축본, 평가 명령어 TXT, 7장 PPTX·PDF 및 5분 발표 원고.
+- 제출용 프로젝트 압축본과 평가 명령어 TXT.
 
 - 원본 IsaacLab_RS에 적용할 overlay, 파일별 SHA-256, 원본 commit.
 - 최종 모델과 개발 비교용 Balance6000/FailurePenalty 모델, 실제 학습 설정과 최종 TensorBoard.
@@ -20,7 +20,7 @@ Isaac Sim 설치 파일, 로봇 USD, 강의 PDF, 계정 인증정보는 포함�
 
 네 MP4는 실제로 디코딩하여 1280×720, 60fps, 960 frames를 확인했다. GIF는 해당 영상 앞 6초의 원래 시간 간격을 유지한다. 보행을 합성한 영상이 아니다. 그래프는 공개 CSV/JSON에서 생성한다.
 
-추가한 자체 E3 영상도 같은 형식으로 디코딩했다. 제출 프로젝트는 고정 원본에서 문서·bytecode·외부 링크를 제외한 실행 소스에 overlay·최종 가중치를 결합한 것이다. 압축본의 모든 파일을 manifest 해시와 대조했다. PPT는 LibreOffice PDF로 변환해 7장의 표시 상태를 확인했다. LMS 제출은 사용자가 진행해야 한다.
+추가한 자체 E3 영상도 같은 형식으로 디코딩했다. 제출 프로젝트는 고정 원본에서 문서·bytecode·외부 링크를 제외한 실행 소스에 overlay·최종 가중치를 결합한 것이다. 압축본의 모든 파일을 manifest 해시와 대조했다. 발표 자료와 LMS 제출은 별도로 준비한다.
 
 overlay 설치 검사는 별도 임시 checkout에서 수행하고 Python 문법을 검사한다. 배포 경로를 환경변수로 받은 코드와 공개 실행 wrapper는 CPU·shell 수준에서 검사했다. **공개 경로 wrapper로 시뮬레이션을 새로 실행하지는 않았다.** 실제 GPU 실행 근거는 사용자가 완료한 원본 평가/녹화 로그다.
 
@@ -30,7 +30,7 @@ overlay 설치 검사는 별도 임시 checkout에서 수행하고 Python 문법
 
 `configs/final/source_manifest.json`과 원본 결과 폴더의 manifest는 평가 전 준비 스냅샷이어서 pending 문구가 남을 수 있다. 현재 완료 상태와 공개 파일 경로는 루트 [manifest.json](../manifest.json)을 기준으로 한다.
 
-출처는 [라이선스 고지](../THIRD_PARTY_NOTICES.md)에 정리했다. 설명의 형식을 참고했으며 다른 팀의 실험 수치·학습 방법을 본 프로젝트의 실적으로 기재하지 않았다.
+원본 코드의 저작권 고지와 [BSD-3-Clause 라이선스](../LICENSE)를 유지한다.
 
 ## 다운로드부터 실행까지의 준비 절차 보완
 

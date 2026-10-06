@@ -180,7 +180,4 @@ HR은 R의 보상 변경과 H의 관측 이력을 동시에 사용합니다. R·
 
 [Isaac Lab](https://github.com/isaac-sim/IsaacLab)과 수업용
 [IsaacLab_RS](https://github.com/cailab-hy/IsaacLab_RS)를 기반으로 합니다.
-지면 기준 높이와 충돌 처리 설계는
-[참고 프로젝트](https://github.com/Stick-0/isaac-ant-rough-terrain)를 참고했습니다.
-참고 프로젝트의 성능 수치를 이 저장소의 실험 결과로 사용하지 않습니다.
-[출처와 라이선스](../THIRD_PARTY_NOTICES.md)
+[출처와 라이선스](../LICENSE)

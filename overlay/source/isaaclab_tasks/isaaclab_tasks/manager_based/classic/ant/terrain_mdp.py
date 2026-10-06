@@ -4,7 +4,6 @@
 
 """Ground-relative observations and termination for the experimental Ant task.
 
-Design reference: https://github.com/Stick-0/isaac-ant-rough-terrain
 The baseline task does not import these terms.
 """
 

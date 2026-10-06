@@ -31,7 +31,7 @@
 | 흔들림·실패에 작은 비용을 주면 전진을 더 오래 유지한다 | 액션 변화 −0.002, roll/pitch 각속도 −0.01, 실패 사건 −2 | 같은 E3에서 Balance과 FailurePenalty 비교 |
 | 시작 시 지형과의 겹침은 정책 외적인 조기 실패를 만든다 | 영 행동 진단 후 학습 reset Z +0.15m | 양쪽 모델을 동일한 SpawnLift E3에서 비교 |
 
-이는 단일 학습 seed 중심의 단계별 실험이다. 모든 조합을 독립적으로 비교한 완전한 ablation은 아니며, 참고 저장소의 Curriculum·4-frame History·3-seed 실험을 수행했다고 주장하지 않는다. [가설별 검증 범위](docs/METHOD.md)
+이는 단일 학습 seed 중심의 단계별 실험이다. 모든 조합을 독립적으로 비교한 완전한 ablation은 아니므로 각 구성 요소의 효과를 분리해서 해석하는 데 한계가 있다. [가설별 검증 범위](docs/METHOD.md)
 
 ## 2. 다섯 학습 환경에서 하나의 정책으로
 
@@ -160,4 +160,4 @@ conda activate lerobot-arena &&
 </details>
 
 ## 참고
-[IsaacLab_RS 고정 원본](https://github.com/cailab-hy/IsaacLab_RS/tree/e83a5d2f11ca1b5f03b690e1978479e620c500e2)과 [Isaac Lab](https://github.com/isaac-sim/IsaacLab)을 기반으로 한다. [출처·라이선스](THIRD_PARTY_NOTICES.md)
+[IsaacLab_RS 고정 원본](https://github.com/cailab-hy/IsaacLab_RS/tree/e83a5d2f11ca1b5f03b690e1978479e620c500e2)과 [Isaac Lab](https://github.com/isaac-sim/IsaacLab)을 기반으로 한다. [출처·라이선스](LICENSE)

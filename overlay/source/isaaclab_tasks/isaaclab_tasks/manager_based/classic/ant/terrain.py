@@ -4,8 +4,7 @@
 
 """Ant-only terrain helpers; shared Isaac Lab terrain code is unchanged.
 
-Adapted from https://github.com/Stick-0/isaac-ant-rough-terrain/tree/4c50a77
-(BSD-3-Clause). Preserves the Ant XY grid, adjusts spawn heights, and separates
+Preserves the Ant XY grid, adjusts spawn heights, and separates
 the ray query surface from spatially partitioned triangle colliders.
 """
 

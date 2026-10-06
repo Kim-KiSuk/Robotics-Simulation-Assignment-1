@@ -94,4 +94,4 @@ tensorboard --logdir ant_submission/artifacts/tensorboard
 ```
 
 검증 내역은 [VALIDATION.md](../results/VALIDATION.md)에 기록합니다.
-라이선스와 설계 참고는 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)를 참고하세요.
+라이선스는 [LICENSE](../LICENSE)를 참고하세요.

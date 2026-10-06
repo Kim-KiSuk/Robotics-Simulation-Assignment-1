@@ -152,4 +152,4 @@ python scripts/environments/test_ant_stability.py \
 
 생성기·PhysX·센서·짧은 PPO 실행에 대한 기존 검증과 이번 패키지 검사 범위는 [업로드 검증 기록](../results/UPLOAD_VALIDATION.md)에 구분했습니다. GPU가 부족했던 4096개 혼합 지형 학습의 체크포인트와 짧은 검증용 checkpoint는 공개 최종 모델에 넣지 않았습니다. 중간 checkpoint 전체, 캐시, Isaac Sim 자산, 강의 PDF도 포함하지 않습니다.
 
-[상세 환경 제작 기록](ant_six_envs/README.md) · [초기 실험 실행 기록](EARLY_REPRODUCE.md) · [출처](../THIRD_PARTY_NOTICES.md)
+[상세 환경 제작 기록](ant_six_envs/README.md) · [초기 실험 실행 기록](EARLY_REPRODUCE.md) · [출처](../LICENSE)

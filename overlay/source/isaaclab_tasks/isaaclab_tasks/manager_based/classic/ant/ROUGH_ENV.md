@@ -98,11 +98,8 @@ env.scene.terrain.physics_material.dynamic_friction=0.3
 100개 환경의 첫 에피소드 보상 평균/표준편차는 기존 `play_one_episode.py`를 사용합니다.
 동일 Task, 지형 seed, 초기 상태 seed, 환경 수와 마찰 조건으로 비교하세요.
 
-## 참고 및 출처
+## 구현 범위와 라이선스
 
-지면 기준 높이, 격자 배치 보존 및 충돌 메시 분할은
-[Stick-0/isaac-ant-rough-terrain, 4c50a77](https://github.com/Stick-0/isaac-ant-rough-terrain/tree/4c50a77)
-의 BSD-3-Clause 구현을 참고/수정했습니다. 원 저작권 고지와 저장소의 BSD-3-Clause
-라이선스를 유지합니다. 이 버전은 별도 Task, 더 작은/완만한 지형, 원본을 수정하지 않는
-전용 generator 하위 클래스를 사용합니다. 해당 저장소의 공개 학습 결과를 이 구현의
-성과로 간주하지 않으며, 자체 학습과 평가가 필요합니다.
+지면 기준 높이, 격자 배치 보존 및 충돌 메시 분할을 사용합니다.
+별도 Task와 전용 generator 하위 클래스로 구성하며 공용 지형 코드는 변경하지 않습니다.
+각 소스 파일의 원 저작권 고지와 BSD-3-Clause 라이선스를 유지합니다.

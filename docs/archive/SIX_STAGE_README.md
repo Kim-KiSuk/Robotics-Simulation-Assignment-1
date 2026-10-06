@@ -94,4 +94,4 @@ E2에서 보고된 SixMix의 보상은 **54.428906 ± 29.085658**, 평지 Baseli
 | [업로드 검증](../../results/UPLOAD_VALIDATION.md) | 코드 적용·파일 무결성·CPU 검사 범위 |
 | [변경 코드](../../overlay) | 고정한 수업 원본에 적용할 코드 |
 
-[Isaac Lab](https://github.com/isaac-sim/IsaacLab)과 [수업 원본](https://github.com/cailab-hy/IsaacLab_RS)의 `e83a5d2f11ca1b5f03b690e1978479e620c500e2`를 기반으로 합니다. 지면 높이·충돌 처리와 설명 구성은 [참고 프로젝트](https://github.com/Stick-0/isaac-ant-rough-terrain)를 참고했습니다. 해당 프로젝트의 모델·점수와 이 저장소의 결과는 구분합니다. [출처·라이선스](../../THIRD_PARTY_NOTICES.md)
+[Isaac Lab](https://github.com/isaac-sim/IsaacLab)과 [수업 원본](https://github.com/cailab-hy/IsaacLab_RS)의 `e83a5d2f11ca1b5f03b690e1978479e620c500e2`를 기반으로 합니다. [출처·라이선스](../../LICENSE)

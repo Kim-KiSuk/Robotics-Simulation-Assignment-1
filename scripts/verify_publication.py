@@ -66,14 +66,17 @@ def verify():
     ant='source/isaaclab_tasks/isaaclab_tasks/manager_based/classic/ant/ant_env_cfg.py'
     assert sha(ROOT/'overlay'/ant)==sha(ROOT/'reference/original/ant_env_cfg.py')
     assert not list((ROOT/'overlay').rglob('*.usd'))
-    with zipfile.ZipFile(ROOT/'submission/Ant_Unseen_Terrain_5min.pptx') as z:
-        assert len([n for n in z.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml',n)])==7
-        assert len([n for n in z.namelist() if re.fullmatch(r'ppt/notesSlides/notesSlide\d+\.xml',n)])==7
+    presentation = ROOT/'submission/Ant_Unseen_Terrain_5min.pptx'
+    if presentation.exists():
+        with zipfile.ZipFile(presentation) as z:
+            assert len([n for n in z.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml',n)])==7
+            assert len([n for n in z.namelist() if re.fullmatch(r'ppt/notesSlides/notesSlide\d+\.xml',n)])==7
     command=(ROOT/'submission/evaluation_command.txt').read_text()
     assert len(re.findall(r'^\s*\./isaaclab\.sh -p ', command, re.MULTILINE))==1 and '--seed 24' in command and '--num_envs 100' in command
     assert '--task "<평가 환경>"' in command
     assert '--checkpoint artifacts/checkpoints/final/ant_final.pt' in command
-    assert 'python scripts/prepare_project.py' in command and './isaaclab.sh -i rsl_rl' in command
+    assert 'python scripts/prepare_project.py' in command
+    assert './isaaclab.sh -i rsl_rl' in (ROOT/'docs/REPRODUCE.md').read_text()
     assert 'git clone https://github.com/Kim-KiSuk/Robotics-Simulation-Assignment-1.git' in command
     docs=[ROOT/'README.md',ROOT/'artifacts/checkpoints/README.md']+[ROOT/'docs'/n for n in ('METHOD.md','IMPLEMENTATION.md','RESULTS.md','REPRODUCE.md','MEDIA.md','PUBLICATION.md','SELF_EVALUATION.md','ASSIGNMENT_CHECK.md')]
     for p in docs:
@@ -81,6 +84,6 @@ def verify():
             if target.startswith(('https://','http://','#')):continue
             assert (p.parent/target.split('#')[0]).exists(),f'{p.name}: broken link {target}'
     print('PASS: checkpoint/distribution/overlay/media hashes; 800 recorded episode statistics; video repeat equality; Python syntax; documentation links')
-    print('PASS: project bundle inventory/hashes; unchanged original robot configuration; no USD overlay; seven slides/notes; one submission evaluation command')
+    print('PASS: project bundle inventory/hashes; unchanged original robot configuration; no USD overlay; optional presentation check; one submission evaluation command')
 
 if __name__=='__main__':verify()
