@@ -120,7 +120,7 @@ cd ~/IsaacLab_RS_final
   --video_folder logs/final_self_eval/video
 ```
 
-[제출할 명령어 TXT](submission/evaluation_command.txt) · [5분 발표 PPT](submission/Ant_Unseen_Terrain_5min.pptx) · [발표 PDF](submission/Ant_Unseen_Terrain_5min.pdf) · [과제 조건 대조표](docs/ASSIGNMENT_CHECK.md) · [설치 안내](docs/REPRODUCE.md)
+[제출할 명령어 TXT](submission/evaluation_command.txt) · [과제 조건 대조표](docs/ASSIGNMENT_CHECK.md) · [설치 안내](docs/REPRODUCE.md)
 
 
 | 자료 | 내용 |
