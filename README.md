@@ -113,8 +113,6 @@ E3는 **320×320m**, 8m 타일, 지면 마찰 **0.9/0.75**다. 블록 높이 변
 아래는 **처음 다운로드하는 경우의 전체 명령**이다. Isaac Sim이 설치된 수업용 conda 환경이 필요하며, 압축파일에는 Isaac Sim 자체가 들어 있지 않다. `prepare_project.py`는 압축 해제와 파일 해시 검사만 수행한다. 설치 후 **자체 E3-SpawnLift**에서 최종 모델·원본 보상·seed 24·100개 환경으로 평가하고 영상을 저장한다.
 
 ```bash
-# 처음 실행: Isaac Sim이 설치된 수업 conda 환경을 사용합니다.
-# 아래 전체 블록은 저장소 다운로드 → 압축 해제 → 패키지 설치 → 평가 순서입니다.
 conda activate lerobot-arena &&
 (
   set -e
@@ -123,7 +121,7 @@ conda activate lerobot-arena &&
   cd Robotics-Simulation-Assignment-1
   python scripts/prepare_project.py --destination "$HOME/IsaacLab_RS_final"
   cd "$HOME/IsaacLab_RS_final"
-  ./isaaclab.sh -i rsl_rl
+
 
   ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
     --task Isaac-Ant-Six-Eval-Blocks-HeightScan-SpawnLift-v0 \
