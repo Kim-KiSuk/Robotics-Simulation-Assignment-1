@@ -14,7 +14,7 @@ conda activate lerobot-arena &&
   cd Robotics-Simulation-Assignment-1
   python scripts/prepare_project.py --destination "$HOME/IsaacLab_RS_final"
   cd "$HOME/IsaacLab_RS_final"
-  ./isaaclab.sh -i rsl_rl
+
 
   ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play_one_episode.py \
     --task "<평가 환경>" \
