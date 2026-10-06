@@ -134,7 +134,7 @@ conda activate lerobot-arena &&
 
 **이미 clone했거나 Download ZIP을 푼 경우:** 위의 `cd ~`, `git clone ...`, `cd Robotics-Simulation-Assignment-1` 세 줄을 실제 저장소 폴더로 이동하는 `cd "/절대경로/저장소폴더"`로 바꾼다. ZIP의 기본 폴더명은 `Robotics-Simulation-Assignment-1-main`이다. 기존 `~/IsaacLab_RS_final` 파일이 배포본과 다르면 덮어쓰지 않고 중단한다. 설치가 끝난 뒤 재평가만 하려면 [평가만 실행하는 명령](submission/evaluation_only.txt)을 사용한다.
 
-[제출할 명령어 TXT](submission/evaluation_command.txt) · [과제 조건 대조표](docs/ASSIGNMENT_CHECK.md) · [설치 안내](docs/REPRODUCE.md)
+[제출할 명령어 TXT](submission/evaluation_command.txt) · [설치 안내](docs/REPRODUCE.md)
 
 
 | 자료 | 내용 |
